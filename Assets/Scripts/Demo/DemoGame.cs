@@ -59,6 +59,7 @@ namespace FlyMeToTheMoon.Demo
             Hud = gameObject.AddComponent<DemoHud>();
             Hud.Build(this);
             Camera.main.gameObject.AddComponent<DemoZoom>().Game = this;
+            gameObject.AddComponent<DemoArt>().Build(this);
             SetState(DemoState.Title);
         }
 

@@ -1,0 +1,5 @@
+{
+  "name": "FlyMeToTheMoon.Piano",
+  "rootNamespace": "FlyMeToTheMoon.Instruments",
+  "references": ["Unity.ugui"]
+}

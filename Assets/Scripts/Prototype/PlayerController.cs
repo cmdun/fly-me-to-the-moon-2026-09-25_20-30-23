@@ -70,7 +70,7 @@ namespace FlyMeToTheMoon
 
         private void FixedUpdate()
         {
-            gravityManager.UpdateLock(Body.position);
+            gravityManager.UpdateLock(Body.position, Body.linearVelocity);
             Vector2 up = Up;
             Vector2 tangent = new Vector2(up.y, -up.x);
             var planet = gravityManager.CurrentBody;
@@ -118,14 +118,7 @@ namespace FlyMeToTheMoon
                 }
                 else if (CanFluteJump)
                 {
-                    // Even a late second press must boost outward, not continue falling.
-                    float outwardSpeed = Vector2.Dot(velocity, up);
-                    velocity += up * (Mathf.Max(jumpSpeed, outwardSpeed + fluteBoost) - outwardSpeed);
-                    velocity += tangent * move * fluteBoost * 0.5f;
-                    gravityManager.BeginTransfer(Body.position);
-                    FluteUsed = true;
-                    FluteJumpCount++;
-                    if (noteBurst != null) noteBurst.Emit(up);
+                    velocity = ApplyBoost(velocity, up, tangent * move * fluteBoost * 0.5f);
                     jumpRequestedUntil = -1f;
                 }
             }
@@ -135,6 +128,27 @@ namespace FlyMeToTheMoon
             float targetAngle = Vector2.SignedAngle(Vector2.up, facingUp);
             Body.SetRotation(IsGrounded ? targetAngle : Mathf.MoveTowardsAngle(
                 Body.rotation, targetAngle, airRotationSpeed * Time.fixedDeltaTime));
+        }
+
+        // Mouse recoil and Space share one airborne boost budget.
+        public bool TryDirectionalBoost(Vector2 direction)
+        {
+            if (!enabled || !CanFluteJump || direction.sqrMagnitude < 0.001f) return false;
+            Body.linearVelocity = ApplyBoost(Body.linearVelocity, direction.normalized, Vector2.zero);
+            jumpRequestedUntil = -1f;
+            return true;
+        }
+
+        private Vector2 ApplyBoost(Vector2 velocity, Vector2 direction, Vector2 steering)
+        {
+            float projected = Vector2.Dot(velocity, direction);
+            velocity += direction * (Mathf.Max(jumpSpeed, projected + fluteBoost) - projected);
+            velocity += steering;
+            gravityManager.BeginTransfer(Body.position);
+            FluteUsed = true;
+            FluteJumpCount++;
+            if (noteBurst != null) noteBurst.Emit(direction);
+            return Vector2.ClampMagnitude(velocity, maxFlightSpeed);
         }
 
         public void Respawn(GravityBody home, Vector2 spawnUp)

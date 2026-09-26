@@ -35,10 +35,14 @@ namespace FlyMeToTheMoon.Demo
                 default: return (float)(Math.Sin(phase) + 0.12 * Math.Sin(2 * phase)) / 1.12f;
             }
         }
+        public static float FrequencyForNote(int note)
+        {
+            int[] scale = { 0, 2, 4, 5, 7, 9, 11 };
+            return 261.6256f * Mathf.Pow(2, scale[Mathf.Clamp(note, 0, 6)] / 12f);
+        }
         private void AddTone(float[] data, double onset, int instrument, int lane, float volume)
         {
-            int[] scale = { 0, 2, 4, 7 };
-            float frequency = 261.6256f * Mathf.Pow(2, scale[lane % 4] / 12f);
+            float frequency = FrequencyForNote(lane);
             int first = (int)(onset * Rate), count = (int)(0.65 * Rate);
             for (int j = 0; j < count && first + j < data.Length; j++)
             {
@@ -51,7 +55,7 @@ namespace FlyMeToTheMoon.Demo
         }
         public void Note(int instrument, int lane, float volume = 0.45f)
         {
-            int key = instrument * 4 + lane % 4;
+            int key = instrument * 7 + lane % 7;
             if (!tones.TryGetValue(key, out var clip))
             {
                 float[] data = new float[(int)(0.7 * Rate)];

@@ -43,7 +43,9 @@ namespace FlyMeToTheMoon
 
         // A normal jump belongs to its launch planet, even beyond the lock boundary.
         // Only an explicit flute boost permits a transfer to another planet.
-        public void UpdateLock(Vector2 position)
+        public void UpdateLock(Vector2 position) => UpdateLock(position, Vector2.zero);
+
+        public void UpdateLock(Vector2 position, Vector2 velocity)
         {
             if (jumpOrigin != null && !transferStarted)
             {
@@ -51,6 +53,13 @@ namespace FlyMeToTheMoon
                 TravelUp = jumpOrigin.UpAt(position);
                 return;
             }
+
+            // Recoil can point back into the launch world before leaving its release zone.
+            // Allow contact-speed recapture on return; an outward launch still cannot lock immediately.
+            if (jumpOrigin != null && transferStarted && !clearedOrigin
+                && jumpOrigin.SurfaceDistance(position) <= .5f
+                && Vector2.Dot(velocity, jumpOrigin.UpAt(position)) <= 0f)
+                clearedOrigin = true;
 
             if (jumpOrigin != null && jumpOrigin.SurfaceDistance(position) > jumpOrigin.releaseHeight)
                 clearedOrigin = true;

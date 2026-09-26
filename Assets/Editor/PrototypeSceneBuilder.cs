@@ -12,6 +12,15 @@ public static class PrototypeSceneBuilder
     public const string ScenePath = "Assets/Scenes/FirstPlayablePrototype.unity";
     private const string AssetFolder = "Assets/Prototype";
 
+    private static readonly (string id, float angle, float radius, float gap, Color outline, Color surface)[] Moons =
+    {
+        ("Moon", 0f, 3f, 6.5f, new Color(0.78f, 0.74f, 1f), new Color(0.23f, 0.19f, 0.38f)),
+        ("Moon 2", 60f, 2.5f, 6f, new Color(1f, 0.72f, 0.55f), new Color(0.42f, 0.2f, 0.16f)),
+        ("Moon 3", 135f, 3.5f, 7f, new Color(0.6f, 0.9f, 1f), new Color(0.13f, 0.25f, 0.42f)),
+        ("Moon 4", 215f, 2f, 5.5f, new Color(1f, 0.9f, 0.5f), new Color(0.4f, 0.33f, 0.12f)),
+        ("Moon 5", 290f, 2.75f, 6.5f, new Color(0.95f, 0.6f, 0.85f), new Color(0.35f, 0.15f, 0.33f)),
+    };
+
     [MenuItem("Tools/Fly Me to the Moon/Play Prototype")]
     public static void Play()
     {
@@ -45,12 +54,19 @@ public static class PrototypeSceneBuilder
             PrototypeShape.Shape.Circle, new Color(0.08f, 0.24f, 0.3f), material);
         var planetPrefab = PrefabUtility.SaveAsPrefabAsset(planetTemplate, AssetFolder + "/Planet.prefab");
         UnityEngine.Object.DestroyImmediate(planetTemplate);
-        var home = MakePlanet(planetPrefab, "612-B", Vector2.zero, 6f, material, false);
-        var moon = MakePlanet(planetPrefab, "Moon", new Vector2(0f, 15.5f), 3f, material, true);
+        var home = MakePlanet(planetPrefab, "612-B", Vector2.zero, 12f, material, null);
+        var bodies = new System.Collections.Generic.List<GravityBody> { home };
+        foreach (var (id, angle, radius, gap, outline, surface) in Moons)
+        {
+            // Angle is clockwise from straight up; gap is the distance between the two surfaces.
+            float distance = home.radius + gap + radius;
+            var center = new Vector2(Mathf.Sin(angle * Mathf.Deg2Rad), Mathf.Cos(angle * Mathf.Deg2Rad)) * distance;
+            bodies.Add(MakePlanet(planetPrefab, id, center, radius, material, (outline, surface)));
+        }
 
         var systems = new GameObject("Prototype Systems");
         var gravity = systems.AddComponent<GravityManager>();
-        gravity.bodies = new[] { home, moon };
+        gravity.bodies = bodies.ToArray();
 
         var playerTemplate = new GameObject("Player");
         playerTemplate.AddComponent<Rigidbody2D>().gravityScale = 0;
@@ -72,7 +88,7 @@ public static class PrototypeSceneBuilder
         UnityEngine.Object.DestroyImmediate(playerTemplate);
         var player = ((GameObject)PrefabUtility.InstantiatePrefab(playerPrefab)).GetComponent<PlayerController>();
         player.gravityManager = gravity;
-        player.transform.position = new Vector3(0f, 6.3f, 0f);
+        player.transform.position = new Vector3(0f, 12.3f, 0f);
         PrefabUtility.RecordPrefabInstancePropertyModifications(player);
         PrefabUtility.RecordPrefabInstancePropertyModifications(player.transform);
 
@@ -117,7 +133,7 @@ public static class PrototypeSceneBuilder
     }
 
     private static GravityBody MakePlanet(GameObject prefab, string id, Vector2 center, float radius,
-        Material material, bool moon)
+        Material material, (Color outline, Color surface)? colors)
     {
         var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
         go.name = id;
@@ -131,7 +147,7 @@ public static class PrototypeSceneBuilder
             bool outline = shape.name == "Outline";
             shape.size = Vector2.one * (radius * 2f - (outline ? 0f : 0.2f));
             shape.material = material;
-            if (moon) shape.color = outline ? new Color(0.78f, 0.74f, 1f) : new Color(0.23f, 0.19f, 0.38f);
+            if (colors.HasValue) shape.color = outline ? colors.Value.outline : colors.Value.surface;
             shape.Rebuild();
             PrefabUtility.RecordPrefabInstancePropertyModifications(shape);
         }

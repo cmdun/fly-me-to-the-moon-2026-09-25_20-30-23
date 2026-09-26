@@ -1,0 +1,6 @@
+{
+  "name": "FlyMeToTheMoon.Piano.PlayModeTests",
+  "references": ["FlyMeToTheMoon.Piano", "FlyMeToTheMoon.Prototype", "Unity.InputSystem", "Unity.ugui"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "includePlatforms": []
+}

@@ -1,0 +1,5 @@
+{
+  "name": "FlyMeToTheMoon.Piano.Editor",
+  "references": ["FlyMeToTheMoon.Piano", "FlyMeToTheMoon.Prototype", "Unity.RenderPipelines.Universal.Runtime", "Unity.ugui", "Unity.InputSystem"],
+  "includePlatforms": ["Editor"]
+}

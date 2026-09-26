@@ -3,7 +3,7 @@ using TMPro;
 
 namespace FlyMeToTheMoon.Demo
 {
-    public enum DemoTargetKind { Altar, FragmentStation }
+    public enum DemoTargetKind { Altar, FragmentStation, Creature }
     public sealed class DemoTarget : MonoBehaviour
     {
         [System.NonSerialized] public DemoQuest Quest;

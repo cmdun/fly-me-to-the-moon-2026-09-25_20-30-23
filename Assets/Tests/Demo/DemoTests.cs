@@ -90,6 +90,21 @@ public class DemoTests
         Assert.That(DemoAudio.FrequencyForNote(6),Is.EqualTo(493.8833f).Within(.01));
         for(int i=1;i<7;i++)Assert.Greater(DemoAudio.FrequencyForNote(i),DemoAudio.FrequencyForNote(i-1));
     }
+    [Test] public void CreaturePlanIsDeterministicUniqueAndPlacesTwoPerDepth()
+    {
+        for(int seed=1;seed<=1000;seed++)
+        {
+            int[] plan=DemoWorldEvents.Plan(seed);Assert.AreEqual(DemoGalaxy.Rings*2,plan.Length);
+            var unique=new System.Collections.Generic.HashSet<int>(plan);Assert.AreEqual(plan.Length,unique.Count);
+            for(int i=0;i<plan.Length;i++)
+            {
+                Assert.That(plan[i],Is.InRange(0,DemoGalaxy.Rings*DemoGalaxy.MoonsPerRing-1));
+                Assert.AreEqual(i/2,plan[i]/DemoGalaxy.MoonsPerRing);
+            }
+            CollectionAssert.AreEqual(plan,DemoWorldEvents.Plan(seed));
+        }
+        CollectionAssert.AreNotEqual(DemoWorldEvents.Plan(1),DemoWorldEvents.Plan(2));
+    }
 }
 
 public class DemoJourneyTests
@@ -272,6 +287,35 @@ public class DemoJourneyTests
         int previousSeed=g.Seed;g.Restart();yield return null;yield return null;
         var fresh=Object.FindAnyObjectByType<DemoGame>();Assert.AreEqual(DemoState.Title,fresh.State);Assert.AreEqual(0,fresh.Melody.Count);Assert.AreEqual(0,fresh.Completed);
         Assert.AreNotEqual(previousSeed,fresh.Seed);
+    }
+    [UnityTest] public IEnumerator SeededCreaturesTeachWithMultiPageAndShortRepeatDialogue()
+    {
+        Assert.NotNull(g.Events);Assert.AreEqual(1+DemoGalaxy.Rings*2,g.Events.Encounters.Count);
+        Assert.AreEqual("keeper",g.Events.Encounters[0].EncounterId);
+        var creature=g.Events.Encounters[1];
+        Assert.AreEqual(DemoTargetKind.Creature,creature.Target.Kind);Assert.NotNull(creature.Target.Body);
+        Assert.Contains(creature.Target,g.Targets);
+
+        g.Player.Respawn(creature.Target.Body,(Vector2)creature.transform.position-creature.Target.Body.Center);
+        yield return Land();
+        Vector2 before=g.Player.Body.position;
+        g.Events.Speak(creature);
+        Assert.AreEqual(DemoState.Dialogue,g.State);Assert.AreEqual(3,g.DialoguePageCount);
+        Assert.AreEqual(0,g.DialoguePageIndex);Assert.AreEqual(0,Time.timeScale);
+        Assert.IsFalse(g.Player.Body.simulated);
+        for(int page=0;page<3;page++)
+        {
+            g.AdvanceDialogue();Assert.IsTrue(g.Hud.DialogueComplete);
+            g.AdvanceDialogue();
+            if(page<2)Assert.AreEqual(page+1,g.DialoguePageIndex);
+        }
+        Assert.AreEqual(DemoState.Explore,g.State);Assert.IsTrue(creature.Seen);
+        Assert.AreEqual(1,g.Events.SeenCount);
+        Assert.That(Vector2.Distance(before,g.Player.Body.position),Is.LessThan(.03f),"Dialogue must freeze meaningful player movement");
+
+        g.Events.Speak(creature);Assert.AreEqual(1,g.DialoguePageCount);
+        g.AdvanceDialogue();g.AdvanceDialogue();Assert.AreEqual(DemoState.Explore,g.State);
+        Assert.AreEqual(1,g.Events.SeenCount,"Repeat conversations cannot count twice");
     }
 }
 #endif

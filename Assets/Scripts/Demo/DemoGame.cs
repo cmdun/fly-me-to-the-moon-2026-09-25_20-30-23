@@ -26,11 +26,16 @@ namespace FlyMeToTheMoon.Demo
         public string DialogueTitle { get; private set; }
         public string DialogueText { get; private set; }
         public string DialogueChoice { get; private set; }
+        public int DialoguePageIndex { get; private set; }
+        public int DialoguePageCount => dialoguePages == null ? 0 : dialoguePages.Length;
         private System.Action dialogueAction;
+        private string[] dialoguePages;
+        private string dialogueFinalChoice;
         public PlayerController Player { get; private set; }
         public PlanetManager Planets { get; private set; }
         public DemoAudio Audio { get; private set; }
         public DemoHud Hud { get; private set; }
+        public DemoWorldEvents Events { get; private set; }
         public Transform WorldRoot { get; private set; }
         public readonly List<DemoQuest> Quests = new List<DemoQuest>();
         public readonly List<DemoTarget> Targets = new List<DemoTarget>();
@@ -65,6 +70,8 @@ namespace FlyMeToTheMoon.Demo
             Seed = WorldSeed == 0 ? System.Guid.NewGuid().GetHashCode() : WorldSeed;
             var bodies = DemoGalaxy.Generate(this, Seed);
             Quests.Add(DemoWorld.CreateJourney(this, bodies, Seed));
+            Events = gameObject.AddComponent<DemoWorldEvents>();
+            Events.Build(this, bodies, Seed);
             Planets.lostDistance = 18; Planets.maxAirborneSeconds = 25;
             ApplyInstrument();
             Hud = gameObject.AddComponent<DemoHud>();
@@ -289,7 +296,11 @@ namespace FlyMeToTheMoon.Demo
             NearbyTarget = FindNearbyTarget();
             if (NearbyTarget == null) return;
             var target = NearbyTarget; var q = Melody;
-            if (target.Kind == DemoTargetKind.Altar)
+            if (target.Kind == DemoTargetKind.Creature)
+            {
+                Events.Speak(target.GetComponent<DemoCreature>());
+            }
+            else if (target.Kind == DemoTargetKind.Altar)
             {
                 if (q.Unlocked) OpenDialogue("Home altar", "The melody is whole. Your piano is ready to play.", "Leave");
                 else if (q.Count < DemoQuest.FragmentCount) OpenDialogue("The missing melody", "Five golden score pages wait on five moons. Each beacon holds a different challenge. Find them on the map and bring all five pages home.", "Explore");
@@ -304,17 +315,36 @@ namespace FlyMeToTheMoon.Demo
         }
         public void OpenDialogue(string title, string text, string choice, System.Action action = null)
         {
-            DialogueTitle = title; DialogueText = text; DialogueChoice = choice; dialogueAction = action;
+            OpenDialogueSequence(title, new[] { text }, choice, action);
+        }
+        public void OpenDialogueSequence(string title, string[] pages, string finalChoice, System.Action action = null)
+        {
+            if (pages == null || pages.Length == 0) pages = new[] { "..." };
+            DialogueTitle = title; dialoguePages = pages; dialogueFinalChoice = finalChoice;
+            DialoguePageIndex = 0; dialogueAction = action;
+            SetDialoguePage();
             MapVisible = false; SetState(DemoState.Dialogue); Hud.BeginDialogue();
+        }
+        private void SetDialoguePage()
+        {
+            DialogueText = dialoguePages[DialoguePageIndex];
+            DialogueChoice = DialoguePageIndex < dialoguePages.Length - 1 ? "Continue" : dialogueFinalChoice;
         }
         public void AdvanceDialogue()
         {
             if (State != DemoState.Dialogue) return;
             if (!Hud.DialogueComplete) { Hud.RevealDialogue(); return; }
+            if (DialoguePageIndex < dialoguePages.Length - 1)
+            {
+                DialoguePageIndex++; SetDialoguePage(); Hud.BeginDialogue(); return;
+            }
             var action = dialogueAction; CloseDialogue(); action?.Invoke();
         }
         public void CloseDialogue()
-        { dialogueAction = null; SetState(DemoState.Explore); }
+        {
+            dialogueAction = null; dialoguePages = null; dialogueFinalChoice = null;
+            DialoguePageIndex = 0; SetState(DemoState.Explore);
+        }
         public bool BeginRhythm(DemoQuest q)
         {
             if (q == null || q != ActiveQuest || q.Count != DemoQuest.FragmentCount || !MelodyRepaired || Vector2.Distance(Player.Body.position,q.Altar) > 2.1f) return false;

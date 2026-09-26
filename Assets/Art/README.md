@@ -1,6 +1,8 @@
 # Fly Me to the Moon — art starter kit
 
-This folder gives the team a shared visual target without changing gameplay, scenes, prefabs, physics, or project settings. The concept image is a direction reference. The small PNG files in `Sprites` are native-resolution starter assets that can be imported or replaced independently.
+This folder gives the team a shared visual target without changing gravity, colliders, quest positions, or progression. The concept image is a direction reference. The small PNG files in `Sprites` are native-resolution starter assets that can be imported or replaced independently. `DemoArt` applies the same direction to the current full playable demo at runtime.
+
+![Current full-demo art preview](../../Documentation/Art/full-demo-art-preview.png)
 
 ## Visual idea
 
@@ -17,6 +19,8 @@ Each moon has one landmark language:
 | Garden | Flowers, vines, and round tree canopies | Pink |
 
 These are decoration layers only. Parent them to any moon and rotate them to match the local surface, leaving the teammate-owned gravity bodies and colliders untouched.
+
+The main planet deliberately uses a different density rule from the moons. Planet 612-B has an atmosphere, broad terrain patches, eighteen flora clusters, two villages, an observatory, a music stage, and an interplanetary beacon. Each moon has three terrain marks and one instrument landmark. This keeps the home world visually important while the moons remain readable during flight.
 
 ## Palette
 

@@ -8,6 +8,24 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 public class DemoTests
 {
+    [UnityTest] public IEnumerator ArtMakesHomeRicherThanEveryMoonWithoutChangingWorldPhysics()
+    {
+        EditorSceneManager.LoadSceneInPlayMode("Assets/Scenes/FullDemo.unity",new LoadSceneParameters(LoadSceneMode.Single));
+        yield return null;yield return null;
+        var g=Object.FindAnyObjectByType<DemoGame>();var art=Object.FindAnyObjectByType<DemoArt>();
+        Assert.NotNull(g);Assert.NotNull(art);
+        Assert.Greater(art.Count(DemoArtRegion.HomeLandmark),20);
+        Assert.Greater(art.Count(DemoArtRegion.HomeTerrain),40);
+        for(int i=0;i<g.Quests.Count;i++)
+        {
+            Assert.Greater(art.CountMoon(i),4,"Each moon keeps a readable themed landmark.");
+            Assert.Less(art.CountMoon(i),art.Count(DemoArtRegion.HomeLandmark)+art.Count(DemoArtRegion.HomeTerrain),
+                "612-B must remain more visually complex than a moon.");
+        }
+        Assert.AreEqual(6,g.Player.gravityManager.bodies.Length);
+        Assert.AreEqual(12f,g.Planets.respawnPlanet.radius,0.001f);
+    }
+
     [Test] public void TimingWindowsWrongLanesAndDuplicateHits()
     {
         var r=new DemoRhythm();r.Begin(0,0);

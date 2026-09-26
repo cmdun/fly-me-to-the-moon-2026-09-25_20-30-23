@@ -1,5 +1,14 @@
 {
   "name": "FlyMeToTheMoon.Prototype.Editor",
-  "references": ["FlyMeToTheMoon.Prototype", "Unity.InputSystem", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Universal.2D.Runtime"],
-  "includePlatforms": ["Editor"]
+  "references": [
+    "FlyMeToTheMoon.Prototype",
+    "Unity.InputSystem",
+    "Unity.RenderPipelines.Universal.Runtime",
+    "Unity.RenderPipelines.Universal.2D.Runtime",
+    "FlyMeToTheMoon.Demo",
+    "Unity.TextMeshPro"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
 }

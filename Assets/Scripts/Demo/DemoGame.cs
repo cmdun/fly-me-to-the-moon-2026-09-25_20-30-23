@@ -20,6 +20,7 @@ namespace FlyMeToTheMoon.Demo
         public Material Material;
         public int WorldSeed;
         public int Seed { get; private set; }
+        public MoonPlacement[] MoonLayout { get; private set; }
         public bool MelodyRepaired { get; private set; }
         public DemoQuest Melody => Quests.Count == 0 ? null : Quests[0];
         public DemoTarget NearbyTarget { get; private set; }
@@ -68,7 +69,8 @@ namespace FlyMeToTheMoon.Demo
             Audio = gameObject.AddComponent<DemoAudio>();
             WorldRoot = new GameObject("Demo quest objects").transform;
             Seed = WorldSeed == 0 ? System.Guid.NewGuid().GetHashCode() : WorldSeed;
-            var bodies = DemoGalaxy.Generate(this, Seed);
+            MoonLayout = DemoGalaxy.Layout(Seed);
+            var bodies = DemoGalaxy.Generate(this, MoonLayout);
             Quests.Add(DemoWorld.CreateJourney(this, bodies, Seed));
             Events = gameObject.AddComponent<DemoWorldEvents>();
             Events.Build(this, bodies, Seed);

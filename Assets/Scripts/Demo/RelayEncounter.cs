@@ -17,9 +17,9 @@ namespace FlyMeToTheMoon.Demo
         Vector2 previous;
         public RelayEncounter(DemoChallenge session) : base(session)
         {
-            var bodies=Game.Player.gravityManager.bodies;int start=System.Array.IndexOf(bodies,Body);
-            // The relay starts in the inner depth; each next body is an existing, tested neighbor.
-            for(int i=0;i<4;i++)Route[i]=bodies[start+i*DemoGalaxy.MoonsPerRing];
+            var bodies=Game.Player.gravityManager.bodies;
+            // Follow actual neighboring moons in the scattered field, including its bends.
+            for(int i=0;i<4;i++)Route[i]=bodies[Game.Melody.RelayMoons[i]+1];
             Shrines[0]=At(0,.3f);
             for(int i=0;i<3;i++)
             {

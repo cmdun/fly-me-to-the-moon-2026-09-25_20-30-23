@@ -28,24 +28,44 @@ public class DemoTests
         for(int i=0;i<16;i++)r.Hit(r.Lane(i),r.TimeOf(i));
         Assert.IsFalse(r.Passed);r.Hit(r.Lane(16),r.TimeOf(16));Assert.IsTrue(r.Passed);
     }
-    [Test] public void ThousandSeedsHaveLargeVariedMoonsAndSpacedConnectedRoutes()
+    [Test] public void ThousandSeedsHaveIrregularConnectedMoonsAndBendingRelayRoutes()
     {
+        var rootCounts=new System.Collections.Generic.HashSet<int>();
         for(int seed=1;seed<=1000;seed++)
         {
             var moons=DemoGalaxy.Layout(seed);Assert.AreEqual(24,moons.Length);
-            float outer=0,smallest=10,largest=0;
+            float outer=0,smallest=10,largest=0;int roots=0;
+            Vector2 minimum=Vector2.zero,maximum=Vector2.zero;
             for(int i=0;i<moons.Length;i++)
             {
-                Assert.AreEqual(i/6,moons[i].Ring);Assert.That(moons[i].Radius,Is.InRange(3.2f,5.8f));
-                smallest=Mathf.Min(smallest,moons[i].Radius);largest=Mathf.Max(largest,moons[i].Radius);
-                outer=Mathf.Max(outer,moons[i].Center.magnitude+moons[i].Radius);
-                Assert.GreaterOrEqual(moons[i].Center.magnitude-12-moons[i].Radius,6.499f);
-                for(int j=0;j<i;j++)Assert.GreaterOrEqual(Vector2.Distance(moons[i].Center,moons[j].Center)-moons[i].Radius-moons[j].Radius,6.499f);
-                float gap=i<6?moons[i].Center.magnitude-12-moons[i].Radius:Vector2.Distance(moons[i].Center,moons[i-6].Center)-moons[i].Radius-moons[i-6].Radius;
-                Assert.That(gap,Is.InRange(6.499f,8.001f));
+                var moon=moons[i];Assert.That(moon.Radius,Is.InRange(3.2f,5.8f));
+                Assert.That(moon.ParentIndex,Is.InRange(-1,i-1));
+                Vector2 parent=moon.ParentIndex<0?Vector2.zero:moons[moon.ParentIndex].Center;
+                float parentRadius=moon.ParentIndex<0?12:moons[moon.ParentIndex].Radius;
+                Assert.AreEqual(moon.ParentIndex<0?1:moons[moon.ParentIndex].Depth+1,moon.Depth);
+                if(moon.ParentIndex<0)roots++;
+                else
+                {
+                    var ancestor=moons[moon.ParentIndex].ParentIndex;
+                    Vector2 incoming=parent-(ancestor<0?Vector2.zero:moons[ancestor].Center);
+                    Assert.GreaterOrEqual(Vector2.Angle(incoming,moon.Center-parent),24.99f,"No straight radial strings");
+                }
+                smallest=Mathf.Min(smallest,moon.Radius);largest=Mathf.Max(largest,moon.Radius);
+                outer=Mathf.Max(outer,moon.Center.magnitude+moon.Radius);
+                minimum=Vector2.Min(minimum,moon.Center);maximum=Vector2.Max(maximum,moon.Center);
+                Assert.GreaterOrEqual(moon.Center.magnitude-12-moon.Radius,6.499f);
+                for(int j=0;j<i;j++)Assert.GreaterOrEqual(Vector2.Distance(moon.Center,moons[j].Center)-moon.Radius-moons[j].Radius,6.499f);
+                Assert.That(Vector2.Distance(moon.Center,parent)-moon.Radius-parentRadius,Is.InRange(6.499f,8.001f));
             }
-            Assert.Greater(outer,65);Assert.Greater(largest-smallest,1);
+            rootCounts.Add(roots);Assert.GreaterOrEqual(outer,70);Assert.GreaterOrEqual(maximum.x-minimum.x,85);Assert.GreaterOrEqual(maximum.y-minimum.y,85);
+            Assert.Greater(largest-smallest,1);
+            var route=DemoGalaxy.RelayPath(moons,seed);Assert.AreEqual(4,route.Length);
+            Assert.AreEqual(4,new System.Collections.Generic.HashSet<int>(route).Count);
+            Assert.AreEqual(-1,moons[route[0]].ParentIndex);
+            for(int i=1;i<route.Length;i++)Assert.AreEqual(route[i-1],moons[route[i]].ParentIndex);
+            CollectionAssert.AreEqual(route,DemoGalaxy.RelayPath(moons,seed));
         }
+        Assert.GreaterOrEqual(rootCounts.Count,3,"The home planet must not have a fixed set of spokes");
         Assert.AreNotEqual(DemoGalaxy.Layout(1)[0].Center,DemoGalaxy.Layout(2)[0].Center);
         Assert.AreEqual(DemoGalaxy.Layout(3)[8].Center,DemoGalaxy.Layout(3)[8].Center);
     }
@@ -55,18 +75,20 @@ public class DemoTests
         Assert.That(DemoAudio.FrequencyForNote(6),Is.EqualTo(493.8833f).Within(.01));
         for(int i=1;i<7;i++)Assert.Greater(DemoAudio.FrequencyForNote(i),DemoAudio.FrequencyForNote(i-1));
     }
-    [Test] public void CreaturePlanIsDeterministicUniqueAndPlacesTwoPerDepth()
+    [Test] public void CreaturePlanIsDeterministicUniqueAndSpreadsRolesAcrossTravelDepths()
     {
         for(int seed=1;seed<=1000;seed++)
         {
-            int[] plan=DemoWorldEvents.Plan(seed);Assert.AreEqual(DemoGalaxy.Rings*2,plan.Length);
+            var layout=DemoGalaxy.Layout(seed);int[] plan=DemoWorldEvents.Plan(seed,layout);Assert.AreEqual(DemoWorldEvents.CreatureCount,plan.Length);
+            var order=new System.Collections.Generic.List<int>();for(int i=0;i<layout.Length;i++)order.Add(i);
+            order.Sort((a,b)=>layout[a].Depth!=layout[b].Depth?layout[a].Depth.CompareTo(layout[b].Depth):a.CompareTo(b));
             var unique=new System.Collections.Generic.HashSet<int>(plan);Assert.AreEqual(plan.Length,unique.Count);
             for(int i=0;i<plan.Length;i++)
             {
-                Assert.That(plan[i],Is.InRange(0,DemoGalaxy.Rings*DemoGalaxy.MoonsPerRing-1));
-                Assert.AreEqual(i/2,plan[i]/DemoGalaxy.MoonsPerRing);
+                Assert.That(plan[i],Is.InRange(0,DemoGalaxy.MoonCount-1));
+                Assert.AreEqual(i/2,order.IndexOf(plan[i])/(DemoGalaxy.MoonCount/4));
             }
-            CollectionAssert.AreEqual(plan,DemoWorldEvents.Plan(seed));
+            CollectionAssert.AreEqual(plan,DemoWorldEvents.Plan(seed,layout));
         }
         CollectionAssert.AreNotEqual(DemoWorldEvents.Plan(1),DemoWorldEvents.Plan(2));
     }
@@ -183,7 +205,7 @@ public class DemoJourneyTests
         var bodies=g.Player.gravityManager.bodies;Assert.AreEqual(25,bodies.Length);
         for(int i=1;i<bodies.Length;i++)
         {
-            var parent=i<=6?bodies[0]:bodies[i-6];
+            var parent=bodies[g.MoonLayout[i-1].ParentIndex+1];
             for(int leg=0;leg<2;leg++)
             {
                 var origin=leg==0?parent:bodies[i];var target=leg==0?bodies[i]:parent;
@@ -336,7 +358,7 @@ public class DemoJourneyTests
     }
     [UnityTest] public IEnumerator SeededCreaturesTeachWithMultiPageAndShortRepeatDialogue()
     {
-        Assert.NotNull(g.Events);Assert.AreEqual(1+DemoGalaxy.Rings*2,g.Events.Encounters.Count);
+        Assert.NotNull(g.Events);Assert.AreEqual(1+DemoWorldEvents.CreatureCount,g.Events.Encounters.Count);
         Assert.AreEqual("keeper",g.Events.Encounters[0].EncounterId);
         var creature=g.Events.Encounters[1];
         Assert.AreEqual(DemoTargetKind.Creature,creature.Target.Kind);Assert.NotNull(creature.Target.Body);

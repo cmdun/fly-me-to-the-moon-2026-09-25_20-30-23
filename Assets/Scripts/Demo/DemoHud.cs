@@ -131,12 +131,12 @@ namespace FlyMeToTheMoon.Demo
         public void RefreshPanels()
         {
             if (menu == null) return;
-            foreach (var element in explorationHud) element.SetActive(game.State == DemoState.Explore && !game.MapVisible);
+            foreach (var element in explorationHud) element.SetActive(game.PlayingWorld && !game.MapVisible);
             bool modal = game.State == DemoState.Title || game.State == DemoState.Paused || game.State == DemoState.Result || game.State == DemoState.Win;
             menu.gameObject.SetActive(modal);
             dialogue.gameObject.SetActive(game.State == DemoState.Dialogue);
             rhythm.gameObject.SetActive(game.State == DemoState.Rhythm);
-            map.gameObject.SetActive(game.MapVisible && game.State == DemoState.Explore);
+            map.gameObject.SetActive(game.MapVisible && game.PlayingWorld);
             if (!modal) return;
             menuBody.fontSize = game.State == DemoState.Paused ? 19 : 22;
             string audio = game.Audio.Muted ? "Sound: OFF - turn on" : "Sound: ON - mute";
@@ -151,7 +151,7 @@ namespace FlyMeToTheMoon.Demo
             else if (game.State == DemoState.Paused)
             {
                 menuTitle.text = "PAUSED";
-                menuBody.text = "A/D walk   |   Space jump, then Space to boost   |   WASD steer\nLeft click: shoot notes   |   Right click: airborne recoil (uses boost)\nE: interact / advance dialogue   |   1-7: C D E F G A B\nTab: instrument (land first)   |   M: map   |   R: recover\nRhythm: A/S/D/F   |   A paused song restarts on resume\n\nFind 5 challenge pages on the moons; repair and perform at the home altar.";
+                menuBody.text = "A/D walk   |   Space jump, then Space to boost   |   WASD steer\nLeft click: shoot notes   |   Right click: airborne recoil (uses boost)\nE: interact / advance dialogue   |   1-7: C D E F G A B\nTab: instrument (land first)   |   M: map   |   R: recover\nEncounters: Q call, C record, E act, R retry   |   Rhythm: A/S/D/F\n\nFind 5 challenge pages on the moons; repair and perform at the home altar.";
                 Bind(0,"Resume  [Esc]",game.Resume); Bind(1,audio,game.ToggleAudio);
                 Bind(2,"New journey (resets progress)",game.Restart); Bind(3,"Quit",game.Quit);
             }
@@ -263,7 +263,7 @@ namespace FlyMeToTheMoon.Demo
             var q=game.Melody;
             string place=game.Player.gravityManager.CurrentBody != null ? game.Player.gravityManager.CurrentBody.planetId : "Space";
             objective.text=place+"\n"+(q.Unlocked?"Melody restored":game.MelodyRepaired?"Score repaired": "Score "+q.Count+" / 5");
-            status.text=DemoGame.Instruments[game.Equipped]; toast.text=game.Message;
+            status.text=DemoGame.Instruments[game.Equipped]; toast.text=game.State==DemoState.Challenge?"":game.Message;
             if(game.State==DemoState.Dialogue && !DialogueComplete)
             {
                 dialogueBody.maxVisibleCharacters=Mathf.FloorToInt((Time.unscaledTime-dialogueStarted)*38);

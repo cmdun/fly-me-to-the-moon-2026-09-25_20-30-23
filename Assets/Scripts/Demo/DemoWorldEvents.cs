@@ -42,8 +42,8 @@ namespace FlyMeToTheMoon.Demo
                 "Right-click in the air to recoil away from your aim. That spends the same one-flight boost as a second jump.",
                 "Light and sound both travel. Only one of them remembers the way home." },
             new[] {
-                "One golden beacon holds an echo memory. Press E at a beacon, listen to its six-note preview, then answer with keys 1 through 7.",
-                "Two wrong notes end an attempt. Return to the beacon and begin again; the pages you already found remain safe.",
+                "One beacon remembers your footsteps. C records a route onto its plate; E starts the echo while you cross the open gate.",
+                "C lets you rerecord immediately. In the second room, your echo holds one plate while you stand on the other and shoot.",
                 "The Hush repeats nothing. That is how we know an echo is still alive." },
             new[] {
                 "We call it the Hush. It did not steal our music; it taught the moons to forget it.",
@@ -54,12 +54,12 @@ namespace FlyMeToTheMoon.Demo
                 "When the score is repaired, perform it at the home altar. The piano will answer.",
                 "After it wakes, land and press Tab to change instruments. We will add your note to ours." },
             new[] {
-                "At the pulse beacon, use A, S, D, and F when its notes cross the beat. Ten of twelve true notes will free the page.",
-                "Mashing adds mistakes. Watch the lane, breathe with the count, and strike only when the note arrives.",
+                "The pulse shrine throws waves around its moon. Jump low waves, hide under the blue shelter for high ones, and watch the warnings.",
+                "Shoot the exposed switches between storms. If a wave catches you, only your current circuit resets.",
                 "The Hush fears a rhythm chosen together." },
             new[] {
-                "Every beacon teaches a different way to remember: echo, pulse, shooting stars, a note cipher, or a silent maze.",
-                "The maze uses WASD. Its walls return you to the start, and three collisions end the attempt. Escape pauses any challenge.",
+                "Five beacons teach five ways to remember: carry a spark, outwit a sleeping giant, repair a storm, shepherd singers, and duet with your echo.",
+                "Hold Q to call singers; one needs a long note and another moves only in silence. Escape pauses any encounter.",
                 "A closed gate is only a question asked in stone." }
         };
 
@@ -116,10 +116,10 @@ namespace FlyMeToTheMoon.Demo
                 case 0: return "One boost for each flight. Land, breathe, and your flute will be ready again.";
                 case 1: return "M opens the map. R finds your last safe ground.";
                 case 2: return "Left click shoots. Right click recoils in the air and spends your boost.";
-                case 3: return "Listen to all six echo notes, then answer with keys 1 through 7.";
+                case 3: return "C records your footsteps. Let the echo hold a plate while you play the other half of the duet.";
                 case 4: return "The Hush grows smaller each time someone answers it.";
                 case 5: return "Play seven notes with 1 through 7. We are listening.";
-                case 6: return "At the pulse beacon, use A, S, D, and F on the beat.";
+                case 6: return "Jump low waves. Shelter from high waves. Shoot the shrine when its switches glow.";
                 default: return "Five beacons, five ways to remember. Escape pauses a challenge.";
             }
         }

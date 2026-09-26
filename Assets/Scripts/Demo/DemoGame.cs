@@ -55,7 +55,7 @@ namespace FlyMeToTheMoon.Demo
         private float nextShot, messageUntil;
         private int seenBoost;
         public readonly DemoChallenge Challenge = new DemoChallenge();
-        private int heardPreview = -1;
+        public bool PlayingWorld => State == DemoState.Explore || (State == DemoState.Challenge && !Challenge.Finished);
 
         private void Start()
         {
@@ -99,11 +99,6 @@ namespace FlyMeToTheMoon.Demo
                 if (keys != null && (keys.eKey.wasPressedThisFrame || keys.enterKey.wasPressedThisFrame)) AdvanceDialogue();
                 return;
             }
-            if (State == DemoState.Challenge)
-            {
-                UpdateChallenge(keys);
-                return;
-            }
             if (State == DemoState.Result || State == DemoState.Win)
             {
                 if (keys != null && keys.enterKey.wasPressedThisFrame) Continue();
@@ -124,7 +119,13 @@ namespace FlyMeToTheMoon.Demo
             }
             if (keys != null)
             {
-                if (keys.eKey.wasPressedThisFrame) Interact();
+                if (State == DemoState.Challenge)
+                {
+                    if (keys.eKey.wasPressedThisFrame) Challenge.Encounter.Interact();
+                    if (keys.cKey.wasPressedThisFrame) { ClearShots(); Challenge.Encounter.Record(); }
+                    if (keys.rKey.wasPressedThisFrame) Challenge.Retry();
+                }
+                else if (keys.eKey.wasPressedThisFrame) Interact();
                 if (keys.tabKey.wasPressedThisFrame) CycleInstrument();
                 if (keys.mKey.wasPressedThisFrame) ToggleMap();
                 if (keys.digit1Key.wasPressedThisFrame) FreeNote(0);
@@ -135,14 +136,20 @@ namespace FlyMeToTheMoon.Demo
                 if (keys.digit6Key.wasPressedThisFrame) FreeNote(5);
                 if (keys.digit7Key.wasPressedThisFrame) FreeNote(6);
             }
-            if (State != DemoState.Explore) return;
+            if (State == DemoState.Challenge && Challenge.Finished) { FinishChallenge(); return; }
+            if (!PlayingWorld) return;
             if (!MapVisible && Mouse.current != null && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
             {
                 Vector2 aim = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
                 if (Mouse.current.leftButton.isPressed) ShootToward(aim);
                 if (Mouse.current.rightButton.wasPressedThisFrame) RecoilToward(aim);
             }
-            NearbyTarget = FindNearbyTarget();
+            NearbyTarget = State == DemoState.Explore ? FindNearbyTarget() : null;
+            if (State == DemoState.Challenge)
+            {
+                Challenge.Tick(Time.deltaTime, keys != null && keys.qKey.isPressed);
+                if (Challenge.Finished) FinishChallenge();
+            }
             if (Player.FluteJumpCount != seenBoost)
             { seenBoost = Player.FluteJumpCount; Audio.Note(Equipped, 3); }
             if (Time.unscaledTime > messageUntil) Message = "";
@@ -157,12 +164,12 @@ namespace FlyMeToTheMoon.Demo
         {
             State = state;
             if (state == DemoState.Explore) nextShot = Time.time + .15f;
-            bool exploring = state == DemoState.Explore;
+            bool exploring = state == DemoState.Explore || state == DemoState.Challenge;
             Player.enabled = exploring;
-            Planets.enabled = exploring;
+            Planets.enabled = state == DemoState.Explore;
             Player.Body.simulated = exploring;
             Time.timeScale = state == DemoState.Paused || state == DemoState.Dialogue ? 0 : 1;
-            if (!exploring) foreach (var shot in FindObjectsByType<DemoProjectile>(FindObjectsSortMode.None)) Destroy(shot.gameObject);
+            if (!exploring) ClearShots();
             Hud.RefreshPanels();
         }
         public void Tell(string message)
@@ -183,37 +190,43 @@ namespace FlyMeToTheMoon.Demo
         public void ToggleAudio() { Audio.SetMuted(!Audio.Muted); Hud.RefreshPanels(); }
         public void FreeNote(int lane)
         {
-            if (State != DemoState.Explore || lane < 0 || lane > 6) return;
+            if (!PlayingWorld || lane < 0 || lane > 6) return;
             Audio.Note(Equipped, lane);
 
         }
         public void ShootToward(Vector2 position)
         {
-            if (State != DemoState.Explore || Time.time < nextShot) return;
+            if (!PlayingWorld || Time.time < nextShot) return;
             Vector2 direction = position - Player.Body.position;
             if (direction.sqrMagnitude < 0.01f) direction = Player.Up;
             direction.Normalize();
             nextShot = Time.time + 0.22f;
             Audio.Note(Equipped, Shots % 7); Shots++;
+            if (State == DemoState.Challenge) Challenge.Encounter.Shot(Player.Body.position,direction);
             Emit(direction.normalized);
         }
         public bool RecoilToward(Vector2 position)
         {
-            if (State != DemoState.Explore || MapVisible || Player.IsGrounded) return false;
+            if (!PlayingWorld || MapVisible || Player.IsGrounded) return false;
             Vector2 direction = position - Player.Body.position;
             if (direction.sqrMagnitude < .01f) return false;
             if (!Player.TryDirectionalBoost(-direction.normalized)) return false;
+            if (State == DemoState.Challenge) Challenge.Encounter.Shot(Player.Body.position,direction.normalized);
             Emit(direction.normalized);
             return true;
         }
-        private void Emit(Vector2 direction)
+        public void ClearShots()
+        { foreach(var shot in FindObjectsByType<DemoProjectile>(FindObjectsSortMode.None)) Destroy(shot.gameObject); }
+        public void EmitEchoShot(Vector2 position, Vector2 direction)
+        { Emit(direction,position,true); Audio.Note(0,2,.15f); }
+        private void Emit(Vector2 direction, Vector2? source = null, bool echo = false)
         {
-            Vector2 position = Player.Body.position + direction * 0.42f;
+            Vector2 position = (source ?? Player.Body.position) + direction * 0.42f;
             var shape = DemoWorld.Shape(WorldRoot, "Musical note", position, new Vector2(0.2f, 0.15f), Accent, Material, true);
             var stem = DemoWorld.Shape(shape.transform, "Stem", position + Vector2.up * 0.12f + Vector2.right * 0.06f,
                 new Vector2(0.045f, 0.25f), Accent, Material);
             var projectile = shape.gameObject.AddComponent<DemoProjectile>();
-            projectile.Game = this; projectile.Direction = direction;
+            projectile.Game = this; projectile.Direction = direction; projectile.IsEcho = echo;
         }
         public bool Collect(DemoQuest q, int index)
         {
@@ -228,47 +241,15 @@ namespace FlyMeToTheMoon.Demo
             if (State != DemoState.Explore || index < 0 || index >= DemoQuest.FragmentCount || Melody.Fragments[index]) return false;
             var station = Melody.Stations[index];
             if (Player.gravityManager.CurrentBody != station.Body || Vector2.Distance(Player.Body.position, station.transform.position) > 2.1f) return false;
-            Challenge.Begin(index, Seed); heardPreview = -1; MapVisible = false;
+            Challenge.Begin(this, index); station.gameObject.SetActive(false); MapVisible = false; Message = "";
             SetState(DemoState.Challenge); return true;
-        }
-        private void UpdateChallenge(Keyboard keys)
-        {
-            if (Challenge.Finished)
-            {
-                if (keys != null && keys.enterKey.wasPressedThisFrame) FinishChallenge();
-                return;
-            }
-            Challenge.Tick(Time.deltaTime);
-            if (Challenge.PreviewNote != heardPreview)
-            {
-                heardPreview = Challenge.PreviewNote;
-                if (heardPreview >= 0) Audio.Note(0, heardPreview);
-            }
-            if (keys == null) return;
-            if (Challenge.Kind == FragmentChallenge.Beat)
-            {
-                var lanes = new[] { Key.A, Key.S, Key.D, Key.F };
-                for (int i = 0; i < lanes.Length; i++) if (keys[lanes[i]].wasPressedThisFrame) ChallengeNote(i);
-            }
-            else if (Challenge.Kind == FragmentChallenge.Echo || Challenge.Kind == FragmentChallenge.Code)
-            {
-                var notes = new[] { Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4, Key.Digit5, Key.Digit6, Key.Digit7 };
-                for (int i = 0; i < notes.Length; i++) if (keys[notes[i]].wasPressedThisFrame) ChallengeNote(i);
-            }
-            else if (Challenge.Kind == FragmentChallenge.Maze)
-                Challenge.Move(new Vector2((keys.dKey.isPressed ? 1 : 0) - (keys.aKey.isPressed ? 1 : 0),
-                    (keys.wKey.isPressed ? 1 : 0) - (keys.sKey.isPressed ? 1 : 0)), Time.deltaTime);
-        }
-        public void ChallengeNote(int note)
-        {
-            if (State != DemoState.Challenge || Challenge.Finished) return;
-            if (Challenge.Note(note)) Audio.Note(0, note);
         }
         public void FinishChallenge()
         {
             if (State != DemoState.Challenge || !Challenge.Finished) return;
             bool passed = Challenge.Success;
             if (passed) Collect(Melody, Challenge.Index);
+            ClearShots(); Challenge.End();
             SetState(DemoState.Explore);
             if (!passed) Tell("Try the beacon again");
         }
@@ -276,7 +257,7 @@ namespace FlyMeToTheMoon.Demo
         {
             if (State != DemoState.Challenge) return;
             if (Challenge.Finished) FinishChallenge();
-            else SetState(DemoState.Explore);
+            else { ClearShots(); Melody.Stations[Challenge.Index].gameObject.SetActive(true); Challenge.End(); SetState(DemoState.Explore); }
         }
         public DemoTarget FindNearbyTarget()
         {
@@ -311,7 +292,7 @@ namespace FlyMeToTheMoon.Demo
                 else OpenDialogue("Home altar", "The repaired score is ready to perform.", "Perform", () => BeginRhythm(q));
             }
             else if (target.Kind == DemoTargetKind.FragmentStation)
-                OpenDialogue(DemoChallenge.Names[target.Index], DemoChallenge.Instructions[target.Index], "Begin challenge", () => BeginChallenge(target.Index));
+                OpenDialogueSequence(DemoChallenge.Names[target.Index], DemoChallenge.InstructionPages(target.Index), "Begin encounter", () => BeginChallenge(target.Index));
         }
         public void OpenDialogue(string title, string text, string choice, System.Action action = null)
         {
@@ -406,7 +387,7 @@ namespace FlyMeToTheMoon.Demo
             if (Game == null || Game.Player == null) return;
             var pixel = GetComponent<PixelPerfectCamera>();
             if (pixel == null) return;
-            float target = Game.Player.FluteUsed ? 10f : Game.Player.IsGrounded ? 40f : 24f;
+            float target = Game.Player.FluteUsed ? 10f : Game.State == DemoState.Challenge ? 20f : Game.Player.IsGrounded ? 40f : 24f;
             ppu = Mathf.SmoothDamp(ppu, target, ref speed, 0.25f, Mathf.Infinity, Time.unscaledDeltaTime);
             pixel.assetsPPU = Mathf.RoundToInt(ppu);
         }

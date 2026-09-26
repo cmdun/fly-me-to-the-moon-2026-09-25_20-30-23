@@ -123,6 +123,20 @@ namespace FlyMeToTheMoon
                 }
             }
 
+            if (IsGrounded)
+            {
+                // Integrate an arc while attached. Tangent-only motion leaves small moons
+                // when gravity cannot supply v²/r, even though the player never jumped.
+                float orbitRadius = planet.radius + radius + .01f;
+                float angle = Vector2.Dot(velocity, tangent) * Time.fixedDeltaTime / orbitRadius;
+                Vector2 nextUp = up * Mathf.Cos(angle) + tangent * Mathf.Sin(angle);
+                // Correct contact penetration as position, never as an outward impulse.
+                // An impulse here would briefly detach the player after every landing.
+                Vector2 surfacePosition = planet.Center + up * orbitRadius;
+                Body.position = surfacePosition;
+                Vector2 nextPosition = planet.Center + nextUp * orbitRadius;
+                velocity = (nextPosition - surfacePosition) / Time.fixedDeltaTime;
+            }
             Body.linearVelocity = FluteUsed ? Vector2.ClampMagnitude(velocity, maxFlightSpeed) : velocity;
             Vector2 facingUp = FluteUsed ? gravityManager.FlightUp(Body.position, Body.linearVelocity) : up;
             float targetAngle = Vector2.SignedAngle(Vector2.up, facingUp);

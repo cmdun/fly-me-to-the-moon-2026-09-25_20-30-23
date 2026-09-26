@@ -9,7 +9,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace FlyMeToTheMoon.Demo
 {
-    public enum DemoState { Title, Explore, Dialogue, Rhythm, Paused, Result, Win }
+    public enum DemoState { Title, Explore, Dialogue, Challenge, Rhythm, Paused, Result, Win }
 
     [DefaultExecutionOrder(100)]
     public sealed class DemoGame : MonoBehaviour
@@ -49,7 +49,8 @@ namespace FlyMeToTheMoon.Demo
         private DemoState beforePause;
         private float nextShot, messageUntil;
         private int seenBoost;
-        private readonly int[] sequence = { 1, 0, 2 };
+        public readonly DemoChallenge Challenge = new DemoChallenge();
+        private int heardPreview = -1;
 
         private void Start()
         {
@@ -80,7 +81,7 @@ namespace FlyMeToTheMoon.Demo
             {
                 if (State == DemoState.Paused) Resume();
                 else if (State == DemoState.Dialogue) CloseDialogue();
-                else if (State == DemoState.Explore || State == DemoState.Rhythm) Pause();
+                else if (State == DemoState.Explore || State == DemoState.Rhythm || State == DemoState.Challenge) Pause();
                 return;
             }
             if (State == DemoState.Title)
@@ -89,6 +90,11 @@ namespace FlyMeToTheMoon.Demo
             if (State == DemoState.Dialogue)
             {
                 if (keys != null && (keys.eKey.wasPressedThisFrame || keys.enterKey.wasPressedThisFrame)) AdvanceDialogue();
+                return;
+            }
+            if (State == DemoState.Challenge)
+            {
+                UpdateChallenge(keys);
                 return;
             }
             if (State == DemoState.Result || State == DemoState.Win)
@@ -123,20 +129,13 @@ namespace FlyMeToTheMoon.Demo
                 if (keys.digit7Key.wasPressedThisFrame) FreeNote(6);
             }
             if (State != DemoState.Explore) return;
-            if (Mouse.current != null && (Player.IsGrounded ? Mouse.current.leftButton.isPressed : Mouse.current.leftButton.wasPressedThisFrame) && Time.time >= nextShot
-                && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
-                ShootToward(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
-            NearbyTarget = FindNearbyTarget();
-            foreach (var q in Quests)
+            if (!MapVisible && Mouse.current != null && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
             {
-                bool active = q.Index <= Completed;
-                q.Walk.gameObject.SetActive(active && !q.Fragments[0] && Vector2.Distance(Player.Body.position, q.Walk.transform.position) < 3f);
-                if (q == ActiveQuest)
-                {
-                    if (Vector2.Distance(Player.Body.position, q.Walk.transform.position) < 0.7f) Collect(q, 0);
-                    if (q.PuzzleSolved && Vector2.Distance(Player.Body.position, q.Reward.transform.position) < 0.7f) Collect(q, 2);
-                }
+                Vector2 aim = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                if (Mouse.current.leftButton.isPressed) ShootToward(aim);
+                if (Mouse.current.rightButton.wasPressedThisFrame) RecoilToward(aim);
             }
+            NearbyTarget = FindNearbyTarget();
             if (Player.FluteJumpCount != seenBoost)
             { seenBoost = Player.FluteJumpCount; Audio.Note(Equipped, 3); }
             if (Time.unscaledTime > messageUntil) Message = "";
@@ -187,10 +186,18 @@ namespace FlyMeToTheMoon.Demo
             Vector2 direction = position - Player.Body.position;
             if (direction.sqrMagnitude < 0.01f) direction = Player.Up;
             direction.Normalize();
-            if (!Player.IsGrounded && !Player.TryDirectionalBoost(-direction)) return;
             nextShot = Time.time + 0.22f;
             Audio.Note(Equipped, Shots % 7); Shots++;
             Emit(direction.normalized);
+        }
+        public bool RecoilToward(Vector2 position)
+        {
+            if (State != DemoState.Explore || MapVisible || Player.IsGrounded) return false;
+            Vector2 direction = position - Player.Body.position;
+            if (direction.sqrMagnitude < .01f) return false;
+            if (!Player.TryDirectionalBoost(-direction.normalized)) return false;
+            Emit(direction.normalized);
+            return true;
         }
         private void Emit(Vector2 direction)
         {
@@ -201,34 +208,68 @@ namespace FlyMeToTheMoon.Demo
             var projectile = shape.gameObject.AddComponent<DemoProjectile>();
             projectile.Game = this; projectile.Direction = direction;
         }
-        public void HitTarget(DemoTarget target)
-        {
-            if (State != DemoState.Explore) return;
-            if (target.Kind == DemoTargetKind.Practice)
-            { Tell("Nice! Notes can collect floating pages and activate numbered resonators. Double jump upward to the Piano moon."); Audio.Note(0, 3); return; }
-            var q = target.Quest;
-            if (q != ActiveQuest) {  return; }
-            if (target.Kind == DemoTargetKind.ShotFragment) Collect(q, 1);
-            if (target.Kind != DemoTargetKind.Resonator || q.PuzzleSolved || q.PlayingSequence) return;
-            Audio.Note(q.Index + 1, target.Index);
-            if (target.Index == sequence[q.SequenceStep]) q.SequenceStep++;
-            else { q.SequenceStep = 0;  }
-            if (q.SequenceStep == sequence.Length)
-            {
-                q.PuzzleSolved = true; q.Reward.gameObject.SetActive(true);
-                foreach (var resonator in q.Resonators) resonator.Tint(Accent);
-                q.PedestalTarget.gameObject.SetActive(false);
-            }
-        }
         public bool Collect(DemoQuest q, int index)
         {
-            if (State != DemoState.Explore || q != ActiveQuest || index < 0 || index > 2 || q.Fragments[index]) return false;
-            if (index == 2 && !q.PuzzleSolved) return false;
-            q.Fragments[index] = true;
-            (index == 0 ? q.Walk : index == 1 ? q.Shot : q.Reward).gameObject.SetActive(false);
-            Audio.Note(q.Index + 1, index);
-            Tell("Score " + q.Count + "/3");
+            if (State != DemoState.Challenge || q != ActiveQuest || index < 0 || index >= DemoQuest.FragmentCount || q.Fragments[index]) return false;
+            if (!Challenge.Finished || !Challenge.Success || Challenge.Index != index) return false;
+            q.Fragments[index] = true; q.Stations[index].gameObject.SetActive(false);
+            Audio.Note(1, index); Tell("Score " + q.Count + "/5");
             return true;
+        }
+        public bool BeginChallenge(int index)
+        {
+            if (State != DemoState.Explore || index < 0 || index >= DemoQuest.FragmentCount || Melody.Fragments[index]) return false;
+            var station = Melody.Stations[index];
+            if (Player.gravityManager.CurrentBody != station.Body || Vector2.Distance(Player.Body.position, station.transform.position) > 2.1f) return false;
+            Challenge.Begin(index, Seed); heardPreview = -1; MapVisible = false;
+            SetState(DemoState.Challenge); return true;
+        }
+        private void UpdateChallenge(Keyboard keys)
+        {
+            if (Challenge.Finished)
+            {
+                if (keys != null && keys.enterKey.wasPressedThisFrame) FinishChallenge();
+                return;
+            }
+            Challenge.Tick(Time.deltaTime);
+            if (Challenge.PreviewNote != heardPreview)
+            {
+                heardPreview = Challenge.PreviewNote;
+                if (heardPreview >= 0) Audio.Note(0, heardPreview);
+            }
+            if (keys == null) return;
+            if (Challenge.Kind == FragmentChallenge.Beat)
+            {
+                var lanes = new[] { Key.A, Key.S, Key.D, Key.F };
+                for (int i = 0; i < lanes.Length; i++) if (keys[lanes[i]].wasPressedThisFrame) ChallengeNote(i);
+            }
+            else if (Challenge.Kind == FragmentChallenge.Echo || Challenge.Kind == FragmentChallenge.Code)
+            {
+                var notes = new[] { Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4, Key.Digit5, Key.Digit6, Key.Digit7 };
+                for (int i = 0; i < notes.Length; i++) if (keys[notes[i]].wasPressedThisFrame) ChallengeNote(i);
+            }
+            else if (Challenge.Kind == FragmentChallenge.Maze)
+                Challenge.Move(new Vector2((keys.dKey.isPressed ? 1 : 0) - (keys.aKey.isPressed ? 1 : 0),
+                    (keys.wKey.isPressed ? 1 : 0) - (keys.sKey.isPressed ? 1 : 0)), Time.deltaTime);
+        }
+        public void ChallengeNote(int note)
+        {
+            if (State != DemoState.Challenge || Challenge.Finished) return;
+            if (Challenge.Note(note)) Audio.Note(0, note);
+        }
+        public void FinishChallenge()
+        {
+            if (State != DemoState.Challenge || !Challenge.Finished) return;
+            bool passed = Challenge.Success;
+            if (passed) Collect(Melody, Challenge.Index);
+            SetState(DemoState.Explore);
+            if (!passed) Tell("Try the beacon again");
+        }
+        public void LeaveChallenge()
+        {
+            if (State != DemoState.Challenge) return;
+            if (Challenge.Finished) FinishChallenge();
+            else SetState(DemoState.Explore);
         }
         public DemoTarget FindNearbyTarget()
         {
@@ -251,18 +292,15 @@ namespace FlyMeToTheMoon.Demo
             if (target.Kind == DemoTargetKind.Altar)
             {
                 if (q.Unlocked) OpenDialogue("Home altar", "The melody is whole. Your piano is ready to play.", "Leave");
-                else if (q.Count < 3) OpenDialogue("The missing melody", "Find the ruins page on " + q.FragmentBodies[0].planetId + ", the floating page on " + q.FragmentBodies[1].planetId + ", and the echo page on " + q.FragmentBodies[2].planetId + ". Bring all three back here.", "Explore");
-                else if (!MelodyRepaired) OpenDialogue("Repair the melody", "All three pages are here. Piece them together at this altar, then perform the restored melody.", "Repair score", () => {
+                else if (q.Count < DemoQuest.FragmentCount) OpenDialogue("The missing melody", "Five golden score pages wait on five moons. Each beacon holds a different challenge. Find them on the map and bring all five pages home.", "Explore");
+                else if (!MelodyRepaired) OpenDialogue("Repair the melody", "All five pages are here. Piece them together at this altar, then perform the restored melody.", "Repair score", () => {
                     MelodyRepaired = true;
                     OpenDialogue("Score restored", "The missing melody is ready. Complete the performance to awaken your piano.", "Perform", () => BeginRhythm(q));
                 });
                 else OpenDialogue("Home altar", "The repaired score is ready to perform.", "Perform", () => BeginRhythm(q));
             }
-            else if (target.Kind == DemoTargetKind.Resonator || target.Kind == DemoTargetKind.EchoPedestal)
-                OpenDialogue("Echo stones", q.PuzzleSolved ? "The echo page is yours. Return to the home altar." : "Listen to the three stones. Shoot them in the same order: middle, first, last. A wrong note restarts the sequence.", q.PuzzleSolved ? "Leave" : "Listen", () => { if(!q.PuzzleSolved && !q.PlayingSequence) StartCoroutine(Demonstrate(q)); });
-            else if (target.Kind == DemoTargetKind.ShotFragment)
-                OpenDialogue("Floating page", "A page hangs beyond reach. Aim at it and shoot a musical note from the ground.", "Try it");
-            else OpenDialogue("Lost page", "Walk into the page to collect it. The home altar holds the rest of the melody.", "Collect");
+            else if (target.Kind == DemoTargetKind.FragmentStation)
+                OpenDialogue(DemoChallenge.Names[target.Index], DemoChallenge.Instructions[target.Index], "Begin challenge", () => BeginChallenge(target.Index));
         }
         public void OpenDialogue(string title, string text, string choice, System.Action action = null)
         {
@@ -277,22 +315,9 @@ namespace FlyMeToTheMoon.Demo
         }
         public void CloseDialogue()
         { dialogueAction = null; SetState(DemoState.Explore); }
-        private IEnumerator Demonstrate(DemoQuest q)
-        {
-            q.PlayingSequence = true; q.SequenceStep = 0;
-
-            foreach (int i in sequence)
-            {
-                q.Resonators[i].Tint(Color.white); Audio.Note(q.Index + 1, i);
-                yield return new WaitForSeconds(0.45f);
-                q.Resonators[i].Tint(q.Resonators[i].BaseColor);
-                yield return new WaitForSeconds(0.15f);
-            }
-            q.PlayingSequence = false;
-        }
         public bool BeginRhythm(DemoQuest q)
         {
-            if (q == null || q != ActiveQuest || q.Count != 3 || !MelodyRepaired || Vector2.Distance(Player.Body.position,q.Altar) > 2.1f) return false;
+            if (q == null || q != ActiveQuest || q.Count != DemoQuest.FragmentCount || !MelodyRepaired || Vector2.Distance(Player.Body.position,q.Altar) > 2.1f) return false;
             Performing = q; Feedback = "Get ready"; LastPassed = false; MapVisible = false;
             Player.Body.linearVelocity = Vector2.zero;
             Rhythm.Begin(0, q.Index);
@@ -322,14 +347,14 @@ namespace FlyMeToTheMoon.Demo
         }
         public void Pause()
         {
-            if (State != DemoState.Explore && State != DemoState.Rhythm) return;
+            if (State != DemoState.Explore && State != DemoState.Rhythm && State != DemoState.Challenge) return;
             beforePause = State; Audio.StopSong(); SetState(DemoState.Paused);
         }
         public void Resume()
         {
             if (State != DemoState.Paused) return;
             if (beforePause == DemoState.Rhythm) { Time.timeScale = 1; BeginRhythm(Performing); }
-            else SetState(DemoState.Explore);
+            else SetState(beforePause == DemoState.Challenge ? DemoState.Challenge : DemoState.Explore);
         }
         public void Continue()
         {

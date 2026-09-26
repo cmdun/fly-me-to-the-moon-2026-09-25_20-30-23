@@ -52,7 +52,11 @@ namespace FlyMeToTheMoon
         }
 
         private void OnEnable() => ownedActions.FindActionMap("Player", true).Enable();
-        private void OnDisable() => ownedActions?.Disable();
+        private void OnDisable()
+        {
+            ownedActions?.Disable();
+            jumpRequestedUntil = -1f;
+        }
         private void OnDestroy()
         {
             if (ownedActions != null) Destroy(ownedActions);

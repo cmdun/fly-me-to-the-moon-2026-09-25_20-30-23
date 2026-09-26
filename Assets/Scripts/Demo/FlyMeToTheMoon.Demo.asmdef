@@ -1,0 +1,11 @@
+{
+  "name": "FlyMeToTheMoon.Demo",
+  "references": [
+    "FlyMeToTheMoon.Prototype",
+    "Unity.InputSystem",
+    "Unity.ugui",
+    "Unity.TextMeshPro",
+    "Unity.RenderPipelines.Universal.Runtime",
+    "Unity.RenderPipelines.Universal.2D.Runtime"
+  ]
+}

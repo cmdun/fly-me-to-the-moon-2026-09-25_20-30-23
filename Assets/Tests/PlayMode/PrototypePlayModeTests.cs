@@ -133,7 +133,7 @@ public sealed class PrototypePlayModeTests
     [UnityTest]
     public IEnumerator MissedTransferFallsIntoSpaceAndRespawns()
     {
-        // Move to the far side through real input, then jump away from the route.
+        // Walk a quarter turn through real input into the gap between moons, then jump away.
         yield return Press(Key.D);
         yield return new WaitForSeconds(4.2f);
         yield return Press();
@@ -145,8 +145,32 @@ public sealed class PrototypePlayModeTests
         Assert.That(planets.RespawnCount, Is.EqualTo(1));
         yield return WaitForGround();
         Assert.That(planets.CurrentPlanet, Is.EqualTo(planets.respawnPlanet));
-        Assert.That(Vector2.Distance(player.Body.position, new Vector2(0f, 6.28f)), Is.LessThan(0.2f));
+        var home = planets.respawnPlanet;
+        Vector2 spawn = home.Center + planets.spawnUp.normalized * (home.radius + 0.28f);
+        Assert.That(Vector2.Distance(player.Body.position, spawn), Is.LessThan(0.2f));
         Assert.That(player.FluteUsed, Is.False);
+    }
+
+    [UnityTest]
+    public IEnumerator EveryMoonIsReachableFromHomeWithJumpAndFlute()
+    {
+        var home = planets.respawnPlanet;
+        int moons = 0;
+        foreach (var moon in gravity.bodies)
+        {
+            if (moon == home) continue;
+            moons++;
+            // Start directly beneath each moon, then use the normal jump plus flute boost.
+            player.Respawn(home, moon.Center - home.Center);
+            yield return WaitForGround();
+            yield return Launch();
+            yield return Press(Key.Space);
+            yield return Press();
+            yield return WaitForGround();
+            Assert.That(planets.CurrentPlanet, Is.EqualTo(moon), moon.planetId + " should capture the player.");
+        }
+        Assert.That(moons, Is.GreaterThanOrEqualTo(5));
+        Assert.That(planets.RespawnCount, Is.Zero);
     }
 }
 #endif

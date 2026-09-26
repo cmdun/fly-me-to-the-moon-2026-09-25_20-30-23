@@ -1,77 +1,49 @@
-# Fly Me to the Moon — exploration demo
+# Fly Me to the Moon — world encounters
 
-Open `Assets/Scenes/FullDemo.unity` in Unity **6000.6.3f1** and press Play. The playable build scene uses the existing prototype controller with demo-specific tuning. Original prototype and piano test scenes remain available.
+Open `Assets/Scenes/FullDemo.unity` in Unity 6000.6.3f1 and press Play. The world has 24 varied moons, five page beacons, a home altar, and seeded moonfolk conversations. The five page challenges now use the real character, circular gravity, movement, and projectiles in the world.
 
-## Journey
+## Five score pages
 
-Start on 612-B with a flute. E at the home altar explains the missing melody through typed dialogue. Exactly **five** golden score-page beacons appear on five distinct randomly selected moons. Large sheets with musical staffs and gold map markers identify them. Approach a beacon for its context arrow, press E for instructions, then begin its challenge. They can be completed in any order:
-
-| Page | Challenge | Requirement |
+| Encounter | How to play | Progression and recovery |
 |---|---|---|
-| Echo memory | Watch/listen, then repeat with 1–7 | Six notes; two mistakes fail; 24 seconds after the preview |
-| Pulse passage | A/S/D/F timing lanes | At least 10/12 hits within ±0.12 seconds; wrong keys also count |
-| Shooting stars | Left-click moving targets | Eight hits in 16 seconds; three misses fail |
-| Note cipher | Follow numbered interval clues with 1–7 | Six answers, wrapping between 7 and 1; two mistakes or 22 seconds fails |
-| Silent maze | WASD through three alternating openings | Reach the exit in 22 seconds; walls reset position; three collisions fail |
+| Orbital Relay | Carry a spark through three marked gates along a chain of four moons, then press E at the receiver. Use one boost per flight, shared by Space and right click. | A straight transfer, an angled gate, then a moving gate. Blue landing shrines save gate progress. Landing naturally restores the jump budget. Skip shrines for continuous, riskier flight, or R to retry from the last shrine. Missing a gate does not end the attempt. |
+| The Sleeping Giant | Approach the page quietly and press E when the giant is looking away. Shoot bells to distract it. | Walking is quiet; gravel, jumps, calls, and shots raise visible awareness. The giant shifts its sleeping position. Bell distractions last five seconds. Waking it returns the player to the beacon; collected pages are safe. |
+| Pulse Storm | Jump low waves, shelter from high waves, then shoot both exposed shrine switches. | Three circuits: low waves, reversed high waves, and a combined pattern. Warnings precede each burst. Hits knock the player back and reset the current circuit, preserving earlier circuits. |
+| Starlight Shepherd | Open the gate with E, then lead singers to the sanctuary using Q. | Rescue the immediate follower first to wake the sustained-call and silence followers. Nearby shots frighten them. Thorn patches scatter unrescued creatures back to their starting positions. Symbols, movement, and color show their behavior. |
+| Duet with Your Echo | C records up to eight seconds of movement, pressure-plate occupancy, and shots. E starts looping playback. Cross the ghost-opened gate and shoot the receiver. | A route trace, visible ghost, and countdown show playback. The second room requires ghost and player pressure plates to overlap. C immediately clears and replaces the recording. Earlier rooms remain completed when retrying. |
 
-Return from a successful challenge to collect its page. Touching or shooting a beacon cannot bypass the challenge. Failure preserves other pages, and E at the beacon starts a fresh attempt. Escape pauses challenge time; Leave abandons the attempt.
+Each encounter awards one page, once. The five beacons are on distinct moons. The relay begins on an inner moon so its three outward transfers always follow generated neighboring worlds. Other encounter hosts and beacon positions remain seeded and varied.
 
-Bring all five pages home, interact with the altar to **repair the score**, then perform the restored melody. Hit 17 of 24 notes to unlock the piano. Failed performances preserve the pages and repair. Only flute and piano are available.
+Return all five pages to the altar on 612-B, repair the score through its dialogue, and perform the restored melody (17 of 24 notes). This unlocks the piano. Failed performances preserve the pages and repair.
 
-## Living encounters
+## Controls
 
-612-B is home to **Lyra, Keeper of 612-B**, who introduces the Hush: a silence that taught the moons to forget their music. Lyra points toward the five score-page beacons and updates her dialogue as pages return, the score is repaired, and the piano awakens.
+- A/D: walk around a moon; Space: jump; Space again or right click: the one airborne boost.
+- WASD after boosting: steer through space. Right-click recoil pushes opposite the aim.
+- Left click: shoot notes without changing movement or consuming the boost.
+- E: interact, advance dialogue, operate encounter objects, or end echo recording.
+- Q: hold a flute call. C: record or immediately rerecord an echo. R: retry the encounter checkpoint; outside encounters, recover to the last safe landing.
+- M: full map. The nearby minimap follows position and keeps north fixed.
+- Escape: pause and view controls. Leave on the encounter HUD abandons that attempt.
+- 1–7: play C D E F G A B. Tab switches flute/piano after unlocking and landing.
+- A/S/D/F: final home-altar performance.
 
-Eight optional moonfolk appear on eight distinct moons, with two encounters at each world depth. Their locations are chosen from the same world seed as the galaxy, so a fixed seed recreates both the moon layout and conversations. Each creature teaches one part of play through a short, typed conversation:
+Approaching an exploration interactable shows an arrow; E opens typed instructions. Encounter instructions use short pages. During an encounter, a compact status display, relevant world labels, and a goal pointer replace the former full-screen input boards. Escape pauses encounter clocks and physics. The final altar performance restarts its song after a pause.
 
-- Pip explains surface movement, jumping, and the shared airborne boost.
-- Nim explains the map, ring-to-ring routes, and recovery.
-- Mote explains separate left-click shooting and right-click airborne recoil.
-- Tink explains the six-note echo-memory challenge.
-- Vesper tells how the Hush scattered the melody.
-- The Bramble Choir explains free-play notes, score performance, and instrument switching.
-- Cadence explains the A/S/D/F pulse challenge and accurate timing.
-- Sable introduces the five challenge types, the silent maze, and challenge pausing.
+## World and implementation
 
-First conversations have three pages and leave the creature visibly changed after the player acknowledges them. Later conversations are brief reminders. Encounters are optional and independent of score collection, so adding, moving, or restyling moons does not change progression.
+Moons have radii 3.2–5.8, irregular outward routes, and 6.5–8-unit neighbor gaps. Single jumps return to the launch planet. Grounded movement follows the curved surface. The flute remains jump 5 / boost 3 / flight cap 9; the unlocked piano remains 6 / 5 / 13.
 
-Normal exploration shows the current planet, restoration progress, equipped instrument, a nearby minimap, and brief collection feedback. The nearest interactable on the same planet gets an arrow within 2.1 units. E opens dialogue; E/Enter or the dialogue button first reveals the line, then advances the conversation or activates its final choice. Escape dismisses dialogue without selecting its action.
+`DemoGame.WorldSeed = 0` chooses a new seed; a nonzero value reproduces a layout. The existing moonfolk and their multipage conversations remain, with hints updated for the new encounters.
 
-## Controls (also in the Escape menu)
+`DemoChallenge` owns a temporary encounter root and delegates to five separate encounter classes. The page beacon hides during an attempt and reappears if you leave without completing it. Ending an encounter removes its gates, receivers, creatures, and ghost without changing the underlying moon. Physical projectile raycasts respect terrain and closed gates. Only active encounters accept receiver hits. `PlanetManager` records a new safe landing after returning from encounter-controlled movement.
 
-| Input | Action |
-|---|---|
-| A/D | Walk around the surface; steer during a normal jump |
-| Space | Normal jump; a second press uses the airborne boost |
-| WASD in flight | Steering thrust |
-| Left click | Aim and shoot notes; never changes movement or consumes a jump |
-| Right click in the air | Recoil opposite the aim; consumes the same boost as a second Space press |
-| E | Interact or advance dialogue |
-| 1–7 | Play C, D, E, F, G, A, B |
-| Tab | Switch flute/piano after unlocking; land before switching |
-| M | Toggle the complete world map |
-| R | Recover to the last safe landing; retry a failed final performance |
-| Esc | Pause and view controls; a paused final performance restarts on resume |
-| A/S/D/F during rhythm | The four note lanes |
+`FullDemoBuilder.BuildMac` creates `Build/Fly Me to the Moon Demo.app`. Runtime objects are generated through Unity APIs; no scene YAML, packages, or project-setting migrations are part of this update. The development build supports `-demoSmoke <output-directory>` for an opt-in standalone playthrough and screenshots, using simulated inputs and actual physics/projectiles. Checkpoint respawns are used between encounters; movement within encounters is played through.
 
-Each flight allows **one** airborne boost shared by Space and right click. Left-click shooting remains available before and after that boost. Right click on the ground has no effect. Keys 1–7 play audio without recoil.
+Placeholder visuals and synthesized sounds remain. Progress is session-only. These are complete prototype encounters with two echo rooms, three storm circuits, three relay transfers, three singer behaviors, and one shifting giant arena.
 
-The flute uses jump speed 5, boost 3, flight speed cap 9, and steering acceleration 4. The piano uses 6, 5, 13, and 6. The legacy prototype keeps its original tuning. Single jumps return to the launch planet. Grounded walking integrates an arc around the surface, preventing tangent motion from carrying the character off a moon.
+## Verification (2026-09-26)
 
-## Generated world and maps
+The full Unity Play Mode suite passed 39/39 tests, covering 1,000 world-generation seeds, actual round trips to all 24 moons, mouse input separation, the five-page journey, piano unlock, NPC dialogue, and encounter failure cases. After the final visibility changes, both the complete journey and beacon leave/rerecord regression passed again.
 
-Each new journey generates **24 moons** with radii **3.2–5.8 units**, compared with the earlier 1.6–1.95. Four loose depths of six moons form irregular outward routes. Moon positions bend away from uniform radial spokes, with varying radii and route lengths. Every moon has an inward connection with a **6.5–8-unit surface gap**, and all pairs keep at least 6.5 units of clearance. These gaps require a double jump; normal jumps retain their launch planet. The outer extent exceeds 65 units, compared with the previous approximately 30.
-
-The minimap follows the player's position, keeps north fixed at the top, shows nearby moon sizes and uncollected page beacons, and keeps the player centered. Its half-width is 32 world units. M opens an automatically fitted whole-world map with moon numbers, remaining page markers, and your current position.
-
-`DemoGame.WorldSeed = 0` chooses a new seed each journey. Set a nonzero seed for a reproducible layout. `DemoGame.Seed` records the active seed. Progress is session-only; New journey clears it and regenerates the world. For a fixed seed, the same layout and encounter moons are recreated.
-
-## Build and verification
-
-`FullDemoBuilder.BuildMac` builds `Build/Fly Me to the Moon Demo.app` using a temporary windowed Mac profile, then restores project settings. Generated Unity folders and app binaries are not versioned.
-
-The PlayMode suite covers 1,000 randomized layouts and encounter plans, outbound and return starter-flute routes for every moon, full-circle surface walking, separate mouse bindings and boost limits, minimap tracking, five challenge rules and actual input flows, multi-page and repeat dialogue, home-only restoration, failure/retry, piano unlock, restart, and existing movement/piano regressions.
-
-The development app supports `-demoSmoke <output-directory>` for an opt-in standalone playthrough with screenshots. It uses actual keyboard/mouse input for the five challenges and final performance, and checks flight, recoil, restoration, and piano unlock. Respawn checkpoints position the player between interaction tests. Normal play has no test controls enabled.
-
-Visuals are placeholders, sounds are synthesized, and progress is not saved across launches. The final performance has four lanes; free play and the memory/cipher challenges use all seven notes.
+Two standalone Mac playthroughs completed with zero reported errors, five collected pages, and the piano unlocked (seeds 2078414374 and 1084657776). The final run used the rebuilt app and its gameplay captures were visually inspected. The driver uses real movement and projectile inputs inside encounters, including a relay checkpoint retry; it respawns between separate encounters to keep verification focused.

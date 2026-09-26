@@ -29,7 +29,7 @@ namespace FlyMeToTheMoon
 
         private void Update()
         {
-            if (player.IsGrounded && !wasGrounded && CurrentPlanet != null)
+            if (player.IsGrounded && (!wasGrounded || CurrentPlanet != lastSafePlanet) && CurrentPlanet != null)
             {
                 lastSafePlanet = CurrentPlanet;
                 lastSafeUp = CurrentPlanet.UpAt(player.Body.position);

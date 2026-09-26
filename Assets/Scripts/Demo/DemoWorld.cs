@@ -61,7 +61,9 @@ namespace FlyMeToTheMoon.Demo
             var hosts = new System.Collections.Generic.List<GravityBody>();
             for (int i = 1; i < bodies.Length; i++) hosts.Add(bodies[i]);
             for (int i = hosts.Count - 1; i > 0; i--) { int j = random.Next(i + 1); var swap = hosts[i]; hosts[i] = hosts[j]; hosts[j] = swap; }
-            for (int i = 0; i < DemoQuest.FragmentCount; i++) q.FragmentBodies[i] = hosts[i];
+            q.FragmentBodies[0] = bodies[1 + random.Next(DemoGalaxy.MoonsPerRing)];
+            hosts.Remove(q.FragmentBodies[0]);
+            for (int i = 1; i < DemoQuest.FragmentCount; i++) q.FragmentBodies[i] = hosts[i-1];
             q.Altar = home.Center + (Vector2)(Quaternion.Euler(0,0,-7) * Vector2.up) * (home.radius + .2f);
             q.AltarTarget = Target(game, q, DemoTargetKind.Altar, 0, q.Altar, DemoGame.Accent, "Home altar");
             q.AltarTarget.Body = home; q.AltarTarget.Shape.shape = PrototypeShape.Shape.Rectangle;
@@ -102,15 +104,27 @@ namespace FlyMeToTheMoon.Demo
     {
         public DemoGame Game;
         public Vector2 Direction;
+        public bool IsEcho;
         private float remaining = 1.6f;
         private void Update()
         {
             if (Game == null) { Destroy(gameObject); return; }
-            if (Game.State != DemoState.Explore) return;
+            if (!Game.PlayingWorld) return;
             Vector2 start = transform.position;
             Vector2 end = start + Direction * (12f * Time.deltaTime);
-            foreach (var body in Game.Player.gravityManager.bodies)
-                if (body.SurfaceDistance(end) < -0.02f) { Destroy(gameObject); return; }
+            var hits = Physics2D.RaycastAll(start, Direction, Vector2.Distance(start,end));
+            RaycastHit2D nearest = default; float distance = float.PositiveInfinity;
+            foreach (var hit in hits)
+            {
+                if (hit.collider.gameObject == Game.Player.gameObject || hit.distance >= distance) continue;
+                distance = hit.distance; nearest = hit;
+            }
+            if (nearest.collider != null)
+            {
+                var receiver = nearest.collider.GetComponent<EncounterShotTarget>();
+                if (receiver != null && receiver.Challenge.Active && Game.State == DemoState.Challenge) receiver.Hit?.Invoke(IsEcho);
+                Destroy(gameObject); return;
+            }
             transform.position = new Vector3(end.x, end.y, -0.8f);
             remaining -= Time.deltaTime;
             if (remaining <= 0) Destroy(gameObject);

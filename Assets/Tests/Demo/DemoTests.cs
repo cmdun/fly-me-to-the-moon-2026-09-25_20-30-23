@@ -49,41 +49,6 @@ public class DemoTests
         Assert.AreNotEqual(DemoGalaxy.Layout(1)[0].Center,DemoGalaxy.Layout(2)[0].Center);
         Assert.AreEqual(DemoGalaxy.Layout(3)[8].Center,DemoGalaxy.Layout(3)[8].Center);
     }
-    [Test] public void MemoryAndCipherRejectWrongAnswersAndRequireAllSixNotes()
-    {
-        foreach(int index in new[]{0,3})
-        {
-            var c=new DemoChallenge();c.Begin(index,101);
-            if(index==0){Assert.IsFalse(c.Note(c.Sequence[0]));c.Tick(DemoChallenge.PreviewDuration);}
-            c.Note((c.Sequence[0]+1)%7);Assert.AreEqual(1,c.Strikes);Assert.AreEqual(0,c.Step);
-            c.Note((c.Sequence[0]+1)%7);Assert.IsTrue(c.Finished);Assert.IsFalse(c.Success);
-            c.Begin(index,101);if(index==0)c.Tick(DemoChallenge.PreviewDuration);
-            for(int i=0;i<5;i++)Assert.IsTrue(c.Note(c.Sequence[i]));Assert.IsFalse(c.Finished);
-            c.Note(c.Sequence[5]);Assert.IsTrue(c.Success);c.Note(0);Assert.AreEqual(6,c.Step);
-        }
-    }
-    [Test] public void PulseRequiresTenAccurateNotesAndPenalizesMashing()
-    {
-        var c=new DemoChallenge();c.Begin(1,2);c.Note(0);c.Note(1);c.Note(2);Assert.IsTrue(c.Finished);Assert.IsFalse(c.Success);
-        c.Begin(1,2);
-        for(int i=0;i<12;i++){c.Tick(DemoChallenge.BeatTime(i)-c.Elapsed);if(i<10)Assert.IsTrue(c.Note(c.Sequence[i]));}
-        c.Tick(1);Assert.IsTrue(c.Success);Assert.AreEqual(2,c.Strikes);
-        c.Begin(1,2);c.Tick(DemoChallenge.BeatTime(0)+.121f);Assert.IsFalse(c.Note(c.Sequence[0]));Assert.AreEqual(0,c.Step);
-    }
-    [Test] public void MovingStarsRequireEightHitsAndFailOnMissesOrTimeout()
-    {
-        var c=new DemoChallenge();c.Begin(2,3);Vector2 initial=c.TargetPosition;c.Tick(.5f);Assert.AreNotEqual(initial,c.TargetPosition);
-        for(int i=0;i<3;i++)c.Shoot(Vector2.one*4);Assert.IsTrue(c.Finished);Assert.IsFalse(c.Success);
-        c.Begin(2,3);for(int i=0;i<8;i++){Assert.IsTrue(c.Shoot(c.TargetPosition));c.Tick(.2f);}Assert.IsTrue(c.Success);
-        c.Begin(2,3);c.Tick(16.1f);Assert.IsFalse(c.Success);Assert.IsFalse(c.Shoot(c.TargetPosition));
-    }
-    [Test] public void MazeWallsPreventTunnelingAndThreeCollisionsFail()
-    {
-        var c=new DemoChallenge();c.Begin(4,4);
-        for(int i=0;i<3;i++){c.Move(Vector2.right,3);c.Tick(.6f);}
-        Assert.IsTrue(c.Finished);Assert.IsFalse(c.Success);Assert.AreEqual(new Vector2(-.88f,-.75f),c.MazePosition);
-        foreach(int i in new[]{0,1,2,3,4}){c.Begin(i,4);c.Tick(40);Assert.IsTrue(c.Finished);Assert.IsFalse(c.Success);}
-    }
     [Test] public void SevenNotesCoverAMajorScale()
     {
         Assert.That(DemoAudio.FrequencyForNote(0),Is.EqualTo(261.6256f).Within(.01));
@@ -258,14 +223,16 @@ public class DemoJourneyTests
         {
             var station=q.Stations[index];g.Player.Respawn(station.Body,(Vector2)station.transform.position-station.Body.Center);yield return Land();
             Assert.IsFalse(q.Fragments[index],"Touching alone must not award page");
-            g.Interact();Assert.AreEqual(DemoState.Dialogue,g.State);g.AdvanceDialogue();g.AdvanceDialogue();Assert.AreEqual(DemoState.Challenge,g.State);
+            g.Interact();Assert.AreEqual(DemoState.Dialogue,g.State);DemoSmoke.AdvanceAll(g);Assert.AreEqual(DemoState.Challenge,g.State);
+            Assert.IsTrue(g.Player.enabled);Assert.IsTrue(g.Player.Body.simulated,"Encounters use actual world movement");
             if(index==4)
             {
-                g.Challenge.Tick(23);Assert.IsFalse(g.Challenge.Success);g.FinishChallenge();Assert.IsFalse(q.Fragments[index]);
-                Assert.IsTrue(g.BeginChallenge(index));g.Pause();float elapsed=g.Challenge.Elapsed;yield return new WaitForSecondsRealtime(.1f);Assert.AreEqual(elapsed,g.Challenge.Elapsed);g.Resume();
+                g.Pause();float elapsed=g.Challenge.Elapsed;yield return new WaitForSecondsRealtime(.1f);Assert.AreEqual(elapsed,g.Challenge.Elapsed);g.Resume();
             }
+            var encounter=g.Challenge.Encounter;
             yield return DemoSmoke.SolveChallenge(g,keyboard,mouse);
-            Assert.IsTrue(g.Challenge.Success,"Challenge "+index+" failed elapsed="+g.Challenge.Elapsed+" pos="+g.Challenge.MazePosition+" strikes="+g.Challenge.Strikes+" step="+g.Challenge.Step);if(index==3)g.LeaveChallenge();else g.FinishChallenge();Assert.IsTrue(q.Fragments[index]);Assert.IsFalse(g.Collect(q,index));
+            Assert.IsTrue(g.Challenge.Success,"Encounter "+index+" failed: "+encounter.Status+" pos="+encounter.Along(g.Player.Body.position)+" height="+encounter.Body.SurfaceDistance(g.Player.Body.position));
+            Assert.IsTrue(q.Fragments[index]);Assert.IsFalse(g.Collect(q,index));
         }
         Assert.AreEqual(5,q.Count);
         Assert.IsFalse(g.BeginRhythm(q),"No performance away from home");Assert.AreEqual(0,g.Completed);
@@ -287,6 +254,85 @@ public class DemoJourneyTests
         int previousSeed=g.Seed;g.Restart();yield return null;yield return null;
         var fresh=Object.FindAnyObjectByType<DemoGame>();Assert.AreEqual(DemoState.Title,fresh.State);Assert.AreEqual(0,fresh.Melody.Count);Assert.AreEqual(0,fresh.Completed);
         Assert.AreNotEqual(previousSeed,fresh.Seed);
+    }
+    IEnumerator BeginEncounter(int index)
+    {
+        var station=g.Melody.Stations[index];
+        g.Player.Respawn(station.Body,(Vector2)station.transform.position-station.Body.Center);yield return Land();
+        g.Interact();DemoSmoke.AdvanceAll(g);yield return new WaitForSeconds(.2f);
+        Assert.AreEqual(DemoState.Challenge,g.State);
+    }
+    IEnumerator StandAt(WorldEncounter encounter,float distance)
+    {
+        g.Player.Respawn(encounter.Body,encounter.At(distance)-encounter.Body.Center);yield return Land();
+    }
+    [UnityTest] public IEnumerator EchoClosedGateBlocksMovementAndRerecordClearsPastActions()
+    {
+        yield return BeginEncounter(4);var echo=(EchoEncounter)g.Challenge.Encounter;
+        Assert.IsFalse(g.Melody.Stations[4].gameObject.activeSelf,"Hide the beacon during its encounter");
+        echo.ReceiverTarget.Hit(false);Assert.AreEqual(0,echo.Stage);Assert.IsFalse(echo.Complete);
+        yield return StandAt(echo,4.7f);
+        yield return Press(Key.D);yield return new WaitForSeconds(.8f);yield return Press();
+        Assert.Less(echo.Along(g.Player.Body.position),5.7f,"Closed gate must stop the real controller");
+        yield return Press(Key.C);yield return Press();
+        yield return DemoSmoke.Walk(g,echo,keyboard,2.8f);
+        yield return DemoSmoke.Fire(g,mouse,g.Player.Body.position+g.Player.Up*5);
+        Assert.IsTrue(echo.Recording);Assert.Greater(echo.Frames.Count,2);Assert.AreEqual(1,echo.Shots.Count);
+        yield return Press(Key.E);yield return Press();
+        Assert.IsTrue(echo.Playing);Assert.IsFalse(echo.Recording);
+        yield return Press(Key.C);yield return Press();
+        Assert.IsTrue(echo.Recording);Assert.IsFalse(echo.Playing);Assert.AreEqual(0,echo.Shots.Count);
+        Assert.Less(echo.Clock,.2f);Assert.IsFalse(echo.GhostOnPlate);
+        var root=g.Challenge.Root;g.LeaveChallenge();yield return null;
+        Assert.IsTrue(root==null);Assert.IsTrue(g.Melody.Stations[4].gameObject.activeSelf,"Leaving restores the beacon for another attempt");Assert.AreEqual(0,Object.FindObjectsByType<EncounterShotTarget>(FindObjectsSortMode.None).Length);
+        Assert.AreEqual(0,g.Melody.Count);
+    }
+    [UnityTest] public IEnumerator ShepherdResponsesNoiseHazardsAndGateAreDistinct()
+    {
+        yield return BeginEncounter(3);var e=(ShepherdEncounter)g.Challenge.Encounter;
+        g.enabled=false;
+        e.Tick(.2f,true);Assert.Greater(e.Creatures[0].Position,-2.5f);Assert.IsFalse(e.Creatures[1].Awake);
+        e.Creatures[0].Position=ShepherdEncounter.Sanctuary;e.Tick(0,false);Assert.AreEqual(1,e.Rescued);
+        e.Creatures[1].Position=e.Creatures[2].Position=-2;
+        e.Tick(.2f,true);Assert.AreEqual(-2,e.Creatures[1].Position);Assert.AreEqual(-2,e.Creatures[2].Position);
+        e.Tick(.6f,true);Assert.Greater(e.Creatures[1].Position,-2);Assert.AreEqual(-2,e.Creatures[2].Position);
+        e.Tick(.3f,false);Assert.Greater(e.Creatures[2].Position,-2);
+        float position=e.Creatures[1].Position;e.Shot(e.At(position+.5f),Vector2.up);e.Tick(.1f,false);
+        Assert.Greater(e.Creatures[1].Fear,0);Assert.Less(e.Creatures[1].Position,position,"Noise drives nearby singers away");
+        e.Creatures[1].Fear=0;e.Creatures[1].Position=e.Creatures[1].Target=-7.5f;e.Tick(0,false);
+        Assert.That(e.Creatures[1].Position,Is.EqualTo(-3.7f).Within(.001));Assert.AreEqual(1,e.Rescued);
+        yield return StandAt(e,1.4f);e.Interact();Assert.IsTrue(e.Door.Open);
+        e.Interact();Assert.IsFalse(e.Door.Open);
+        Assert.IsFalse(e.Complete);g.enabled=true;g.LeaveChallenge();
+    }
+    [UnityTest] public IEnumerator StormRejectsCoveredSwitchesAndHitsResetOnlyCurrentCircuit()
+    {
+        yield return BeginEncounter(2);var e=(StormEncounter)g.Challenge.Encounter;g.enabled=false;
+        e.Switches[0].Hit(false);Assert.IsFalse(e.Repaired[0]);
+        e.Tick(6,false);Assert.IsTrue(e.Exposed);
+        e.Switches[0].Hit(true);Assert.IsFalse(e.Repaired[0],"A ghost cannot perform a real repair");
+        e.Switches[0].Hit(false);Assert.IsTrue(e.Repaired[0]);
+        e.Tick(3,false);e.Tick(2.64f,false);
+        Assert.AreEqual(1,e.HitsTaken);Assert.IsFalse(e.Repaired[0]);Assert.AreEqual(0,e.Stage);
+        Assert.Greater(g.Player.Body.linearVelocity.magnitude,2,"A hit must knock the player back");
+        e.Tick(6,false);e.Switches[0].Hit(false);e.Switches[1].Hit(false);Assert.AreEqual(1,e.Stage);
+        yield return Land();e.Tick(2.65f,false);
+        Assert.AreEqual(1,e.HitsTaken,"Shelter blocks a high wave");
+        e.Reset();yield return StandAt(e,2);e.Tick(2.4f,false);
+        Assert.AreEqual(2,e.HitsTaken);Assert.AreEqual(1,e.Stage,"Completed circuits survive a hit");
+        Assert.IsFalse(e.Complete);g.enabled=true;g.LeaveChallenge();
+    }
+    [UnityTest] public IEnumerator GiantNoiseWakesAndRealBellShotDistracts()
+    {
+        yield return BeginEncounter(1);var e=(GiantEncounter)g.Challenge.Encounter;
+        for(int i=0;i<4;i++)e.Shot(e.At(e.SleepingPosition),Vector2.up);
+        e.Tick(0,false);Assert.AreEqual(1,e.Wakes);Assert.AreEqual(0,e.Awareness);
+        yield return Land();yield return Press(Key.Space);yield return Press();
+        Assert.Greater(e.Awareness,.1f,"A real jump produces noise");
+        yield return StandAt(e,1.6f);
+        yield return DemoSmoke.Fire(g,mouse,e.Bells[1].transform.position);
+        Assert.Greater(e.LureRemaining,4);Assert.That(e.Attention,Is.EqualTo(2.7f).Within(.01f));
+        Assert.IsFalse(e.Complete);Assert.AreEqual(0,g.Melody.Count);g.LeaveChallenge();
     }
     [UnityTest] public IEnumerator SeededCreaturesTeachWithMultiPageAndShortRepeatDialogue()
     {

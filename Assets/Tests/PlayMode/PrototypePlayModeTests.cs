@@ -138,15 +138,18 @@ public sealed class PrototypePlayModeTests
     [UnityTest]
     public IEnumerator MissedTransferFallsIntoSpaceAndRespawns()
     {
-        // Move to the far side through real input, then jump away from the route.
+        // Walk a quarter turn through real input into the gap between moons, then jump away.
         yield return Press(Key.D);
         yield return new WaitForSeconds(4.2f);
         yield return Press();
         yield return Launch();
         yield return Press(Key.Space);
-        yield return Press();
+        // Gravity can return a coasting jump safely. Deliberately thrust outward
+        // through the gap to exercise lost-distance recovery instead.
+        yield return Press(Key.D);
         float end = Time.time + 13f;
         while (planets.RespawnCount == 0 && Time.time < end) yield return null;
+        yield return Press();
         Assert.That(planets.RespawnCount, Is.EqualTo(1));
         yield return WaitForGround();
         Assert.That(planets.CurrentPlanet, Is.EqualTo(planets.respawnPlanet));
@@ -341,5 +344,26 @@ public sealed class PrototypePlayModeTests
         yield return Press();
     }
 
+    [UnityTest]
+    public IEnumerator EveryMoonIsReachableFromHomeWithJumpAndFlute()
+    {
+        var home = planets.respawnPlanet;
+        int moons = 0;
+        foreach (var moon in gravity.bodies)
+        {
+            if (moon == home) continue;
+            moons++;
+            // Start directly beneath each moon, then use the normal jump plus flute boost.
+            player.Respawn(home, moon.Center - home.Center);
+            yield return WaitForGround();
+            yield return Launch();
+            yield return Press(Key.Space);
+            yield return Press();
+            yield return WaitForGround();
+            Assert.That(planets.CurrentPlanet, Is.EqualTo(moon), moon.planetId + " should capture the player.");
+        }
+        Assert.That(moons, Is.GreaterThanOrEqualTo(5));
+        Assert.That(planets.RespawnCount, Is.Zero);
+    }
 }
 #endif

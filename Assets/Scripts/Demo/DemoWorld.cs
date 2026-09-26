@@ -3,14 +3,15 @@ using TMPro;
 
 namespace FlyMeToTheMoon.Demo
 {
-    public enum DemoTargetKind { WalkFragment, ShotFragment, Resonator, PuzzleFragment, Practice }
+    public enum DemoTargetKind { WalkFragment, ShotFragment, Resonator, PuzzleFragment, Practice, Altar, EchoPedestal }
 
     public sealed class DemoWorldLabel : MonoBehaviour
     { public string Caption; }
 
     public sealed class DemoTarget : MonoBehaviour
     {
-        public DemoQuest Quest;
+        [System.NonSerialized] public DemoQuest Quest;
+        public GravityBody Body;
         public DemoTargetKind Kind;
         public int Index;
         public Color BaseColor;
@@ -27,6 +28,8 @@ namespace FlyMeToTheMoon.Demo
         public readonly DemoTarget[] Resonators = new DemoTarget[3];
         public DemoTarget Walk, Shot, Reward;
         public Vector2 Altar, Pedestal;
+        public readonly GravityBody[] FragmentBodies = new GravityBody[3];
+        public DemoTarget AltarTarget, PedestalTarget;
         public bool Unlocked, PuzzleSolved, PlayingSequence;
         public int SequenceStep;
         public int Count => (Fragments[0] ? 1 : 0) + (Fragments[1] ? 1 : 0) + (Fragments[2] ? 1 : 0);
@@ -65,37 +68,50 @@ namespace FlyMeToTheMoon.Demo
             var node = shape.gameObject.AddComponent<DemoTarget>();
             node.Quest = quest; node.Kind = kind; node.Index = index; node.Shape = shape; node.BaseColor = color;
             game.Targets.Add(node);
-            Label(shape.transform, label, position + Vector2.up * 0.45f, game.Font, 2.5f);
+
             return node;
         }
-        public static DemoQuest CreateQuest(DemoGame game, GravityBody body, int index)
+        public static DemoQuest CreateJourney(DemoGame game, GravityBody[] bodies, int seed)
         {
-            var q = new DemoQuest { Body = body, Index = index, Instrument = DemoGame.Instruments[index + 1] };
             var home = game.Planets.respawnPlanet;
-            q.Altar = q.Surface(0, 0.48f, home);
-            q.Pedestal = q.Surface(105, 0.48f, home);
-            var altar = Shape(game.WorldRoot, q.Instrument + " altar", q.Altar, new Vector2(1.0f, 0.45f),
-                DemoGame.Accent, game.Material);
-            altar.transform.rotation = Quaternion.FromToRotation(Vector3.up, body.UpAt(q.Altar));
-            Label(game.WorldRoot, (index + 1) + " / " + q.Instrument + "\n[E] perform", q.Altar + body.UpAt(q.Altar) * 0.9f, game.Font);
-            q.Walk = Target(game, q, DemoTargetKind.WalkFragment, 0, q.Surface(-55, 0.4f, home), new Color(1, 0.84f, 0.38f), "PAGE 1");
-            q.Shot = Target(game, q, DemoTargetKind.ShotFragment, 1, q.Surface(48, 1.3f, home), new Color(0.5f, 0.85f, 1), "PAGE 2\nshoot");
-            q.Reward = Target(game, q, DemoTargetKind.PuzzleFragment, 2, q.Pedestal, new Color(1, 0.7f, 0.9f), "PAGE 3");
-            q.Reward.gameObject.SetActive(false);
-            Vector2 up = body.UpAt(q.Pedestal), tangent = new Vector2(up.y, -up.x);
+            var random = new System.Random(seed ^ 0x45a31);
+            var q = new DemoQuest { Body = home, Index = 0, Instrument = "Piano" };
+            for (int i = 0; i < 3; i++) q.FragmentBodies[i] = bodies[1 + i * DemoGalaxy.MoonsPerRing + random.Next(DemoGalaxy.MoonsPerRing)];
+            q.Altar = home.Center + (Vector2)(Quaternion.Euler(0,0,-7) * Vector2.up) * (home.radius + .2f);
+            q.AltarTarget = Target(game, q, DemoTargetKind.Altar, 0, q.Altar, DemoGame.Accent, "Home altar");
+            q.AltarTarget.Body = home; q.AltarTarget.Shape.shape = PrototypeShape.Shape.Rectangle;
+            q.AltarTarget.Shape.size = new Vector2(1.0f,.28f); q.AltarTarget.Shape.Rebuild();
+            q.AltarTarget.transform.rotation = Quaternion.FromToRotation(Vector3.up,home.UpAt(q.Altar));
+            q.AltarTarget.transform.position = new Vector3(q.Altar.x,q.Altar.y,-.05f);
+            Vector2[] sites = new Vector2[3];
             for (int i = 0; i < 3; i++)
-                q.Resonators[i] = Target(game, q, DemoTargetKind.Resonator, i,
-                    q.Pedestal + up * 1.15f + tangent * ((i - 1) * 0.95f),
-                    new Color(0.5f + i * 0.15f, 0.6f, 1f - i * 0.2f), (i + 1).ToString());
-            Label(game.WorldRoot, "[E] hear sequence", q.Pedestal + up * 2.3f, game.Font);
-            // Two simple ruins hide the first fragment until the explorer comes close.
-            Vector2 archUp = body.UpAt(q.Walk.transform.position);
-            Vector2 archTangent = new Vector2(archUp.y, -archUp.x);
-            for (int i = -1; i <= 1; i += 2)
             {
-                var column = Shape(game.WorldRoot, "Ruined arch", (Vector2)q.Walk.transform.position + archTangent * i * 0.65f,
-                    new Vector2(0.18f, 0.9f), new Color(0.4f, 0.45f, 0.6f), game.Material);
-                column.transform.rotation = Quaternion.FromToRotation(Vector3.up, archUp);
+                var body = q.FragmentBodies[i];
+                Vector2 up = Quaternion.Euler(0,0,(float)random.NextDouble()*120-60) * (home.Center-body.Center).normalized;
+                sites[i] = body.Center + up * (body.radius + .4f);
+            }
+            q.Walk = Target(game, q, DemoTargetKind.WalkFragment, 0, sites[0], new Color(1,.84f,.38f), "Ruins page");
+            q.Walk.Body = q.FragmentBodies[0];
+            Vector2 shotUp = q.FragmentBodies[1].UpAt(sites[1]);
+            q.Shot = Target(game, q, DemoTargetKind.ShotFragment, 1, sites[1] + shotUp * .9f, new Color(.5f,.85f,1), "Floating page");
+            q.Shot.Body = q.FragmentBodies[1];
+            q.Pedestal = sites[2];
+            q.PedestalTarget = Target(game, q, DemoTargetKind.EchoPedestal, 0, q.Pedestal, new Color(.75f,.65f,1), "Echo pedestal");
+            q.PedestalTarget.Body = q.FragmentBodies[2];
+            q.PedestalTarget.transform.position = new Vector3(q.Pedestal.x,q.Pedestal.y,-.05f);
+            q.Reward = Target(game, q, DemoTargetKind.PuzzleFragment, 2, q.Pedestal, new Color(1,.7f,.9f), "Echo page");
+            q.Reward.Body = q.FragmentBodies[2]; q.Reward.gameObject.SetActive(false);
+            Vector2 upEcho = q.FragmentBodies[2].UpAt(q.Pedestal), tangent = new Vector2(upEcho.y,-upEcho.x);
+            for(int i=0;i<3;i++)
+            {
+                q.Resonators[i] = Target(game,q,DemoTargetKind.Resonator,i,q.Pedestal+upEcho*1.15f+tangent*((i-1)*.95f),new Color(.5f+i*.15f,.6f,1-i*.2f),"Resonator "+(i+1));
+                q.Resonators[i].Body = q.FragmentBodies[2];
+            }
+            Vector2 archUp = q.FragmentBodies[0].UpAt(sites[0]), archTangent = new Vector2(archUp.y,-archUp.x);
+            for(int i=-1;i<=1;i+=2)
+            {
+                var column = Shape(game.WorldRoot,"Ruined arch",sites[0]+archTangent*i*.65f,new Vector2(.18f,.9f),new Color(.4f,.45f,.6f),game.Material);
+                column.transform.rotation = Quaternion.FromToRotation(Vector3.up,archUp);
             }
             return q;
         }
@@ -117,7 +133,7 @@ namespace FlyMeToTheMoon.Demo
             Vector2 delta = end - start;
             foreach (var target in Game.Targets)
             {
-                if (target == null || !target.gameObject.activeInHierarchy) continue;
+                if (target == null || !target.gameObject.activeInHierarchy || target.Kind == DemoTargetKind.Altar || target.Kind == DemoTargetKind.EchoPedestal) continue;
                 float t = delta.sqrMagnitude > 0 ? Mathf.Clamp01(Vector2.Dot((Vector2)target.transform.position - start, delta) / delta.sqrMagnitude) : 0;
                 if (Vector2.Distance(start + delta * t, target.transform.position) < 0.34f && t < firstTime)
                 { first = target; firstTime = t; }

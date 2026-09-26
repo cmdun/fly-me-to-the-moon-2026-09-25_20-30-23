@@ -50,12 +50,32 @@ public static class FullDemoBuilder
     }
     public static void BuildMac()
     {
-        string path = Path.GetFullPath("Build/Fly Me to the Moon Demo.app");
-        var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-            scenes = new[] { ScenePath }, locationPathName = path, target = BuildTarget.StandaloneOSX,
-            options = BuildOptions.Development
-        });
-        if (report.summary.result != BuildResult.Succeeded) throw new Exception("Demo build failed: " + report.summary.result);
-        Debug.Log("DEMO_BUILD_SUCCESS " + path);
+        string product = PlayerSettings.productName, company = PlayerSettings.companyName;
+        var target = UnityEditor.Build.NamedBuildTarget.Standalone;
+        string identifier = PlayerSettings.GetApplicationIdentifier(target);
+        int width = PlayerSettings.defaultScreenWidth, height = PlayerSettings.defaultScreenHeight;
+        var mode = PlayerSettings.fullScreenMode; bool background = PlayerSettings.runInBackground;
+        try
+        {
+            PlayerSettings.productName = "Fly Me to the Moon Demo";
+            PlayerSettings.companyName = "Local Hackathon";
+            PlayerSettings.SetApplicationIdentifier(target, "com.localhackathon.flymetothemoon.rings");
+            PlayerSettings.defaultScreenWidth = 1280; PlayerSettings.defaultScreenHeight = 720;
+            PlayerSettings.fullScreenMode = FullScreenMode.Windowed; PlayerSettings.runInBackground = true;
+            string path = Path.GetFullPath("Build/Fly Me to the Moon Demo.app");
+            var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
+                scenes = new[] { ScenePath }, locationPathName = path, target = BuildTarget.StandaloneOSX,
+                options = BuildOptions.Development
+            });
+            if (report.summary.result != BuildResult.Succeeded) throw new Exception("Demo build failed: " + report.summary.result);
+            Debug.Log("DEMO_BUILD_SUCCESS " + path);
+        }
+        finally
+        {
+            PlayerSettings.productName = product; PlayerSettings.companyName = company;
+            PlayerSettings.SetApplicationIdentifier(target, identifier);
+            PlayerSettings.defaultScreenWidth = width; PlayerSettings.defaultScreenHeight = height;
+            PlayerSettings.fullScreenMode = mode; PlayerSettings.runInBackground = background;
+        }
     }
 }

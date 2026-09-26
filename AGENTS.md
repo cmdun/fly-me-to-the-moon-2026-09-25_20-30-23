@@ -29,6 +29,19 @@ Use branch names such as:
 - `audio/<short-description>`
 - `docs/<short-description>`
 
+## Required save, test, and pull-request workflow
+
+- Every meaningful update must be saved in a focused Git commit.
+- Every completed update must be pushed to its feature branch.
+- Every completed update must be submitted through a pull request into `main`.
+- Never push directly to `main`.
+- Before pushing a completed update or opening its pull request, open and run the Unity project in Play Mode.
+- Test the behavior changed by the task, not only whether the project opens.
+- If the project fails to run or the feature does not work, debug and retest before pushing or opening the pull request.
+- Include the test steps and result in the completion report and pull request description.
+- Keep commits small enough to review, trace, and revert.
+- Do not merge your own pull request; the human integrator performs the review and merge.
+
 ## Scope control
 
 Work only on the assigned GitHub issue. Before editing, identify the allowed files, dependencies, and acceptance criteria.

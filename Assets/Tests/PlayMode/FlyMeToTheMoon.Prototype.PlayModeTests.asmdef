@@ -1,0 +1,6 @@
+{
+  "name": "FlyMeToTheMoon.Prototype.PlayModeTests",
+  "references": ["FlyMeToTheMoon.Prototype", "Unity.InputSystem"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "includePlatforms": []
+}

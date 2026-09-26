@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace FlyMeToTheMoon
 {
@@ -14,13 +15,29 @@ namespace FlyMeToTheMoon
         public GravityBody CurrentPlanet => gravityManager.CurrentBody;
         public int RespawnCount { get; private set; }
         private float airborneSeconds;
+        private GravityBody lastSafePlanet;
+        private Vector2 lastSafeUp;
+        private bool wasGrounded;
+        private InputAction recoverAction;
+
+        private void Awake() => recoverAction = new InputAction("Recover", InputActionType.Button, "<Keyboard>/r");
+        private void OnEnable() => recoverAction.Enable();
+        private void OnDisable() => recoverAction.Disable();
+        private void OnDestroy() => recoverAction.Dispose();
 
         private void Start() => ResetPlayer(false);
 
         private void Update()
         {
+            if (player.IsGrounded && !wasGrounded && CurrentPlanet != null)
+            {
+                lastSafePlanet = CurrentPlanet;
+                lastSafeUp = CurrentPlanet.UpAt(player.Body.position);
+            }
+            wasGrounded = player.IsGrounded;
             airborneSeconds = player.IsGrounded ? 0f : airborneSeconds + Time.deltaTime;
-            if (gravityManager.NearestSurfaceDistance(player.Body.position) > lostDistance
+            if (recoverAction.WasPressedThisFrame()
+                || gravityManager.NearestSurfaceDistance(player.Body.position) > lostDistance
                 || airborneSeconds > maxAirborneSeconds)
                 ResetPlayer(true);
         }
@@ -29,7 +46,9 @@ namespace FlyMeToTheMoon
         {
             if (countFailure) RespawnCount++;
             airborneSeconds = 0f;
-            player.Respawn(respawnPlanet, spawnUp);
+            wasGrounded = false;
+            player.Respawn(lastSafePlanet != null ? lastSafePlanet : respawnPlanet,
+                lastSafePlanet != null ? lastSafeUp : spawnUp);
             cameraController.SnapToPlayer();
         }
     }

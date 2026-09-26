@@ -26,6 +26,7 @@ namespace FlyMeToTheMoon.Demo
         public Vector2 Altar;
         public DemoTarget AltarTarget;
         public bool Unlocked;
+        public int[] RelayMoons;
         public int Count { get { int count = 0; foreach (bool found in Fragments) if (found) count++; return count; } }
     }
 
@@ -61,7 +62,8 @@ namespace FlyMeToTheMoon.Demo
             var hosts = new System.Collections.Generic.List<GravityBody>();
             for (int i = 1; i < bodies.Length; i++) hosts.Add(bodies[i]);
             for (int i = hosts.Count - 1; i > 0; i--) { int j = random.Next(i + 1); var swap = hosts[i]; hosts[i] = hosts[j]; hosts[j] = swap; }
-            q.FragmentBodies[0] = bodies[1 + random.Next(DemoGalaxy.MoonsPerRing)];
+            q.RelayMoons = DemoGalaxy.RelayPath(game.MoonLayout, seed);
+            q.FragmentBodies[0] = bodies[q.RelayMoons[0] + 1];
             hosts.Remove(q.FragmentBodies[0]);
             for (int i = 1; i < DemoQuest.FragmentCount; i++) q.FragmentBodies[i] = hosts[i-1];
             q.Altar = home.Center + (Vector2)(Quaternion.Euler(0,0,-7) * Vector2.up) * (home.radius + .2f);

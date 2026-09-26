@@ -12,7 +12,7 @@ Open `Assets/Scenes/FullDemo.unity` in Unity 6000.6.3f1 and press Play. The worl
 | Starlight Shepherd | Open the gate with E, then lead singers to the sanctuary using Q. | Rescue the immediate follower first to wake the sustained-call and silence followers. Nearby shots frighten them. Thorn patches scatter unrescued creatures back to their starting positions. Symbols, movement, and color show their behavior. |
 | Duet with Your Echo | C records up to eight seconds of movement, pressure-plate occupancy, and shots. E starts looping playback. Cross the ghost-opened gate and shoot the receiver. | A route trace, visible ghost, and countdown show playback. The second room requires ghost and player pressure plates to overlap. C immediately clears and replaces the recording. Earlier rooms remain completed when retrying. |
 
-Each encounter awards one page, once. The five beacons are on distinct moons. The relay begins on an inner moon so its three outward transfers always follow generated neighboring worlds. Other encounter hosts and beacon positions remain seeded and varied.
+Each encounter awards one page, once. The five beacons are on distinct moons. The relay follows three real neighbor links through the scattered field, including their bends. Other encounter hosts and beacon positions remain seeded and varied.
 
 Return all five pages to the altar on 612-B, repair the score through its dialogue, and perform the restored melody (17 of 24 notes). This unlocks the piano. Failed performances preserve the pages and repair.
 
@@ -32,7 +32,7 @@ Approaching an exploration interactable shows an arrow; E opens typed instructio
 
 ## World and implementation
 
-Moons have radii 3.2–5.8, irregular outward routes, and 6.5–8-unit neighbor gaps. Single jumps return to the launch planet. Grounded movement follows the curved surface. The flute remains jump 5 / boost 3 / flight cap 9; the unlocked piano remains 6 / 5 / 13.
+Moons have radii 3.2–5.8 and grow from randomly chosen existing worlds in unrestricted directions. There are no ring slots, grids, or evenly spaced spokes. Consecutive connections bend by at least 25 degrees to prevent long radial rows. Each moon records a reachable neighbor with a 6.5–8-unit surface gap; all other moons remain at least 6.5 units apart. Compact or narrow fields are rejected to retain a large map. Single jumps return to the launch planet. Grounded movement follows the curved surface. The flute remains jump 5 / boost 3 / flight cap 9; the unlocked piano remains 6 / 5 / 13.
 
 `DemoGame.WorldSeed = 0` chooses a new seed; a nonzero value reproduces a layout. The existing moonfolk and their multipage conversations remain, with hints updated for the new encounters.
 
@@ -44,6 +44,6 @@ Placeholder visuals and synthesized sounds remain. Progress is session-only. The
 
 ## Verification (2026-09-26)
 
-The full Unity Play Mode suite passed 39/39 tests, covering 1,000 world-generation seeds, actual round trips to all 24 moons, mouse input separation, the five-page journey, piano unlock, NPC dialogue, and encounter failure cases. After the final visibility changes, both the complete journey and beacon leave/rerecord regression passed again.
+The full Unity Play Mode suite passed 39/39 tests after the scatter update. Checks cover 1,000 generated fields with variable home-neighbor counts, no straight parent-chain continuation, safe spacing, connected routes, and valid three-transfer relays. The suite also flies a real round trip to each of the 24 moons, completes all five encounters and the piano unlock, and verifies movement, minimap, and dialogue behavior.
 
-Two standalone Mac playthroughs completed with zero reported errors, five collected pages, and the piano unlocked (seeds 2078414374 and 1084657776). The final run used the rebuilt app and its gameplay captures were visually inspected. The driver uses real movement and projectile inputs inside encounters, including a relay checkpoint retry; it respawns between separate encounters to keep verification focused.
+The rebuilt standalone Mac demo completed its full encounter playthrough on seed -1787358520 with zero reported errors, all five pages collected, and the piano unlocked. Its world map was visually inspected. The driver uses real movement and projectile inputs inside encounters, including a relay checkpoint retry; it respawns between separate encounters to keep verification focused.

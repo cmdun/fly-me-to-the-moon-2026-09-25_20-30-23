@@ -35,7 +35,7 @@ namespace FlyMeToTheMoon.Demo
                 "The Hush cannot catch a traveler who keeps a beat." },
             new[] {
                 "I chart paths that move when nobody watches. Press M to see the whole world and its five golden page beacons.",
-                "The nearby map stays centered on you. Travel outward one route at a time; R returns you to your last safe landing.",
+                "The nearby map stays centered on you. Follow nearby moons, one jump at a time; R returns you to your last safe landing.",
                 "Every map has a blank place. The Hush was born in ours." },
             new[] {
                 "Aim with the mouse and left-click to fire a note. Shooting never changes your movement or spends your boost.",
@@ -70,17 +70,27 @@ namespace FlyMeToTheMoon.Demo
             new Color(1f,.48f,.34f), new Color(.56f,1f,.7f)
         };
 
-        public static int[] Plan(int seed)
+        public const int CreatureCount = 8;
+        public static int[] Plan(int seed) => Plan(seed, DemoGalaxy.Layout(seed));
+        public static int[] Plan(int seed, MoonPlacement[] layout)
         {
-            var result = new int[DemoGalaxy.Rings * 2];
+            var order = new List<int>();
+            for (int i = 0; i < layout.Length; i++) order.Add(i);
+            order.Sort((a,b) => {
+                int depth = layout[a].Depth.CompareTo(layout[b].Depth);
+                return depth != 0 ? depth : a.CompareTo(b);
+            });
+            var result = new int[CreatureCount];
             var random = new System.Random(seed ^ 0x6e624eb7);
-            for (int ring = 0; ring < DemoGalaxy.Rings; ring++)
+            // Spread the existing eight roles across early and late travel, independently
+            // of world coordinates: these groups do not determine moon placement.
+            int groupSize = layout.Length / (CreatureCount / 2);
+            for (int group = 0; group < CreatureCount / 2; group++)
             {
-                int first = random.Next(DemoGalaxy.MoonsPerRing);
-                int second = random.Next(DemoGalaxy.MoonsPerRing - 1);
+                int first = random.Next(groupSize), second = random.Next(groupSize - 1);
                 if (second >= first) second++;
-                result[ring * 2] = ring * DemoGalaxy.MoonsPerRing + first;
-                result[ring * 2 + 1] = ring * DemoGalaxy.MoonsPerRing + second;
+                result[group * 2] = order[group * groupSize + first];
+                result[group * 2 + 1] = order[group * groupSize + second];
             }
             return result;
         }
@@ -97,7 +107,7 @@ namespace FlyMeToTheMoon.Demo
                     "Speak with the moonfolk you meet. Their memories will teach you how to travel where mine cannot." },
                 new[] { "The moons are listening. Complete the five beacons, then return to the home altar." });
 
-            int[] plan = Plan(seed);
+            int[] plan = Plan(seed, owner.MoonLayout);
             var random = new System.Random(seed ^ 0x21c449);
             for (int i = 0; i < plan.Length; i++)
             {

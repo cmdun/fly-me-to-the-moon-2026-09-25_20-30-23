@@ -28,14 +28,15 @@ public class DemoTests
         for(int i=0;i<16;i++)r.Hit(r.Lane(i),r.TimeOf(i));
         Assert.IsFalse(r.Passed);r.Hit(r.Lane(16),r.TimeOf(16));Assert.IsTrue(r.Passed);
     }
-    [Test] public void ThousandSeedsHaveIrregularConnectedMoonsAndBendingRelayRoutes()
+    [Test] public void ThousandSeedsHaveBalancedIrregularMoonsAndBendingRelayRoutes()
     {
         var rootCounts=new System.Collections.Generic.HashSet<int>();
         for(int seed=1;seed<=1000;seed++)
         {
             var moons=DemoGalaxy.Layout(seed);Assert.AreEqual(24,moons.Length);
             float outer=0,smallest=10,largest=0;int roots=0;
-            Vector2 minimum=Vector2.zero,maximum=Vector2.zero;
+            Vector2 minimum=Vector2.zero,maximum=Vector2.zero,sum=Vector2.zero;
+            var quadrants=new int[4];var angles=new float[moons.Length];
             for(int i=0;i<moons.Length;i++)
             {
                 var moon=moons[i];Assert.That(moon.Radius,Is.InRange(3.2f,5.8f));
@@ -53,11 +54,22 @@ public class DemoTests
                 smallest=Mathf.Min(smallest,moon.Radius);largest=Mathf.Max(largest,moon.Radius);
                 outer=Mathf.Max(outer,moon.Center.magnitude+moon.Radius);
                 minimum=Vector2.Min(minimum,moon.Center);maximum=Vector2.Max(maximum,moon.Center);
+                sum+=moon.Center;
+                quadrants[(moon.Center.x<0?1:0)+(moon.Center.y<0?2:0)]++;
+                angles[i]=Mathf.Atan2(moon.Center.y,moon.Center.x)*Mathf.Rad2Deg;
                 Assert.GreaterOrEqual(moon.Center.magnitude-12-moon.Radius,6.499f);
                 for(int j=0;j<i;j++)Assert.GreaterOrEqual(Vector2.Distance(moon.Center,moons[j].Center)-moon.Radius-moons[j].Radius,6.499f);
                 Assert.That(Vector2.Distance(moon.Center,parent)-moon.Radius-parentRadius,Is.InRange(6.499f,8.001f));
             }
             rootCounts.Add(roots);Assert.GreaterOrEqual(outer,70);Assert.GreaterOrEqual(maximum.x-minimum.x,85);Assert.GreaterOrEqual(maximum.y-minimum.y,85);
+            Assert.LessOrEqual(outer,78.001f,"Avoid isolated long branches");
+            Assert.GreaterOrEqual(maximum.x,45);Assert.GreaterOrEqual(maximum.y,45);
+            Assert.LessOrEqual(minimum.x,-45);Assert.LessOrEqual(minimum.y,-45);
+            Assert.LessOrEqual((sum/moons.Length).magnitude,6.001f,"Keep the field centered around home");
+            foreach(int count in quadrants)Assert.That(count,Is.InRange(4,8),"Cover all four sides without identical counts");
+            System.Array.Sort(angles);
+            for(int i=0;i<angles.Length;i++)
+                Assert.LessOrEqual((i+1<angles.Length?angles[i+1]:angles[0]+360)-angles[i],35.001f,"No large empty wedge around home");
             Assert.Greater(largest-smallest,1);
             var route=DemoGalaxy.RelayPath(moons,seed);Assert.AreEqual(4,route.Length);
             Assert.AreEqual(4,new System.Collections.Generic.HashSet<int>(route).Count);

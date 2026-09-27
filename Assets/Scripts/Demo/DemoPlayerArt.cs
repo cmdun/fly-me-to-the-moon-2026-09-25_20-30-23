@@ -61,7 +61,9 @@ namespace FlyMeToTheMoon.Demo
             }
             grounded = player.IsGrounded;
             string key;
-            bool canWalk = grounded && !player.IsPlayingShot && Time.time >= landingUntil;
+            // The walk rig crops the active Traveler pose for its torso, so a firing pose can
+            // own the upper body while the procedural legs keep their current stride.
+            bool canWalk = grounded && Time.time >= landingUntil;
             if (playingFlute) key = "01/actor/" + (Time.time-actionStarted < .065f ? 1 : 2 + (int)(Time.time*5)%2);
             else if (acting) key = "09/actor/1";
             else if (grounded && Time.time < landingUntil) key = "hero/9";

@@ -399,17 +399,17 @@ public class DemoJourneyTests
         Assert.Greater(e.LureRemaining,4);Assert.That(e.Attention,Is.EqualTo(2.7f).Within(.01f));
         Assert.IsFalse(e.Complete);Assert.AreEqual(0,g.Melody.Count);g.LeaveChallenge();
     }
-    [UnityTest] public IEnumerator ShootingPlantsFeetBlocksJumpAndThenMovementResumes()
+    [UnityTest] public IEnumerator ShootingWhileWalkingKeepsMovementAndBlocksQueuedJump()
     {
         yield return Press(Key.D);yield return new WaitForSeconds(.3f);
         Assert.Greater(g.Player.Body.linearVelocity.magnitude,3);
         g.ShootToward(g.Player.Body.position+g.Player.Up*4);
-        Assert.IsTrue(g.Player.IsPlayingShot);Vector2 planted=g.Player.Body.position;
+        Assert.IsTrue(g.Player.IsPlayingShot);Vector2 shotAt=g.Player.Body.position;
         int jumps=g.Player.NormalJumpCount;yield return Press(Key.D,Key.Space);yield return new WaitForSeconds(.18f);
-        Assert.Less(Vector2.Distance(planted,g.Player.Body.position),.035f);
+        Assert.Greater(Vector2.Distance(shotAt,g.Player.Body.position),.3f,"A grounded shot must not interrupt walking");
         Assert.AreEqual(jumps,g.Player.NormalJumpCount,"Shots cannot queue an accidental jump");
-        yield return Press(Key.D);yield return new WaitForSeconds(.35f);
-        Assert.Greater(Vector2.Distance(planted,g.Player.Body.position),.3f);Assert.IsFalse(g.Player.IsPlayingShot);
+        Vector2 afterShot=g.Player.Body.position;yield return Press(Key.D);yield return new WaitForSeconds(.35f);
+        Assert.Greater(Vector2.Distance(afterShot,g.Player.Body.position),.3f);Assert.IsFalse(g.Player.IsPlayingShot);
         yield return Press();yield return Press(Key.Space);yield return Press();
         g.ShootToward(g.Player.Body.position+g.Player.Up*4);Vector2 start=g.Player.Body.position;
         yield return new WaitForSeconds(.2f);Assert.Greater(Vector2.Distance(start,g.Player.Body.position),.05f,"Shooting never suspends gravity in space");

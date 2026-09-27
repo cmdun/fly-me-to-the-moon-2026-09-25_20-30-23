@@ -22,7 +22,7 @@ namespace FlyMeToTheMoon.Demo
                 var world = PixelArtLibrary.Create(body.transform, "Illustrated walkable world", "world/" + (i == 0 ? 0 : 1 + (i - 1) % 6), -20);
                 PixelArtLibrary.Size(world, Vector2.one * body.radius * 2); Worlds.Add(world);
                 world.gameObject.AddComponent<DemoWorldSurface>().Build(world,body,i,game.Seed);
-                if (i == 0) continue;
+                if (i == 0 || game.Discoveries.HasSite(body)) continue;
                 float angle = Mathf.Repeat(i * 137.51f + (game.Seed & 255), 360);
                 angle = ClearAngle(body, angle, 2.8f);
                 var landmark = SurfaceArt(body, Themes[(i - 1) % 6], angle, 1.7f);

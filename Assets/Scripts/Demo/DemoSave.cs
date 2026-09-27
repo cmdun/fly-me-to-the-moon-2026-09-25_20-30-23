@@ -13,6 +13,10 @@ namespace FlyMeToTheMoon.Demo
             public float upX, upY=1;
             public bool[] fragments=new bool[5];
             public bool repaired, piano;
+            // Optional v1 fields keep existing journeys compatible. Missing content starts undiscovered.
+            public bool[] discoveries, garden;
+            public int bestPerformance;
+            public bool festival;
             public bool Valid => version==1 && fragments!=null && fragments.Length==5 && moon>=0 && moon<=24
                 && !float.IsNaN(upX) && !float.IsNaN(upY) && Mathf.Abs(upX)<=1.01f && Mathf.Abs(upY)<=1.01f;
         }
@@ -31,7 +35,9 @@ namespace FlyMeToTheMoon.Demo
             if(game.Player.IsGrounded && game.Player.gravityManager.CurrentBody!=null)
             {moon=Array.IndexOf(game.Player.gravityManager.bodies,game.Player.gravityManager.CurrentBody);up=game.Player.Up;}
             var data=new Data{seed=game.Seed,moon=Mathf.Max(0,moon),upX=up.x,upY=up.y,
-                fragments=(bool[])game.Melody.Fragments.Clone(),repaired=game.MelodyRepaired,piano=game.Melody.Unlocked,equipped=game.Equipped};
+                fragments=(bool[])game.Melody.Fragments.Clone(),repaired=game.MelodyRepaired,piano=game.Melody.Unlocked,equipped=game.Equipped,
+                discoveries=(bool[])game.Discoveries.Found.Clone(),garden=(bool[])game.Discoveries.Delivered.Clone(),
+                bestPerformance=game.Discoveries.BestPerformance,festival=game.Discoveries.Festival};
             PlayerPrefs.SetString(Key,JsonUtility.ToJson(data));PlayerPrefs.Save();
         }
         public static void Clear(){if(Allowed){PlayerPrefs.DeleteKey(Key);PlayerPrefs.Save();}}

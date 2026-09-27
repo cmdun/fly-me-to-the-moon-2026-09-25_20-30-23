@@ -38,7 +38,7 @@ namespace FlyMeToTheMoon.Demo
                 "The nearby map stays centered on you. Follow nearby moons, one jump at a time; R returns you to your last safe landing.",
                 "Every map has a blank place. The Hush was born in ours." },
             new[] {
-                "Aim with the mouse and left-click to fire a note. Shooting never changes your movement or spends your boost.",
+                "Aim with the mouse and left-click to fire a note. Shooting plants your feet briefly, without spending your boost.",
                 "Right-click in the air to recoil away from your aim. That spends the same one-flight boost as a second jump.",
                 "Light and sound both travel. Only one of them remembers the way home." },
             new[] {
@@ -104,7 +104,7 @@ namespace FlyMeToTheMoon.Demo
                 new[] {
                     "The moons have gone quiet, traveler. The Hush tore one melody into five pages and sealed them inside golden beacons.",
                     "Press M to read the whole-world map. Complete all five beacon challenges, then bring their pages to the altar here on 612-B.",
-                    "Speak with the moonfolk you meet. Their memories will teach you how to travel where mine cannot." },
+                    "Twelve moons hold seeds and lost singers too. Press J for your field journal. Bring your discoveries to the garden on the other side of HOME." },
                 new[] { "The moons are listening. Complete the five beacons, then return to the home altar." });
 
             int[] plan = Plan(seed, owner.MoonLayout);

@@ -9,7 +9,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace FlyMeToTheMoon.Demo
 {
-    public enum DemoState { Title, Explore, Dialogue, Challenge, Rhythm, Paused, Result, Win }
+    public enum DemoState { Title, Explore, Dialogue, Challenge, Rhythm, Paused, Result, Win, Journal }
 
     [DefaultExecutionOrder(100)]
     public sealed class DemoGame : MonoBehaviour
@@ -40,6 +40,7 @@ namespace FlyMeToTheMoon.Demo
         public DemoHud Hud { get; private set; }
         public DemoWorldEvents Events { get; private set; }
         public DemoArt Art { get; private set; }
+        public DemoDiscoveries Discoveries { get; private set; }
         public Transform WorldRoot { get; private set; }
         public readonly List<DemoQuest> Quests = new List<DemoQuest>();
         public readonly List<DemoTarget> Targets = new List<DemoTarget>();
@@ -88,7 +89,9 @@ namespace FlyMeToTheMoon.Demo
             }
             Events = gameObject.AddComponent<DemoWorldEvents>();
             Events.Build(this, bodies, Seed);
+            Discoveries = gameObject.AddComponent<DemoDiscoveries>(); Discoveries.Build(this, bodies, saved);
             Art = gameObject.AddComponent<DemoArt>(); Art.Build(this, bodies);
+            foreach(var site in Discoveries.Sites)foreach(var mesh in site.GetComponentsInChildren<MeshRenderer>())mesh.enabled=true;
             Planets.lostDistance = 18; Planets.maxAirborneSeconds = 25;
             ApplyInstrument();
             Hud = gameObject.AddComponent<DemoHud>();
@@ -101,16 +104,19 @@ namespace FlyMeToTheMoon.Demo
         {
             if (Hud == null) return;
             var keys = Keyboard.current;
+            if(keys!=null && keys.jKey.wasPressedThisFrame && (State==DemoState.Explore || State==DemoState.Journal))
+            { ToggleJournal(); return; }
             if (keys != null && keys.escapeKey.wasPressedThisFrame)
             {
-                if (State == DemoState.Paused) Resume();
+                if (State == DemoState.Journal) ToggleJournal();
+                else if (State == DemoState.Paused) Resume();
                 else if (State == DemoState.Dialogue) CloseDialogue();
                 else if (State == DemoState.Explore || State == DemoState.Rhythm || State == DemoState.Challenge) Pause();
                 return;
             }
             if (State == DemoState.Title)
             { if (keys != null && keys.enterKey.wasPressedThisFrame) StartGame(); return; }
-            if (State == DemoState.Paused) return;
+            if (State == DemoState.Paused || State == DemoState.Journal) return;
             if (State == DemoState.Dialogue)
             {
                 if (keys != null && (keys.eKey.wasPressedThisFrame || keys.enterKey.wasPressedThisFrame)) AdvanceDialogue();
@@ -187,7 +193,7 @@ namespace FlyMeToTheMoon.Demo
             Player.enabled = exploring;
             Planets.enabled = state == DemoState.Explore;
             Player.Body.simulated = exploring;
-            Time.timeScale = state == DemoState.Paused || state == DemoState.Dialogue ? 0 : 1;
+            Time.timeScale = state == DemoState.Paused || state == DemoState.Dialogue || state == DemoState.Journal ? 0 : 1;
             if (!exploring) ClearShots();
             Hud.RefreshPanels();
         }
@@ -204,6 +210,11 @@ namespace FlyMeToTheMoon.Demo
         {
             if (State != DemoState.Explore || !Player.IsGrounded) return;
             Equipped = (Equipped + 1) % (Completed + 1); ApplyInstrument(); Audio.Note(Equipped, 0);
+        }
+        public void ToggleJournal()
+        {
+            if(State!=DemoState.Explore && State!=DemoState.Journal)return;
+            MapVisible=false;SetState(State==DemoState.Journal?DemoState.Explore:DemoState.Journal);
         }
         public void ToggleMap() { MapVisible = !MapVisible; Hud.RefreshPanels(); }
         public void ToggleAudio() { Audio.SetMuted(!Audio.Muted); Hud.RefreshPanels(); }
@@ -298,7 +309,7 @@ namespace FlyMeToTheMoon.Demo
         {
             if (State != DemoState.Explore || MapVisible) return;
             NearbyTarget = FindNearbyTarget();
-            if (NearbyTarget == null) { Art.NearestLandmark()?.Interact(); return; }
+            if (NearbyTarget == null) { if(!Discoveries.Interact())Art.NearestLandmark()?.Interact(); return; }
             var target = NearbyTarget; var q = Melody;
             if (target.Kind == DemoTargetKind.Creature)
             {
@@ -306,7 +317,7 @@ namespace FlyMeToTheMoon.Demo
             }
             else if (target.Kind == DemoTargetKind.Altar)
             {
-                if (q.Unlocked) OpenDialogue("Home altar", "The melody is whole. Your piano is ready to play.", "Leave");
+                if (q.Unlocked) OpenDialogue("Encore", "Play Moonlit Home again and improve your best performance: "+Discoveries.BestPerformance+" / 24 perfect.\n\n"+(Discoveries.HomeCount==DemoDiscoveries.Count?"Your garden is full. A successful performance brings everyone together!":"Bring every garden discovery home to prepare a festival."), "Perform", () => BeginRhythm(q));
                 else if (q.Count < DemoQuest.FragmentCount) OpenDialogue("The missing melody", "Five golden score pages wait on five moons. Each beacon holds a different challenge. Find them on the map and bring all five pages home.", "Explore");
                 else if (!MelodyRepaired) OpenDialogue("Repair the melody", "All five pages are here. Piece them together at this altar, then perform the restored melody.", "Repair score", () => {
                     MelodyRepaired = true; DemoSave.Write(this);
@@ -351,7 +362,7 @@ namespace FlyMeToTheMoon.Demo
         }
         public bool BeginRhythm(DemoQuest q)
         {
-            if (q == null || q != ActiveQuest || q.Count != DemoQuest.FragmentCount || !MelodyRepaired || Vector2.Distance(Player.Body.position,q.Altar) > 2.1f) return false;
+            if (q == null || q != Melody || q.Count != DemoQuest.FragmentCount || !MelodyRepaired || Vector2.Distance(Player.Body.position,q.Altar) > 2.1f) return false;
             Performing = q; Feedback = "Get ready"; LastPassed = false; MapVisible = false;
             Player.Body.linearVelocity = Vector2.zero;
             Rhythm.Begin(0, q.Index);
@@ -377,8 +388,9 @@ namespace FlyMeToTheMoon.Demo
                     shape.color = Color.Lerp(shape.color, Accent, 0.35f); shape.Rebuild();
                 }
             }
+            Discoveries.PerformanceFinished(LastPassed,Rhythm.Perfect);
             DemoSave.Write(this);
-            SetState(Completed == Quests.Count ? DemoState.Win : DemoState.Result);
+            SetState(LastPassed && Completed == Quests.Count ? DemoState.Win : DemoState.Result);
         }
         public void Pause()
         {
@@ -420,7 +432,14 @@ namespace FlyMeToTheMoon.Demo
             if (Game == null || Game.Player == null) return;
             var pixel = GetComponent<PixelPerfectCamera>();
             if (pixel == null) return;
-            float target = Game.Player.FluteUsed ? 10f : Game.State == DemoState.Challenge ? 20f : Game.Player.IsGrounded ? 40f : 24f;
+            var discovery=Game.Discoveries?.Current;
+            bool viewingDiscovery=discovery!=null && discovery.Started && Mathf.Abs(discovery.Arc(Game.Player.Body.position))<5.5f;
+            bool viewingGarden=Game.Discoveries!=null && Game.Player.gravityManager.CurrentBody==Game.Planets.respawnPlanet
+                && Vector2.Distance(Game.Player.Body.position,Game.Discoveries.Garden.position)<5.5f;
+            // Frame eighteen world units vertically, independently of the scene's pixel reference resolution.
+            float discoveryPPU=Mathf.Max(8,Mathf.Round(pixel.refResolutionY/18f));
+            float target = Game.Player.FluteUsed ? 10f : viewingDiscovery || viewingGarden ? discoveryPPU
+                : Game.State == DemoState.Challenge ? 20f : Game.Player.IsGrounded ? 40f : 24f;
             ppu = Mathf.SmoothDamp(ppu, target, ref speed, 0.25f, Mathf.Infinity, Time.unscaledDeltaTime);
             pixel.assetsPPU = Mathf.RoundToInt(ppu);
         }

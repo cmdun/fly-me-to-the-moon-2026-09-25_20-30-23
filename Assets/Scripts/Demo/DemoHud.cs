@@ -8,6 +8,11 @@ namespace FlyMeToTheMoon.Demo
     public sealed class DemoHud : MonoBehaviour
     {
         private DemoGame game;
+        private RectTransform journal;
+        private TextMeshProUGUI journalSummary, discoveryHint;
+        private readonly TextMeshProUGUI[] journalCards = new TextMeshProUGUI[DemoDiscoveries.Count];
+        private RectTransform[] mapDiscoveries, nearbyDiscoveries;
+        private RectTransform trackedRing, nearbyGarden;
         private RectTransform root, menu, rhythm, board, map, dialogue, contextArrow;
         private TextMeshProUGUI dialogueTitle, dialogueBody, dialogueButtonText;
         private UnityEngine.UI.Button dialogueButton;
@@ -56,10 +61,12 @@ namespace FlyMeToTheMoon.Demo
             objective = Text(left,"Journey",new Vector2(.5f,.5f),Vector2.zero,new Vector2(272,64),19,TextAlignmentOptions.MidlineLeft);
             var right = Panel(root,"Instrument HUD",new Vector2(1,1),new Vector2(-20,-20),new Vector2(125,40),background,false);
             status=Text(right,"Instrument",new Vector2(.5f,.5f),Vector2.zero,new Vector2(110,34),18);
-            toast=Text(root,"Collection",new Vector2(.5f,1),new Vector2(0,-45),new Vector2(300,35),18);
+            toast=Text(root,"Collection",new Vector2(.5f,1),new Vector2(0,-45),new Vector2(600,48),18);
             toast.color=DemoGame.Accent;
             explorationHud.Add(left.gameObject); explorationHud.Add(right.gameObject); explorationHud.Add(toast.gameObject);
-            BuildMap(); BuildMinimap(); BuildRhythm(); BuildMenu(); BuildDialogue();
+            BuildMap(); BuildMinimap(); BuildRhythm(); BuildMenu(); BuildDialogue(); BuildJournal();
+            discoveryHint=Text(root,"Nearby discovery",new Vector2(.5f,0),new Vector2(-80,42),new Vector2(690,48),18);
+            discoveryHint.color=DemoGame.Accent;
             gameObject.AddComponent<DemoChallengeHud>().Build(game, root);
         }
         private RectTransform Panel(Transform parent, string name, Vector2 anchor, Vector2 position, Vector2 size, Color color, bool raycast)
@@ -131,6 +138,8 @@ namespace FlyMeToTheMoon.Demo
         public void RefreshPanels()
         {
             if (menu == null) return;
+            if(journal!=null)journal.gameObject.SetActive(game.State==DemoState.Journal);
+            if(game.State==DemoState.Journal)RefreshJournal();
             foreach (var element in explorationHud) element.SetActive(game.PlayingWorld && !game.MapVisible);
             bool modal = game.State == DemoState.Title || game.State == DemoState.Paused || game.State == DemoState.Result || game.State == DemoState.Win;
             menu.gameObject.SetActive(modal);
@@ -152,14 +161,14 @@ namespace FlyMeToTheMoon.Demo
             else if (game.State == DemoState.Paused)
             {
                 menuTitle.text = "PAUSED";
-                menuBody.text = "A/D walk   |   Space jump, then Space to boost   |   WASD steer\nLeft click: plant feet and shoot notes   |   Right click: airborne recoil (uses boost)\nE: interact / advance dialogue   |   1-7: C D E F G A B\nTab: instrument (land first)   |   M: map   |   R: recover\nEncounters: Q call, C record, E act, R retry   |   Rhythm: D/F/J/K\n\nFind 5 challenge pages on the moons; repair and perform at the home altar.";
+                menuBody.text = "A/D walk   |   Space jump, then Space to boost   |   WASD steer\nLeft click: plant feet and shoot notes   |   Right click: airborne recoil (uses boost)\nE: interact / advance dialogue   |   1-7: C D E F G A B\nTab: instrument (land first)   |   M: map   |   J: journal   |   R: recover\nEncounters: Q call, C record, E act, R retry   |   Rhythm: D/F/J/K\n\nFind 5 challenge pages on the moons; repair and perform at the home altar.";
                 Bind(0,"Resume  [Esc]",game.Resume); Bind(1,audio,game.ToggleAudio);
                 Bind(2,"New journey (resets progress)",game.Restart); Bind(3,"Quit",game.Quit);
             }
             else if (game.State == DemoState.Win)
             {
                 menuTitle.text = "THE MELODY IS HOME";
-                menuBody.text = "The piano is yours.\nKeep exploring. Keep playing.";
+                menuBody.text = (game.Discoveries.Festival?"THE GARDEN FESTIVAL IS ALIVE!":"The piano is yours. Bring seeds and singers to the HOME garden.")+"\n"+game.Rhythm.Hits+" / 24 notes   ·   "+game.Rhythm.Perfect+" perfect\nBest: "+game.Discoveries.BestPerformance+" perfect   ·   J: field journal";
                 Bind(0,"Keep exploring  [Enter]",game.Continue); Bind(1,"New journey",game.Restart);
                 Bind(2,audio,game.ToggleAudio); Bind(3,"Quit",game.Quit);
             }
@@ -225,8 +234,18 @@ namespace FlyMeToTheMoon.Demo
             mapPages=new RectTransform[DemoQuest.FragmentCount];
             for(int i=0;i<mapPages.Length;i++)
                 mapPages[i]=Panel(map,"Page "+(i+1),Vector2.one*.5f,((Vector2)game.Melody.Stations[i].transform.position-game.Planets.respawnPlanet.Center)*mapScale,new Vector2(8,11),new Color(1,.85f,.35f),false);
+            mapDiscoveries=new RectTransform[DemoDiscoveries.Count];
+            for(int i=0;i<mapDiscoveries.Length;i++)
+            {
+                var site=game.Discoveries.Sites[i];
+                mapDiscoveries[i]=Panel(map,"Discovery "+i,Vector2.one*.5f,(site.Body.Center-game.Planets.respawnPlanet.Center)*mapScale+new Vector2(9,9),new Vector2(7,7),DemoGame.Accent,false);
+                mapDiscoveries[i].localRotation=Quaternion.Euler(0,0,45);
+            }
+            trackedRing=Circle(map,"Tracked discovery",Vector2.zero,28,new Color(.5f,1,.8f,.25f));
+            var garden=(Vector2)game.Discoveries.Garden.position;
+            Panel(map,"HOME garden",Vector2.one*.5f,(garden-game.Planets.respawnPlanet.Center)*mapScale,new Vector2(7,7),DemoGame.Accent,false);
             mapPlayer=Circle(map,"You",Vector2.zero,9,Color.white);
-            Text(map,"Legend",new Vector2(.5f,0),new Vector2(0,27),new Vector2(820,40),17).text="Gold: score challenges   |   White: you   |   Altar: 612-B   |   M: close";
+            Text(map,"Legend",new Vector2(.5f,0),new Vector2(0,27),new Vector2(820,40),17).text="Gold: score   |   Mint: discoveries / garden   |   White: you   |   M: close";
             Text(map,"North",new Vector2(1,1),new Vector2(-35,-65),new Vector2(40,35),19).text="N";
         }
         private void BuildMinimap()
@@ -239,6 +258,13 @@ namespace FlyMeToTheMoon.Demo
             for(int i=0;i<bodies.Length;i++)nearbyBodies[i]=WorldIcon(minimap,bodies[i].planetId,Vector2.zero,bodies[i].radius*2*105/MinimapRange,i);
             nearbyPages=new RectTransform[DemoQuest.FragmentCount];
             for(int i=0;i<nearbyPages.Length;i++)nearbyPages[i]=Panel(minimap,"Nearby page "+i,Vector2.one*.5f,Vector2.zero,new Vector2(7,10),new Color(1,.85f,.35f),false);
+            nearbyDiscoveries=new RectTransform[DemoDiscoveries.Count];
+            for(int i=0;i<nearbyDiscoveries.Length;i++)
+            {
+                nearbyDiscoveries[i]=Panel(minimap,"Nearby discovery "+i,Vector2.one*.5f,Vector2.zero,new Vector2(6,6),DemoGame.Accent,false);
+                nearbyDiscoveries[i].localRotation=Quaternion.Euler(0,0,45);
+            }
+            nearbyGarden=Panel(minimap,"Nearby HOME garden",Vector2.one*.5f,Vector2.zero,new Vector2(7,7),DemoGame.Accent,false);
             minimapPlayer=Circle(minimap,"Player center",Vector2.zero,7,Color.white);
             explorationHud.Add(frame.gameObject);
         }
@@ -251,7 +277,44 @@ namespace FlyMeToTheMoon.Demo
                 nearbyPages[i].anchoredPosition=MinimapOffset(game.Melody.Stations[i].transform.position,player);
                 nearbyPages[i].gameObject.SetActive(!game.Melody.Fragments[i]);mapPages[i].gameObject.SetActive(!game.Melody.Fragments[i]);
             }
+            for(int i=0;i<mapDiscoveries.Length;i++)
+            {
+                bool pending=!game.Discoveries.Found[i];mapDiscoveries[i].gameObject.SetActive(pending);
+                nearbyDiscoveries[i].gameObject.SetActive(pending);
+                nearbyDiscoveries[i].anchoredPosition=MinimapOffset(game.Discoveries.Sites[i].At(0),player);
+            }
+            nearbyGarden.anchoredPosition=MinimapOffset(game.Discoveries.Garden.position,player);
+            var tracked=game.Discoveries.Tracked;
+            trackedRing.gameObject.SetActive(tracked!=null && !tracked.Complete);
+            if(tracked!=null)trackedRing.anchoredPosition=(tracked.Body.Center-game.Planets.respawnPlanet.Center)*mapScale;
             mapPlayer.anchoredPosition=(player-game.Planets.respawnPlanet.Center)*mapScale;
+        }
+        private void BuildJournal()
+        {
+            journal=FullPanel("Field journal");
+            Text(journal,"Journal title",Vector2.one*.5f,new Vector2(0,286),new Vector2(1000,55),34).text="THE LISTENING GARDEN";
+            journalSummary=Text(journal,"Expedition progress",Vector2.one*.5f,new Vector2(0,230),new Vector2(1100,55),20);
+            for(int i=0;i<journalCards.Length;i++)
+            {
+                int id=i;var site=game.Discoveries.Sites[i];
+                var card=Panel(journal,"Discovery card "+i,Vector2.one*.5f,new Vector2((i%3-1)*330,145-(i/3)*94),new Vector2(310,80),new Color(.075f,.17f,.22f),true);
+                var button=card.gameObject.AddComponent<UnityEngine.UI.Button>();button.targetGraphic=card.GetComponent<UnityEngine.UI.Image>();
+                journalCards[i]=Text(card,"Activity",Vector2.one*.5f,Vector2.zero,new Vector2(284,74),18,TextAlignmentOptions.MidlineLeft);
+                button.onClick.AddListener(()=>{game.Discoveries.Track(id);game.ToggleJournal();game.ToggleMap();});
+            }
+            Text(journal,"Journal advice",Vector2.one*.5f,new Vector2(0,-231),new Vector2(1060,55),19).text="Choose an unfinished discovery to mark its moon. Bring rewards to the HOME garden.\nRestore the piano, fill the garden, then perform at the altar for the festival.";
+            var close=Button(journal,"Back to the moons  [J / Esc]",new Vector2(0,-296));close.onClick.AddListener(game.ToggleJournal);
+        }
+        private void RefreshJournal()
+        {
+            var d=game.Discoveries;
+            journalSummary.text=d.FoundCount+" / 12 discovered    ·    "+d.PackedCount+" ready to bring home    ·    Garden "+d.HomeCount+" / 12"+(d.Festival?"    ·    Festival complete":"");
+            for(int i=0;i<journalCards.Length;i++)
+            {
+                var site=d.Sites[i];
+                journalCards[i].text=site.Title+"  ·  Moon "+site.Moon.ToString("00")+"\n"+(d.Delivered[i]?"At HOME":d.Found[i]?"Ready for HOME":"Explore  ·  "+new[]{"Gentle","Curious","Tricky","Expert"}[site.Rank]);
+                journalCards[i].color=d.Delivered[i]?DemoGame.Accent:d.Found[i]?new Color(1,.86f,.5f):Color.white;
+            }
         }
         private void OnDestroy()
         {
@@ -261,17 +324,21 @@ namespace FlyMeToTheMoon.Demo
         {
             if (game == null || game.Player == null) return;
             bool exploring = game.State == DemoState.Explore && !game.MapVisible;
-            var landmark = exploring && game.NearbyTarget==null ? game.Art.NearestLandmark() : null;
-            contextArrow.gameObject.SetActive(exploring && (game.NearbyTarget != null || landmark != null));
+            var discovery = exploring && game.NearbyTarget==null ? game.Discoveries.NearbyInteraction() : null;
+            var landmark = exploring && game.NearbyTarget==null && discovery==null ? game.Art.NearestLandmark() : null;
+            contextArrow.gameObject.SetActive(exploring && (game.NearbyTarget != null || discovery != null || landmark != null));
             if(contextArrow.gameObject.activeSelf)
             {
-                var target=game.NearbyTarget!=null?game.NearbyTarget.transform:landmark.transform;
+                var target=game.NearbyTarget!=null?game.NearbyTarget.transform:discovery!=null?discovery:landmark.transform;
                 var art = target.GetComponentInChildren<SpriteRenderer>();
                 Vector3 marker = art != null ? new Vector3(art.bounds.center.x, art.bounds.max.y, art.bounds.center.z) : target.position;
                 Vector3 screen=Camera.main.WorldToScreenPoint(marker);
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(root,screen,null,out var point);
                 contextArrow.anchoredPosition=point+Vector2.up*(20+Mathf.Sin(Time.unscaledTime*4)*3);
             }
+            var site=game.Discoveries.Current;
+            discoveryHint.gameObject.SetActive(exploring && ((site!=null && !site.Complete && (site.Started || discovery!=null) && Mathf.Abs(site.Arc(game.Player.Body.position))<5.5f) || game.Discoveries.NearGarden));
+            discoveryHint.text=game.Discoveries.NearGarden?"E: listening garden   ·   "+game.Discoveries.PackedCount+" ready for HOME":site==null?"":site.Status;
             var q=game.Melody;
             string place=game.Player.gravityManager.CurrentBody != null ? game.Player.gravityManager.CurrentBody.planetId : "Space";
             objective.text=place+"\n"+(q.Unlocked?"Melody restored":game.MelodyRepaired?"Score repaired": "Score "+q.Count+" / 5");

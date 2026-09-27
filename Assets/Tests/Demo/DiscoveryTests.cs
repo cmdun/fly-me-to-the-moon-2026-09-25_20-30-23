@@ -145,6 +145,8 @@ public class DiscoveryTests
         g.Player.Respawn(g.Planets.respawnPlanet,(Vector2)d.Garden.position-g.Planets.respawnPlanet.Center);
         g.Planets.cameraController.SnapToPlayer();yield return new WaitForSeconds(.3f);
         Assert.IsTrue(d.Deliver());Assert.AreEqual(12,d.HomeCount);Assert.IsFalse(d.Deliver());
+        Assert.IsTrue(d.HomeAwakened);Assert.AreEqual(1,d.HomeEvents);
+        Assert.AreSame(d.Garden,d.Observatory);StringAssert.Contains("Observatory",d.Observatory.name);
         d.PerformanceFinished(false,6);Assert.IsFalse(d.Festival);
         d.PerformanceFinished(true,17);Assert.IsFalse(d.Festival,"The restored score is still required");
         g.Melody.Unlocked=true;d.PerformanceFinished(true,17);Assert.IsTrue(d.Festival);Assert.AreEqual(17,d.BestPerformance);

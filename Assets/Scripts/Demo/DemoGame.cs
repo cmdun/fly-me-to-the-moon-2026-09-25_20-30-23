@@ -318,7 +318,7 @@ namespace FlyMeToTheMoon.Demo
             }
             else if (target.Kind == DemoTargetKind.Altar)
             {
-                if (q.Unlocked) OpenDialogue("Encore", "Play Moonlit Home again and improve your best performance: "+Discoveries.BestPerformance+" / 24 perfect.\n\n"+(Discoveries.HomeCount==DemoDiscoveries.Count?"Your garden is full. A successful performance brings everyone together!":"Bring every garden discovery home to prepare a festival."), "Perform", () => BeginRhythm(q));
+                if (q.Unlocked) OpenDialogue("Encore", "Play Moonlit Home again and improve your best performance: "+Discoveries.BestPerformance+" / 24 perfect.\n\n"+(Discoveries.HomeAwakened?"The Observatory is awake. A successful performance will make all of HOME sing!":"Complete the moon collection and deposit it at the Observatory."), "Perform", () => BeginRhythm(q));
                 else if (q.Count < DemoQuest.FragmentCount) OpenDialogue("The missing melody", "Five golden score pages wait on five moons. Each beacon holds a different challenge. Find them on the map and bring all five pages home.", "Explore");
                 else if (!MelodyRepaired) OpenDialogue("Repair the melody", "All five pages are here. Piece them together at this altar, then perform the restored melody.", "Repair score", () => {
                     MelodyRepaired = true; DemoSave.Write(this);

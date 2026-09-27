@@ -26,7 +26,7 @@ namespace FlyMeToTheMoon.Demo
         public bool Listening => listenAt>=0;
         public bool Complete => owner.Found[Id];
         public string Title => Kind==0?"Bell garden":Kind==1?"Prism orchard":"Lantern walk";
-        public string Status => Complete?"Discovery packed for HOME":!Started?"E: discover":Kind==0?
+        public string Status => Complete?"Collection packed — return to Observatory":!Started?"E: discover":Kind==0?
             Listening?"Listen to the glowing bells":"Shoot the bells  "+Progress+" / "+Melody.Length+"   ·   E: listen again":Kind==1?
             LitMirrors==Turns.Length?"Crystal awake · E at the crystal":"E: turn a reflector  ·  Light "+LitMirrors+" / "+Turns.Length:
             Time.time<calmAt?"Quiet... let your friend settle":!Fed?(HasFood?"E: offer food to the little singer":"E: gather food beneath the arch"):

@@ -1,6 +1,6 @@
 # Fly Me to the Moon — world encounters
 
-Open `Assets/Scenes/FullDemo.unity` in Unity 6000.6.3f1 and press Play. The world has 24 varied moons, five page beacons, a home altar, and seeded moonfolk conversations. The five page challenges now use the real character, circular gravity, movement, and projectiles in the world.
+Open `Assets/Scenes/FullDemo.unity` in Unity 6000.6.3f1 and press Play. The world has 24 varied moons, five page beacons, twelve optional collections, a home altar and an Observatory archive. The five page challenges use the real character, circular gravity, movement, and projectiles in the world.
 
 ## Five score pages
 
@@ -15,6 +15,12 @@ Open `Assets/Scenes/FullDemo.unity` in Unity 6000.6.3f1 and press Play. The worl
 Each encounter awards one page, once. The five beacons are on distinct moons. The relay follows three real neighbor links through the scattered field, including their bends. Other encounter hosts and beacon positions remain seeded and varied.
 
 Return all five pages to the altar on 612-B, repair the score through its dialogue, and perform the restored melody (17 of 24 notes). This unlocks the piano. Failed performances preserve the pages and repair.
+
+## Observatory home collection
+
+Twelve non-quest moons contain four bell gardens, four prism orchards and four lantern walks. Completing one packs its musical seed, crystal or singer into the player's cargo. The journey HUD shows the current cargo count, while J opens the Observatory collection journal and lets the player track unfinished moons.
+
+Return to the Observatory on 612-B and press E at its archive to deposit every carried collection. Each deposit fills a visible display around the Observatory and is saved. Depositing the twelfth collection permanently lights the Observatory beacon and triggers a home-planet musical celebration. With the restored piano, a successful altar performance turns that awakening into the full planetwide concert.
 
 ## Controls
 

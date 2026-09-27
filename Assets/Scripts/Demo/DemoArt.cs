@@ -37,7 +37,7 @@ namespace FlyMeToTheMoon.Demo
                 }
             }
             var home = bodies[0];
-            SurfaceArt(home, "observatory", ClearAngle(home, 333, 3), 3.1f);
+            SurfaceArt(home, "observatory", game.Discoveries.ObservatoryAngle, 3.1f);
             SurfaceArt(home, "house", ClearAngle(home, 27, 3), 2.3f);
             var homeGarden=SurfaceArt(home, "garden", 52, 1.15f);
             homeGarden.gameObject.AddComponent<DemoHomeGarden>().Build(game);

@@ -390,7 +390,7 @@ public class DemoJourneyTests
     [UnityTest] public IEnumerator GiantNoiseWakesAndRealBellShotDistracts()
     {
         yield return BeginEncounter(1);var e=(GiantEncounter)g.Challenge.Encounter;
-        for(int i=0;i<4;i++)e.Shot(e.At(e.SleepingPosition),Vector2.up);
+        for(int i=0;i<6;i++)e.Shot(e.At(e.SleepingPosition),Vector2.up);
         e.Tick(0,false);Assert.AreEqual(1,e.Wakes);Assert.AreEqual(0,e.Awareness);
         yield return Land();yield return Press(Key.Space);yield return Press();
         Assert.Greater(e.Awareness,.1f,"A real jump produces noise");
@@ -398,6 +398,18 @@ public class DemoJourneyTests
         yield return DemoSmoke.Fire(g,mouse,e.Bells[1].transform.position);
         Assert.Greater(e.LureRemaining,4);Assert.That(e.Attention,Is.EqualTo(2.7f).Within(.01f));
         Assert.IsFalse(e.Complete);Assert.AreEqual(0,g.Melody.Count);g.LeaveChallenge();
+    }
+    [UnityTest] public IEnumerator GiantWakeKeepsReleasedSealAsCheckpoint()
+    {
+        yield return BeginEncounter(1);var giant=(GiantEncounter)g.Challenge.Encounter;
+        yield return StandAt(giant,GiantEncounter.SealPositions[0]);
+        giant.Bells[0].Hit(false);giant.Interact();yield return new WaitForSeconds(.55f);
+        Assert.AreEqual(1,giant.SealsOpened);
+        for(int i=0;i<6;i++)giant.Shot(giant.At(giant.SleepingPosition),Vector2.up);
+        giant.Tick(0,false);
+        Assert.AreEqual(1,giant.Wakes);Assert.AreEqual(1,giant.SealsOpened,"A wake should not erase completed progress");
+        Assert.AreEqual(0,giant.Awareness);Assert.AreEqual(0,giant.LureRemaining);
+        g.LeaveChallenge();
     }
     [UnityTest] public IEnumerator ShootingWhileWalkingKeepsMovementAndBlocksQueuedJump()
     {

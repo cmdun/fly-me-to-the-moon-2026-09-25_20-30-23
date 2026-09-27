@@ -1,2 +1,10 @@
 ﻿<Solution>
+  <Project Path="FlyMeToTheMoon.Demo.csproj" />
+  <Project Path="FlyMeToTheMoon.Prototype.csproj" />
+  <Project Path="FlyMeToTheMoon.Demo.Tests.csproj" />
+  <Project Path="FlyMeToTheMoon.Prototype.Editor.csproj" />
+  <Project Path="FlyMeToTheMoon.Piano.csproj" />
+  <Project Path="FlyMeToTheMoon.Piano.Editor.csproj" />
+  <Project Path="FlyMeToTheMoon.Prototype.PlayModeTests.csproj" />
+  <Project Path="FlyMeToTheMoon.Piano.PlayModeTests.csproj" />
 </Solution>

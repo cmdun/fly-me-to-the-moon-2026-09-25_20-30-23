@@ -8,6 +8,7 @@ namespace FlyMeToTheMoon.Demo
     {
         public DemoPlayerArt PlayerArt { get; private set; }
         public DemoAmbientLife Ambient { get; private set; }
+        public DemoSpaceBackdrop Space { get; private set; }
         public readonly List<SpriteRenderer> Worlds = new List<SpriteRenderer>();
         readonly List<DemoLandmarkArt> landmarks = new List<DemoLandmarkArt>();
         readonly List<Transform> scenery = new List<Transform>();
@@ -49,7 +50,9 @@ namespace FlyMeToTheMoon.Demo
             foreach (var target in game.Targets) SkinTarget(target);
             PlayerArt = game.Player.gameObject.AddComponent<DemoPlayerArt>(); PlayerArt.Build(game);
             Camera.main.backgroundColor = new Color(.018f, .032f, .072f);
-            CreateStars();
+            var sky = new GameObject("Layered space background");
+            sky.transform.SetParent(game.WorldRoot, false);
+            Space = sky.AddComponent<DemoSpaceBackdrop>(); Space.Build(Camera.main, game.Seed);
         }
         float ClearAngle(GravityBody body, float angle, float clearance)
         {
@@ -151,19 +154,6 @@ namespace FlyMeToTheMoon.Demo
             var art = PixelArtLibrary.Create(game.WorldRoot, "Musical response", sheet + "/fx/" + (frameCount == 1 ? firstFrame : 2), 30);
             art.transform.position = new Vector3(position.x, position.y, -.95f); art.transform.rotation = rotation;
             PixelArtLibrary.Height(art, size); art.gameObject.AddComponent<DemoArtEffect>().Build(art, sheet, firstFrame, frameCount);
-        }
-        void CreateStars()
-        {
-            // Sparse existing sparkle frames, with local seeded randomness (never UnityEngine.Random).
-            var random = new System.Random(game.Seed ^ 0x215ad);
-            var sky = new GameObject("Quiet starfield").transform; sky.SetParent(game.WorldRoot, false);
-            for (int i = 0; i < 170; i++)
-            {
-                var star = PixelArtLibrary.Create(sky, "Star", "03/fx/0", -50);
-                star.transform.position = new Vector3((float)random.NextDouble() * 210 - 105, (float)random.NextDouble() * 210 - 105, 2);
-                PixelArtLibrary.Height(star, .04f + (float)random.NextDouble() * .12f);
-                star.color = new Color(.65f, .8f, 1, .25f + (float)random.NextDouble() * .35f);
-            }
         }
     }
 

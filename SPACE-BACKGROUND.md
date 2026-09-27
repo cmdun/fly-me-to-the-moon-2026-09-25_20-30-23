@@ -1,0 +1,11 @@
+# Space background
+
+The old 170 stars were scattered over a 210-unit square, leaving most close gameplay views nearly empty. The demo now uses a repeating sky that fills the camera at every position and zoom level.
+
+The sky combines a muted indigo/teal nebula band, three star layers at different distances, two small spiral galaxy motifs, subtle twinkling, and an occasional shooting star. Camera-relative parallax gives the layers different apparent movement speeds. Colors and contrast stay below the foreground worlds and score-page beacons. The sky has no colliders or map markers, and the playable world still contains one home planet and 24 moons.
+
+`DemoArt.cs` installs `DemoSpaceBackdrop.cs` under the generated world root. `DemoSpacePixels.cs` paints four small seeded textures once at startup, with point filtering and no mipmaps. `SpaceBackdrop.shader` composites them in a single background draw. The final camera viewport is checked before rendering, including pixel-perfect zoom changes. Animation uses the paused game clock; the material, mesh, textures, and camera callback are released with the sky. No scene, package, original art, save, or project-setting changes are required. The textures wrap; very long travel can repeat distant motifs.
+
+Open `Assets/Scenes/FullDemo.unity` in Unity 6000.6.3f1 and press Play, then Enter. Walk around home to see the distant layers move slowly; jump and boost between moons to see the wider starfield. The first shooting star appears after roughly 5–9 seconds of play, followed by one every 12–21 seconds. Escape freezes the animation. If the project was already running while scripts changed, stop and restart Play Mode.
+
+Validation: 10/10 Play Mode checks passed in `SpaceBackgroundTests`, `PixelArtTests`, and `AmbientLifeTests`. Coverage includes shader support, viewport coverage during ground/flight/outer-moon travel, wide rotated views, drawing behind worlds, pausing during a shooting star, resource cleanup, and existing world/player/encounter/scenery art. Reviewed actual Unity screenshots of home, flight, and distant space. The first run caught a same-frame pause tick; the final run confirms the fix. Results are in `../tmp/space-background-final.xml`, and review captures are in `../tmp/space-background-review/`. No standalone build was generated.

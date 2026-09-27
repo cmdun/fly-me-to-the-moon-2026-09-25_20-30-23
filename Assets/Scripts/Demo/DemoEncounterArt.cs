@@ -16,6 +16,7 @@ namespace FlyMeToTheMoon.Demo
             switch (kind)
             {
                 case "Sleeping giant": key = "giant/0"; height = 1.65f; offset = -.45f; break;
+                case "Nest seal": key = "03/object/0"; height=.22f; offset=-.15f;break;
                 case "Guarded page": key = "prop/page"; height = 1.15f; offset = -.45f; break;
                 case "BELL": key = "01/object/0"; height = 1.5f; offset = -.95f; break;
                 case "Echo gate": case "Sanctuary gate": key = "prop/gate"; height = shape.size.y; offset = -height * .5f; break;
@@ -68,6 +69,8 @@ namespace FlyMeToTheMoon.Demo
                 case "BELL":
                     Sprite.sprite = PixelArtLibrary.Get("01/object/" + (Time.time < hitUntil ? Mathf.Clamp(2 + (int)((.9f - hitUntil + Time.time) * 5), 2, 5) : ringCount > 0 ? 5 : 0));
                     break;
+                case "Nest seal": Sprite.color=shape.color;break;
+                case "Guarded page": Sprite.color=((GiantEncounter)encounter).SealsOpened==2?Color.white:new Color(.4f,.4f,.55f);break;
                 case "Sleeping giant":
                     var giant = (GiantEncounter)encounter;
                     Sprite.sprite = PixelArtLibrary.Get("giant/" + (giant.Awareness > .65f ? 2 : giant.LureRemaining > 0 || giant.Awareness > .25f ? 1 : 0));
@@ -108,7 +111,7 @@ namespace FlyMeToTheMoon.Demo
                     else if (kind.StartsWith("SWITCH"))
                     {
                         var storm = (StormEncounter)encounter; int index = kind.EndsWith("1") ? 0 : 1;
-                        Sprite.color = storm.Repaired[index] ? DemoGame.Accent : storm.Exposed ? new Color(1, .95f, .65f) : new Color(.38f, .38f, .5f);
+                        Sprite.color = storm.Repaired[index] ? DemoGame.Accent : storm.Exposed && storm.ReadyForRepair && index==storm.NextSwitch ? new Color(1, .95f, .65f) : new Color(.38f, .38f, .5f);
                     }
                     else if (kind.StartsWith("Relay gate")) Sprite.color = shape.color;
                     break;

@@ -19,24 +19,28 @@ namespace FlyMeToTheMoon.Demo
             for (int i = 0; i < bodies.Length; i++)
             {
                 var body = bodies[i]; PixelArtLibrary.HideMeshes(body.transform);
-                // A continuous dark rim grounds feet between the painted leaves and other small cutouts.
-                var rim = DemoWorld.Shape(body.transform, "Continuous ground rim", body.Center,
-                    Vector2.one * body.radius * 2, new Color(.035f, .1f, .12f), game.Material, true);
-                rim.GetComponent<MeshRenderer>().sortingOrder = -21;
-                var world = PixelArtLibrary.Create(body.transform, "Painted walkable world", "world/" + (i == 0 ? 0 : 1 + (i - 1) % 6), -20);
+                var world = PixelArtLibrary.Create(body.transform, "Illustrated walkable world", "world/" + (i == 0 ? 0 : 1 + (i - 1) % 6), -20);
                 PixelArtLibrary.Size(world, Vector2.one * body.radius * 2); Worlds.Add(world);
+                world.gameObject.AddComponent<DemoWorldSurface>().Build(world,body,i,game.Seed);
                 if (i == 0) continue;
                 float angle = Mathf.Repeat(i * 137.51f + (game.Seed & 255), 360);
                 angle = ClearAngle(body, angle, 2.8f);
                 var landmark = SurfaceArt(body, Themes[(i - 1) % 6], angle, 1.7f);
                 var reaction = landmark.gameObject.AddComponent<DemoLandmarkArt>();
                 reaction.Build(game, body, Themes[(i - 1) % 6], landmark); landmarks.Add(reaction);
-                SurfaceArt(body, "garden", ClearAngle(body, angle + 125, 1.3f), .6f);
+                for(int j=0;j<3;j++)
+                {
+                    var plant = SurfaceArt(body, "garden", ClearAngle(body, angle + 77 + j*89, 1.3f), .48f + j*.08f);
+                    var life=plant.gameObject.AddComponent<DemoLandmarkArt>();life.Build(game,body,"garden",plant);landmarks.Add(life);
+                }
             }
             var home = bodies[0];
             SurfaceArt(home, "observatory", ClearAngle(home, 333, 3), 3.1f);
             SurfaceArt(home, "house", ClearAngle(home, 27, 3), 2.3f);
-            SurfaceArt(home, "garden", 52, 1.15f);
+            var homeGarden=SurfaceArt(home, "garden", 52, 1.15f);
+            homeGarden.gameObject.AddComponent<DemoHomeGarden>().Build(game);
+            var homeDrum=SurfaceArt(home,"drum",ClearAngle(home,285,2),.75f);
+            var drum=homeDrum.gameObject.AddComponent<DemoLandmarkArt>();drum.Build(game,home,"drum",homeDrum);landmarks.Add(drum);
             SurfaceArt(home, "garden", 60, .7f);
             SurfaceArt(home, "woodwinds", 303, 1.5f);
             SurfaceArt(home, "crystals", 75, .8f);
@@ -107,6 +111,17 @@ namespace FlyMeToTheMoon.Demo
             art.transform.rotation = Quaternion.FromToRotation(Vector3.up, game.Player.Up);
             if (!echo) PlayerArt.Aim(direction);
         }
+        public DemoLandmarkArt NearestLandmark()
+        {
+            DemoLandmarkArt closest=null;float distance=1.6f;
+            foreach(var landmark in landmarks)
+            {
+                if(!landmark.isActiveAndEnabled || !landmark.CanInteract)continue;
+                float d=Vector2.Distance(game.Player.Body.position,landmark.transform.position);
+                if(d<distance){distance=d;closest=landmark;}
+            }
+            return closest;
+        }
         public void NotePassed(Vector2 from, Vector2 to)
         { foreach (var landmark in landmarks) if (landmark.isActiveAndEnabled) landmark.NotePassed(from, to); }
         public void Recoil(Vector2 shotDirection)
@@ -162,43 +177,4 @@ namespace FlyMeToTheMoon.Demo
         }
     }
 
-    /// <summary>Optional scenery reactions. These never create collisions or award quest progress.</summary>
-    public sealed class DemoLandmarkArt : MonoBehaviour
-    {
-        DemoGame game; GravityBody body; SpriteRenderer sprite; string kind;
-        float until; int noteCount; Vector3 scale;
-        public void Build(DemoGame owner, GravityBody moon, string theme, SpriteRenderer renderer)
-        { game = owner; body = moon; kind = theme; sprite = renderer; scale = transform.localScale; }
-        public void NotePassed(Vector2 from, Vector2 to)
-        {
-            if (Time.time < until || kind == "piano" || kind == "drum") return;
-            Vector2 point = (Vector2)transform.position + (Vector2)transform.up * .7f;
-            Vector2 line = to - from;
-            float t = line.sqrMagnitude < .0001f ? 0 : Mathf.Clamp01(Vector2.Dot(point - from, line) / line.sqrMagnitude);
-            if (Vector2.Distance(point, from + line * t) > .7f) return;
-            until = Time.time + 1; noteCount++;
-            game.Art.Effect(kind == "harp" ? "05" : "01", point, .55f, transform.rotation);
-        }
-        void LateUpdate()
-        {
-            if (game == null || Time.timeScale == 0) return;
-            bool near = game.Player.gravityManager.CurrentBody == body && game.Player.IsGrounded && Vector2.Distance(game.Player.Body.position, transform.position) < 1.2f;
-            if (kind == "piano")
-            {
-                sprite.sprite = PixelArtLibrary.Get("03/object/" + (near ? 2 + (int)(Time.time * 4) % 3 : 0));
-                PixelArtLibrary.Height(sprite, .42f);
-            }
-            else if (kind == "bell" && noteCount > 0)
-            {
-                sprite.sprite = PixelArtLibrary.Get("01/object/" + (Time.time < until ? Mathf.Clamp(2 + (int)((1 - until + Time.time) * 5), 2, 5) : 5));
-                PixelArtLibrary.Height(sprite, 1.7f);
-            }
-            else
-            {
-                float pulse = Time.time < until ? Mathf.Sin((until - Time.time) * 15) * .035f : 0;
-                transform.localScale = new Vector3(scale.x * (1 - pulse), scale.y * (1 + pulse), 1);
-                sprite.color = Time.time < until ? new Color(1, 1, .8f) : Color.white;
-            }
-        }
-    }
 }

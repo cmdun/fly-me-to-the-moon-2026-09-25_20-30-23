@@ -65,16 +65,49 @@ namespace FlyMeToTheMoon.Demo
             }
             effects.PlayOneShot(clip, volume);
         }
+        void AddVoice(float[] data,double onset,int midi,double duration,int instrument,float volume)
+        {
+            float frequency=440*Mathf.Pow(2,(midi-69)/12f);int first=(int)(onset*Rate),count=(int)(duration*Rate);
+            for(int j=0;j<count && first+j<data.Length;j++)
+            {
+                double t=j/(double)Rate;
+                float envelope=Mathf.Min(1,j/(Rate*.014f))*Mathf.Pow(1-j/(float)count,instrument==0?1.3f:2.8f);
+                double phaseTime=instrument==0?t+.00008*Math.Sin(34*t):t;
+                data[first+j]+=Wave(phaseTime,frequency,instrument)*envelope*volume;
+            }
+        }
+        void Brush(float[] data,double onset,float volume)
+        {
+            int first=(int)(onset*Rate),count=(int)(Rate*.095);uint noise=73421;
+            for(int j=0;j<count && first+j<data.Length;j++)
+            {noise=noise*1664525+1013904223;float sample=((noise>>16)/32767.5f)-1;data[first+j]+=sample*volume*Mathf.Pow(1-j/(float)count,4);}
+        }
         public double Song(int instrument, DemoRhythm chart)
         {
             music.Stop();
             if (!songs.TryGetValue(instrument, out var clip))
             {
                 float[] data = new float[(int)((chart.Duration + 0.5) * Rate)];
-                AddTone(data, 0.25, 3, 0, 0.12f); AddTone(data, 1.1, 3, 0, 0.12f);
-                for (int i = 0; i < DemoRhythm.NoteCount; i++)
-                    AddTone(data, chart.TimeOf(i), instrument, chart.Lane(i), 0.38f);
-                clip = AudioClip.Create("Original moon melody " + instrument, data.Length, 1, Rate, false);
+                // Original chamber-jazz arrangement: swung melody, walking bass, soft chords and brushes.
+                for(int count=0;count<3;count++) AddTone(data,.25+count*.7,3,0,.07f);
+                int[] roots={48,45,50,43,52,45,50,43};
+                int[][] chords={new[]{60,64,67,71},new[]{60,64,67,69},new[]{60,65,69,74},new[]{59,62,65,69},
+                    new[]{59,62,67,71},new[]{61,64,67,69},new[]{60,65,69,74},new[]{59,62,65,67}};
+                for(int bar=0;bar<8;bar++)
+                {
+                    double begin=DemoRhythm.CountIn+bar*4*DemoRhythm.Beat;
+                    for(int beat=0;beat<4;beat++)
+                    {
+                        double onset=begin+beat*DemoRhythm.Beat;
+                        AddVoice(data,onset,roots[bar]-12+(beat%2==1?7:0),.6,1,.18f);
+                        Brush(data,onset,.045f);Brush(data,onset+DemoRhythm.Beat*2/3,.023f);
+                        if(beat==1 || beat==3)foreach(int pitch in chords[bar])AddVoice(data,onset+.025,pitch,.65,1,.035f);
+                    }
+                }
+                for(int i=0;i<DemoRhythm.NoteCount;i++) AddVoice(data,chart.TimeOf(i),chart.Pitch(i),.57,0,.25f);
+                foreach(int pitch in new[]{48,60,64,67,71})AddVoice(data,chart.TimeOf(23),pitch,.95,1,.045f);
+                for(int i=0;i<data.Length;i++)data[i]=Mathf.Clamp(data[i],-.9f,.9f);
+                clip = AudioClip.Create(DemoRhythm.SongTitle+" — original swing", data.Length, 1, Rate, false);
                 clip.SetData(data, 0); songs.Add(instrument, clip);
             }
             music.clip = clip;

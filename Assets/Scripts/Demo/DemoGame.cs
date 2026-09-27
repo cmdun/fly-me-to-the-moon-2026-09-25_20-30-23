@@ -20,6 +20,8 @@ namespace FlyMeToTheMoon.Demo
         public Material Material;
         public int WorldSeed;
         public int Seed { get; private set; }
+        public bool HasSavedJourney { get; private set; }
+        private float saveAt;
         public MoonPlacement[] MoonLayout { get; private set; }
         public bool MelodyRepaired { get; private set; }
         public DemoQuest Melody => Quests.Count == 0 ? null : Quests[0];
@@ -69,10 +71,21 @@ namespace FlyMeToTheMoon.Demo
             if (Camera.main.GetComponent<AudioListener>() == null) Camera.main.gameObject.AddComponent<AudioListener>();
             Audio = gameObject.AddComponent<DemoAudio>();
             WorldRoot = new GameObject("Demo quest objects").transform;
-            Seed = WorldSeed == 0 ? System.Guid.NewGuid().GetHashCode() : WorldSeed;
+            var saved = WorldSeed==0 ? DemoSave.Read() : null;
+            HasSavedJourney = saved!=null;
+            Seed = saved!=null ? saved.seed : WorldSeed == 0 ? System.Guid.NewGuid().GetHashCode() : WorldSeed;
             MoonLayout = DemoGalaxy.Layout(Seed);
             var bodies = DemoGalaxy.Generate(this, MoonLayout);
             Quests.Add(DemoWorld.CreateJourney(this, bodies, Seed));
+            if(saved!=null)
+            {
+                for(int i=0;i<5;i++){Melody.Fragments[i]=saved.fragments[i];Melody.Stations[i].gameObject.SetActive(!saved.fragments[i]);}
+                MelodyRepaired=saved.repaired && Melody.Count==5;
+                Melody.Unlocked=saved.piano && MelodyRepaired;Completed=Melody.Unlocked?1:0;
+                Equipped=Melody.Unlocked?Mathf.Clamp(saved.equipped,0,1):0;
+                var up=new Vector2(saved.upX,saved.upY);if(up.sqrMagnitude<.1f)up=Vector2.up;
+                Player.Respawn(bodies[saved.moon],up);Planets.cameraController.SnapToPlayer();
+            }
             Events = gameObject.AddComponent<DemoWorldEvents>();
             Events.Build(this, bodies, Seed);
             Art = gameObject.AddComponent<DemoArt>(); Art.Build(this, bodies);
@@ -113,10 +126,10 @@ namespace FlyMeToTheMoon.Demo
             {
                 if (keys != null)
                 {
-                    if (keys.aKey.wasPressedThisFrame) PlayLane(0);
-                    if (keys.sKey.wasPressedThisFrame) PlayLane(1);
-                    if (keys.dKey.wasPressedThisFrame) PlayLane(2);
-                    if (keys.fKey.wasPressedThisFrame) PlayLane(3);
+                    if (keys.dKey.wasPressedThisFrame) PlayLane(0);
+                    if (keys.fKey.wasPressedThisFrame) PlayLane(1);
+                    if (keys.jKey.wasPressedThisFrame) PlayLane(2);
+                    if (keys.kKey.wasPressedThisFrame) PlayLane(3);
                 }
                 if (Rhythm.Tick(SongTime)) EndRhythm();
                 return;
@@ -157,6 +170,8 @@ namespace FlyMeToTheMoon.Demo
             if (Player.FluteJumpCount != seenBoost)
             { seenBoost = Player.FluteJumpCount; Audio.Note(Equipped, 3); Art.BoostNotes(); }
             if (Time.unscaledTime > messageUntil) Message = "";
+            if(State==DemoState.Explore && Player.IsGrounded && Time.unscaledTime>=saveAt)
+            {saveAt=Time.unscaledTime+10;DemoSave.Write(this);}
         }
 
         public void StartGame()
@@ -196,18 +211,20 @@ namespace FlyMeToTheMoon.Demo
         {
             if (!PlayingWorld || lane < 0 || lane > 6) return;
             Audio.Note(Equipped, lane);
-            Art.PlayerArt.PlayNote();
+            Art.PlayerArt.PlayNote(lane);
         }
         public void ShootToward(Vector2 position)
         {
             if (!PlayingWorld || Time.time < nextShot) return;
-            Vector2 direction = position - Player.Body.position;
+            Vector2 source = Player.Body.position + Player.Up * .65f;
+            Vector2 direction = position - source;
             if (direction.sqrMagnitude < 0.01f) direction = Player.Up;
             direction.Normalize();
-            nextShot = Time.time + 0.22f;
+            nextShot = Time.time + 0.28f;
+            Player.BeginShot(.3f);
             Audio.Note(Equipped, Shots % 7); Shots++;
             if (State == DemoState.Challenge) Challenge.Encounter.Shot(Player.Body.position,direction);
-            Emit(direction.normalized);
+            Emit(direction.normalized, source);
         }
         public bool RecoilToward(Vector2 position)
         {
@@ -239,7 +256,7 @@ namespace FlyMeToTheMoon.Demo
             if (State != DemoState.Challenge || q != ActiveQuest || index < 0 || index >= DemoQuest.FragmentCount || q.Fragments[index]) return false;
             if (!Challenge.Finished || !Challenge.Success || Challenge.Index != index) return false;
             q.Fragments[index] = true; q.Stations[index].gameObject.SetActive(false);
-            Audio.Note(1, index); Tell("Score " + q.Count + "/5");
+            Audio.Note(1, index); Tell("Score " + q.Count + "/5"); DemoSave.Write(this);
             return true;
         }
         public bool BeginChallenge(int index)
@@ -281,7 +298,7 @@ namespace FlyMeToTheMoon.Demo
         {
             if (State != DemoState.Explore || MapVisible) return;
             NearbyTarget = FindNearbyTarget();
-            if (NearbyTarget == null) return;
+            if (NearbyTarget == null) { Art.NearestLandmark()?.Interact(); return; }
             var target = NearbyTarget; var q = Melody;
             if (target.Kind == DemoTargetKind.Creature)
             {
@@ -292,7 +309,7 @@ namespace FlyMeToTheMoon.Demo
                 if (q.Unlocked) OpenDialogue("Home altar", "The melody is whole. Your piano is ready to play.", "Leave");
                 else if (q.Count < DemoQuest.FragmentCount) OpenDialogue("The missing melody", "Five golden score pages wait on five moons. Each beacon holds a different challenge. Find them on the map and bring all five pages home.", "Explore");
                 else if (!MelodyRepaired) OpenDialogue("Repair the melody", "All five pages are here. Piece them together at this altar, then perform the restored melody.", "Repair score", () => {
-                    MelodyRepaired = true;
+                    MelodyRepaired = true; DemoSave.Write(this);
                     OpenDialogue("Score restored", "The missing melody is ready. Complete the performance to awaken your piano.", "Perform", () => BeginRhythm(q));
                 });
                 else OpenDialogue("Home altar", "The repaired score is ready to perform.", "Perform", () => BeginRhythm(q));
@@ -346,7 +363,7 @@ namespace FlyMeToTheMoon.Demo
         {
             if (State != DemoState.Rhythm) return;
             Feedback = Rhythm.Hit(lane, SongTime);
-            Audio.Note(Performing.Index + 1, lane, 0.3f);
+            Art.PlayerArt.PlayNote(lane);
         }
         private void EndRhythm()
         {
@@ -360,6 +377,7 @@ namespace FlyMeToTheMoon.Demo
                     shape.color = Color.Lerp(shape.color, Accent, 0.35f); shape.Rebuild();
                 }
             }
+            DemoSave.Write(this);
             SetState(Completed == Quests.Count ? DemoState.Win : DemoState.Result);
         }
         public void Pause()
@@ -379,8 +397,17 @@ namespace FlyMeToTheMoon.Demo
 
         }
         public void Restart()
-        { Time.timeScale = 1; SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
-        public void Quit() { Time.timeScale = 1; Application.Quit(); }
+        { DemoSave.Clear(); Time.timeScale = 1; SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+        public void Quit()
+        {
+            DemoSave.Write(this);Time.timeScale=1;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying=false;
+#else
+            Application.Quit();
+#endif
+        }
+        private void OnApplicationQuit(){if(Player!=null)DemoSave.Write(this);}
         private void OnDestroy() { Time.timeScale = 1; }
     }
 

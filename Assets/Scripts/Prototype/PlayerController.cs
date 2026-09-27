@@ -22,6 +22,7 @@ namespace FlyMeToTheMoon
         public int NormalJumpCount { get; private set; }
         public int FluteJumpCount { get; private set; }
         public Rigidbody2D Body { get; private set; }
+        public bool IsPlayingShot => Time.time < shotUntil;
         public bool CanFluteJump => normalJumpUsed && !IsGrounded && !FluteUsed;
         public Vector2 Up => gravityManager.CurrentBody != null
             ? gravityManager.CurrentBody.UpAt(Body.position) : gravityManager.TravelUp;
@@ -32,6 +33,7 @@ namespace FlyMeToTheMoon
         private PhysicsMaterial2D frictionless;
         private float jumpRequestedUntil = -1f;
         private float ignoreGroundUntil;
+        private float shotUntil;
         private bool normalJumpUsed;
         private float radius;
 
@@ -65,7 +67,7 @@ namespace FlyMeToTheMoon
 
         private void Update()
         {
-            if (jumpAction.WasPressedThisFrame()) jumpRequestedUntil = Time.time + 0.12f;
+            if (!IsPlayingShot && jumpAction.WasPressedThisFrame()) jumpRequestedUntil = Time.time + 0.12f;
         }
 
         private void FixedUpdate()
@@ -84,10 +86,14 @@ namespace FlyMeToTheMoon
                 gravityManager.EndJump();
             }
 
-            Vector2 input = Vector2.ClampMagnitude(moveAction.ReadValue<Vector2>(), 1f);
+            Vector2 input = IsPlayingShot ? Vector2.zero : Vector2.ClampMagnitude(moveAction.ReadValue<Vector2>(), 1f);
             float move = input.x;
             Vector2 velocity = Body.linearVelocity;
-            if (FluteUsed && !IsGrounded)
+            if (IsPlayingShot && !IsGrounded)
+            {
+                // A shot suppresses steering, but never suspends gravity or cancels a transfer.
+            }
+            else if (FluteUsed && !IsGrounded)
             {
                 // World-space WASD thrust remains stable while the visual rotates.
                 // No input means coast, rather than automatically braking sideways momentum.
@@ -96,7 +102,7 @@ namespace FlyMeToTheMoon
             else
             {
                 float tangentSpeed = Vector2.Dot(velocity, tangent);
-                float nextSpeed = Mathf.MoveTowards(tangentSpeed, move * moveSpeed,
+                float nextSpeed = IsPlayingShot ? 0 : Mathf.MoveTowards(tangentSpeed, move * moveSpeed,
                     (IsGrounded ? groundAcceleration : airAcceleration) * Time.fixedDeltaTime);
                 velocity += tangent * (nextSpeed - tangentSpeed);
             }
@@ -104,7 +110,7 @@ namespace FlyMeToTheMoon
                 ? -up * (planet.gravity * Time.fixedDeltaTime)
                 : gravityManager.TravelAcceleration(Body.position) * Time.fixedDeltaTime;
 
-            if (jumpRequestedUntil >= Time.time)
+            if (!IsPlayingShot && jumpRequestedUntil >= Time.time)
             {
                 if (IsGrounded && !normalJumpUsed)
                 {
@@ -144,6 +150,24 @@ namespace FlyMeToTheMoon
                 Body.rotation, targetAngle, airRotationSpeed * Time.fixedDeltaTime));
         }
 
+        public void BeginShot(float duration = .24f)
+        {
+            shotUntil = Time.time + duration;
+            jumpRequestedUntil = -1f;
+            if (IsGrounded) Body.linearVelocity = Vector2.zero;
+        }
+
+        public bool TryDrumLaunch(float speed)
+        {
+            if (!enabled || !IsGrounded || IsPlayingShot) return false;
+            Vector2 up = Up;
+            Body.linearVelocity += up * (speed - Vector2.Dot(Body.linearVelocity, up));
+            normalJumpUsed = true; FluteUsed = false; IsGrounded = false;
+            NormalJumpCount++; gravityManager.BeginJump();
+            ignoreGroundUntil = Time.time + .18f; jumpRequestedUntil = -1f;
+            return true;
+        }
+
         // Mouse recoil and Space share one airborne boost budget.
         public bool TryDirectionalBoost(Vector2 direction)
         {
@@ -173,6 +197,7 @@ namespace FlyMeToTheMoon
             Body.rotation = Vector2.SignedAngle(Vector2.up, spawnUp);
             gravityManager.ResetTo(home, Body.position);
             normalJumpUsed = false;
+            shotUntil = 0;
             FluteUsed = false;
             IsGrounded = false;
             ignoreGroundUntil = Time.time + 0.05f;

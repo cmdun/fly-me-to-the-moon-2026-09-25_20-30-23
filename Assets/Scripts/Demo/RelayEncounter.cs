@@ -64,7 +64,9 @@ namespace FlyMeToTheMoon.Demo
             if(Carrying)
             {
                 spark.transform.position=(Vector3)(position+Game.Player.Up*.8f)+Vector3.back*.7f;
-                if(Passed<3 && SegmentDistance(GateCenters[Passed],previous,position)<1.05f){Passed++;Game.Audio.Note(0,Passed+2);}
+                if(Passed<3 && !Game.Player.IsGrounded && delta>0 && Vector2.Distance(previous,position)<=Game.Player.maxFlightSpeed*delta+1f
+                    && Vector2.Dot(position-previous,Route[Passed+1].Center-Route[Passed].Center)>0
+                    && SegmentDistance(GateCenters[Passed],previous,position)<1.05f){Passed++;Game.Audio.Note(0,Passed+2);}
                 for(int i=Checkpoint+1;i<=Mathf.Min(Passed,2);i++)
                     if(Game.Player.IsGrounded && Game.Player.gravityManager.CurrentBody==Route[i] && Vector2.Distance(position,Shrines[i])<1.3f)
                     {Checkpoint=i;Game.Tell("Spark stabilized — checkpoint "+i);}

@@ -6,7 +6,8 @@ namespace FlyMeToTheMoon.Demo
     {
         public sealed class Singer
         {
-            public float Position, Target, Fear, FearDirection;
+            public float Position, Target, Fear, FearDirection, Settled, Guided;
+            public bool Heard, Responded;
             public bool Rescued, Awake;
             public PrototypeShape Shape;
             public EncounterLabel Label;
@@ -38,7 +39,7 @@ namespace FlyMeToTheMoon.Demo
         public override void Reset()
         {
             Rescued=0;Sustained=0;Door.SetOpen(false);noteTimer=0;
-            for(int i=0;i<3;i++){var c=Creatures[i];c.Position=c.Target=-2.5f-i*1.2f;c.Fear=0;c.Rescued=false;c.Awake=i==0;}
+            for(int i=0;i<3;i++){var c=Creatures[i];c.Position=c.Target=-2.5f-i*1.2f;c.Fear=c.Settled=c.Guided=0;c.Heard=c.Responded=false;c.Rescued=false;c.Awake=i==0;}
             Spawn();
         }
         public override void Interact(){if(Near(1.4f,1.15f,1.5f)){Door.SetOpen(!Door.Open);Game.Audio.Note(0,4);}}
@@ -59,17 +60,23 @@ namespace FlyMeToTheMoon.Demo
                 if(c.Rescued){Place(c.Shape,Sanctuary+(i-1)*.4f,.35f);continue;}
                 if(!c.Awake){Colorize(c.Shape,new Color(.28f,.3f,.4f));continue;}
                 bool heard=calling && Mathf.Abs(ArcDelta(c.Position,PlayerS))<9;
-                if(heard)c.Target=PlayerS;
+                if(heard){c.Target=PlayerS;c.Heard=true;}
                 bool moving=i==0?heard:i==1?heard && Sustained>.7f:!calling && Mathf.Abs(ArcDelta(c.Position,c.Target))>.6f;
                 float step=0;
                 if(c.Fear>0){c.Fear-=delta;step=c.FearDirection*2.1f*delta;}
                 else if(moving && Mathf.Abs(ArcDelta(c.Position,c.Target))>.6f)step=Mathf.Sign(ArcDelta(c.Position,c.Target))*1.65f*delta;
                 float next=c.Position+step;
-                if(!Door.Open && c.Position<2.5f && next>2.25f)next=2.25f;
+                float gateDistance=ArcDelta(c.Position,2.5f);
+                if(!Door.Open && Mathf.Sign(step)==Mathf.Sign(gateDistance) && Mathf.Abs(gateDistance)<=Mathf.Abs(step)+.25f)
+                    next=c.Position+Mathf.Sign(step)*Mathf.Max(0,Mathf.Abs(gateDistance)-.25f);
+                if(moving && c.Fear<=0 && c.Heard && Mathf.Abs(next-c.Position)>.000001f)
+                {c.Guided+=Mathf.Abs(next-c.Position);c.Responded=true;}
                 c.Position=next;
                 if(Mathf.Abs(ArcDelta(c.Position,-7.5f))<.6f || Mathf.Abs(ArcDelta(c.Position,8.7f))<.6f)
-                {c.Position=c.Target=-2.5f-i*1.2f;c.Fear=0;Game.Tell("A singer scattered — call from nearer ground");}
-                if(Mathf.Abs(ArcDelta(c.Position,Sanctuary))<.8f){c.Rescued=true;Rescued++;Game.Audio.Note(0,i+3);}
+                {c.Position=c.Target=-2.5f-i*1.2f;c.Fear=c.Settled=c.Guided=0;c.Heard=c.Responded=false;Game.Tell("A singer scattered — call from nearer ground");}
+                bool safe=Door.Open && c.Heard && c.Responded && c.Guided>2 && c.Fear<=0 && Mathf.Abs(ArcDelta(c.Position,Sanctuary))<.8f;
+                c.Settled=safe?c.Settled+delta:0;
+                if(c.Settled>=.8f){c.Rescued=true;Rescued++;Game.Audio.Note(0,i+3);}
                 Place(c.Shape,c.Position,.38f+(step!=0?Mathf.Abs(Mathf.Sin(Session.Elapsed*10+i))*.15f:0));
                 Colorize(c.Shape,c.Fear>0?new Color(1,.3f,.3f):CreatureColor(i));
             }

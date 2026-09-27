@@ -145,13 +145,14 @@ namespace FlyMeToTheMoon.Demo
             {
                 menuTitle.text = "FLY ME TO THE MOON";
                 menuBody.text = "Find the scattered score. Bring the melody home.";
-                Bind(0,"Start journey  [Enter]",game.StartGame);
-                Bind(1,audio,game.ToggleAudio); Bind(2,"Quit",game.Quit);
+                Bind(0,game.HasSavedJourney?"Continue journey  [Enter]":"Start journey  [Enter]",game.StartGame);
+                if(game.HasSavedJourney){Bind(1,"New journey (resets progress)",game.Restart);Bind(2,audio,game.ToggleAudio);Bind(3,"Quit",game.Quit);}
+                else {Bind(1,audio,game.ToggleAudio); Bind(2,"Quit",game.Quit);}
             }
             else if (game.State == DemoState.Paused)
             {
                 menuTitle.text = "PAUSED";
-                menuBody.text = "A/D walk   |   Space jump, then Space to boost   |   WASD steer\nLeft click: shoot notes   |   Right click: airborne recoil (uses boost)\nE: interact / advance dialogue   |   1-7: C D E F G A B\nTab: instrument (land first)   |   M: map   |   R: recover\nEncounters: Q call, C record, E act, R retry   |   Rhythm: A/S/D/F\n\nFind 5 challenge pages on the moons; repair and perform at the home altar.";
+                menuBody.text = "A/D walk   |   Space jump, then Space to boost   |   WASD steer\nLeft click: plant feet and shoot notes   |   Right click: airborne recoil (uses boost)\nE: interact / advance dialogue   |   1-7: C D E F G A B\nTab: instrument (land first)   |   M: map   |   R: recover\nEncounters: Q call, C record, E act, R retry   |   Rhythm: D/F/J/K\n\nFind 5 challenge pages on the moons; repair and perform at the home altar.";
                 Bind(0,"Resume  [Esc]",game.Resume); Bind(1,audio,game.ToggleAudio);
                 Bind(2,"New journey (resets progress)",game.Restart); Bind(3,"Quit",game.Quit);
             }
@@ -180,7 +181,7 @@ namespace FlyMeToTheMoon.Demo
             for (int i=0; i<4; i++)
             {
                 Panel(board,"Lane",new Vector2(0.5f,0.5f),new Vector2((i-1.5f)*120,20),new Vector2(106,315),new Color(0.1f,0.16f,0.23f),false);
-                Text(board,"Key",new Vector2(0.5f,0.5f),new Vector2((i-1.5f)*120,-162),new Vector2(100,50),30).text = new[]{"A","S","D","F"}[i];
+                Text(board,"Key",new Vector2(0.5f,0.5f),new Vector2((i-1.5f)*120,-162),new Vector2(100,50),30).text = new[]{"D","F","J","K"}[i];
             }
             Panel(board,"Hit line",new Vector2(0.5f,0.5f),new Vector2(0,-120),new Vector2(500,4),Color.white,false);
             for(int i=0;i<notes.Length;i++)
@@ -195,15 +196,16 @@ namespace FlyMeToTheMoon.Demo
                 circleTexture = new Texture2D(64,64,TextureFormat.RGBA32,false);
                 for(int y=0;y<64;y++) for(int x=0;x<64;x++)
                     circleTexture.SetPixel(x,y,Vector2.Distance(new Vector2(x+.5f,y+.5f),new Vector2(32,32))<=31.5f?Color.white:Color.clear);
-                circleTexture.Apply(); circleSprite=Sprite.Create(circleTexture,new Rect(0,0,64,64),Vector2.one*.5f);
+                circleTexture.filterMode=FilterMode.Point;circleTexture.Apply(); circleSprite=Sprite.Create(circleTexture,new Rect(0,0,64,64),Vector2.one*.5f);
             }
             var rect=Panel(parent,name,Vector2.one*.5f,position,Vector2.one*diameter,color,false);
             rect.GetComponent<UnityEngine.UI.Image>().sprite=circleSprite;return rect;
         }
         private RectTransform WorldIcon(Transform parent, string name, Vector2 position, float diameter, int index)
         {
-            var rect = Circle(parent, name, position, diameter, Color.white);
-            rect.GetComponent<UnityEngine.UI.Image>().sprite = PixelArtLibrary.Moon(index);
+            Color color=index==0?new Color(.35f,.66f,.4f):DemoWorldSurface.Palette[(index-1)%6];
+            var rect = Circle(parent, name, position, diameter,Color.Lerp(color,Color.white,.3f));
+            Circle(rect,"Core",Vector2.zero,diameter*.86f,color);
             return rect;
         }
         private void BuildMap()
@@ -259,11 +261,13 @@ namespace FlyMeToTheMoon.Demo
         {
             if (game == null || game.Player == null) return;
             bool exploring = game.State == DemoState.Explore && !game.MapVisible;
-            contextArrow.gameObject.SetActive(exploring && game.NearbyTarget != null);
+            var landmark = exploring && game.NearbyTarget==null ? game.Art.NearestLandmark() : null;
+            contextArrow.gameObject.SetActive(exploring && (game.NearbyTarget != null || landmark != null));
             if(contextArrow.gameObject.activeSelf)
             {
-                var art = game.NearbyTarget.GetComponentInChildren<SpriteRenderer>();
-                Vector3 marker = art != null ? new Vector3(art.bounds.center.x, art.bounds.max.y, art.bounds.center.z) : game.NearbyTarget.transform.position;
+                var target=game.NearbyTarget!=null?game.NearbyTarget.transform:landmark.transform;
+                var art = target.GetComponentInChildren<SpriteRenderer>();
+                Vector3 marker = art != null ? new Vector3(art.bounds.center.x, art.bounds.max.y, art.bounds.center.z) : target.position;
                 Vector3 screen=Camera.main.WorldToScreenPoint(marker);
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(root,screen,null,out var point);
                 contextArrow.anchoredPosition=point+Vector2.up*(20+Mathf.Sin(Time.unscaledTime*4)*3);
@@ -280,7 +284,7 @@ namespace FlyMeToTheMoon.Demo
             if (game.State==DemoState.Rhythm)
             {
                 double elapsed=game.SongTime;
-                rhythmTitle.text=game.Performing.Instrument+" / RESTORE THE MELODY\n"+(elapsed<DemoRhythm.CountIn?"Count in: "+Mathf.CeilToInt((float)(DemoRhythm.CountIn-elapsed)):"A     S     D     F");
+                rhythmTitle.text=DemoRhythm.SongTitle+" / ORIGINAL SWING\n"+(elapsed<DemoRhythm.CountIn?"Count in: "+Mathf.CeilToInt((float)(DemoRhythm.CountIn-elapsed)):"D     F     J     K");
                 rhythmScore.text=game.Feedback+"\n"+game.Rhythm.Hits+"/24 hits   "+game.Rhythm.Perfect+" perfect   "+game.Rhythm.Misses+" missed";
                 for(int i=0;i<notes.Length;i++)
                 {

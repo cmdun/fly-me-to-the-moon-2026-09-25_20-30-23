@@ -21,6 +21,32 @@ public class PixelArtTests
         yield return new WaitForSeconds(.3f);
     }
     [UnityTearDown] public IEnumerator TearDown() { Time.timeScale = 1; yield return null; }
+    [UnityTest] public IEnumerator PocketPianoFloatsClearOfTheTravelersFace()
+    {
+        // Presentation fixture only; the full journey separately verifies the legitimate unlock path.
+        typeof(DemoGame).GetProperty("Equipped").SetValue(game,1);game.ApplyInstrument();
+        var art=game.Art.PlayerArt;
+        foreach(var up in new[]{Vector2.up,Vector2.left,Vector2.down})
+        {
+            game.Player.Respawn(game.Planets.respawnPlanet,up);yield return new WaitForSeconds(.2f);
+            art.PlayNote(4);yield return new WaitForSeconds(.2f);
+            Assert.IsTrue(art.Piano.gameObject.activeSelf);Assert.IsFalse(art.Instrument.enabled);
+            Assert.Greater(Mathf.Abs(art.Piano.localPosition.x)-.46f*art.Piano.localScale.x,.5f,"Keep the keyboard beyond the face silhouette");
+            Assert.Less(art.Piano.localPosition.y,.5f);
+        }
+        game.Player.Respawn(game.Planets.respawnPlanet,Vector2.up);yield return new WaitForSeconds(.3f);art.PlayNote(4);
+        yield return Capture("pocket-piano-final");
+    }
+    [UnityTest] public IEnumerator OriginalAudioHasAFullArrangementWithoutClipping()
+    {
+        var chart=new DemoRhythm();chart.Begin(0,0);game.Audio.Song(1,chart);
+        AudioClip clip=null;
+        foreach(var source in game.Audio.GetComponents<AudioSource>())if(source.clip!=null)clip=source.clip;
+        Assert.NotNull(clip);Assert.That(clip.length,Is.InRange(20,30));StringAssert.Contains(DemoRhythm.SongTitle,clip.name);
+        var samples=new float[clip.samples];Assert.IsTrue(clip.GetData(samples,0));float peak=0;
+        foreach(float sample in samples){Assert.IsFalse(float.IsNaN(sample));peak=Mathf.Max(peak,Mathf.Abs(sample));}
+        Assert.That(peak,Is.InRange(.2f,.91f));game.Audio.StopSong();yield return null;
+    }
     [UnityTest] public IEnumerator AllArtRegionsLoadWithoutChangingWorldCollisionGeometry()
     {
         Assert.AreEqual(215, PixelArtLibrary.Regions.Count);
@@ -47,7 +73,7 @@ public class PixelArtTests
         yield return Capture("home");
         game.ToggleMap(); yield return Capture("map"); game.ToggleMap();
     }
-    [UnityTest] public IEnumerator TravelerFollowsLocalGravityAndShootingOnlyAnimatesEquipment()
+    [UnityTest] public IEnumerator TravelerFollowsLocalGravityAndKeepsItsInstrumentVisible()
     {
         var player = game.Player; var art = game.Art.PlayerArt;
         foreach (var up in new[] { Vector2.right, Vector2.down, Vector2.left, Vector2.up })
@@ -61,13 +87,13 @@ public class PixelArtTests
         game.ShootToward(player.Body.position + player.Up * 5);
         Assert.AreEqual(velocity, player.Body.linearVelocity); Assert.AreEqual(jumps, player.FluteJumpCount);
         yield return null; yield return null;
-        Assert.IsTrue(art.Instrument.enabled);
-        Assert.AreEqual("09/actor/1", art.Pose);
+        Assert.IsFalse(art.Instrument.enabled,"The playing pose holds the flute at the mouth");
+        StringAssert.StartsWith("01/actor/",art.Pose);
         foreach (var mesh in player.GetComponentsInChildren<MeshRenderer>()) Assert.IsFalse(mesh.enabled);
         game.Pause(); var pose = art.Pose; var position = art.Traveler.transform.position;
         yield return new WaitForSecondsRealtime(.3f);
         Assert.AreEqual(pose, art.Pose); Assert.AreEqual(position, art.Traveler.transform.position);
-        game.Resume(); yield return new WaitForSeconds(.4f); Assert.IsFalse(art.Instrument.enabled);
+        game.Resume(); yield return new WaitForSeconds(.4f); Assert.IsTrue(art.Instrument.enabled);
     }
     [UnityTest] public IEnumerator EncounterArtTracksBellGateSwitchAndCreatureStates()
     {
@@ -88,7 +114,10 @@ public class PixelArtTests
             if (index == 2)
             {
                 var storm = (StormEncounter)game.Challenge.Encounter;
-                game.enabled = false; storm.Tick(6, false); storm.Switches[0].Hit(false); yield return null;
+                game.enabled = false;
+                game.Player.Respawn(storm.Body,storm.Up);yield return new WaitForSeconds(.2f);
+                Assert.IsTrue(game.Player.TryDrumLaunch(5));game.Player.Body.position=storm.At(0,1.5f);storm.Tick(2.64f,false);
+                game.Player.Respawn(storm.Body,storm.At(3.9f)-storm.Body.Center);yield return new WaitForSeconds(.2f);storm.Tick(3.4f,false); storm.Switches[0].Hit(false); yield return null;
                 Assert.AreEqual(DemoGame.Accent, storm.Switches[0].GetComponent<DemoEncounterArt>().Sprite.color);
                 game.enabled = true;
             }

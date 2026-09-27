@@ -51,12 +51,14 @@ namespace FlyMeToTheMoon.Demo
             for(int i=0;i<Mathf.Min(labels.Length,encounter.Labels.Count);i++)
             {
                 var item=encounter.Labels[i];if(item.Target==null || !item.Target.gameObject.activeInHierarchy || string.IsNullOrEmpty(item.Text))continue;
+                bool instruction=item.Text.StartsWith("E") || item.Text=="Q" || item.Text=="HOLD Q" || item.Text=="SILENCE" || item.Text=="!";
+                if(!instruction || Vector2.Distance(game.Player.Body.position,item.Target.position)>3.2f)continue;
                 Vector3 point=Camera.main.WorldToViewportPoint(item.Target.position);
                 if(point.x<.04f || point.x>.96f || point.y<.08f || point.y>.8f)continue;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(root,Camera.main.WorldToScreenPoint(item.Target.position),null,out var local);
                 local+=Vector2.up*24;
                 if(local.x>root.rect.width*.5f-280 && local.y<-root.rect.height*.5f+290)continue;
-                labels[i].gameObject.SetActive(true);labels[i].text=item.Text;
+                labels[i].gameObject.SetActive(true);labels[i].text=item.Text.StartsWith("E")?"E":item.Text;
                 labels[i].rectTransform.anchoredPosition=local;
             }
             Vector2 screen=Camera.main.WorldToScreenPoint(encounter.Goal);

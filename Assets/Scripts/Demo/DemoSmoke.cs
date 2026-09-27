@@ -103,14 +103,24 @@ namespace FlyMeToTheMoon.Demo
                         yield return Keys(keyboard,Key.Space);yield return Keys(keyboard);
                     }
                     while(!storm.Exposed && Time.time<timeout)yield return null;
-                    yield return Walk(g,storm,keyboard,3f);yield return Fire(g,mouse,storm.Switches[0].transform.position);
-                    yield return Walk(g,storm,keyboard,4f);yield return Fire(g,mouse,storm.Switches[1].transform.position);
+                    yield return Walk(g,storm,keyboard,3.9f);
+                    yield return Fire(g,mouse,storm.Switches[storm.NextSwitch].transform.position);
+                    yield return Fire(g,mouse,storm.Switches[storm.NextSwitch].transform.position);
+                    if(g.State==DemoState.Challenge && storm.Stage!=stage)yield return Walk(g,storm,keyboard,0);
                     if(g.State==DemoState.Challenge && storm.Stage==stage){g.Challenge.Retry();yield return new WaitForSeconds(.2f);}
                 }
             }
             else if(encounter is GiantEncounter giant)
             {
-                yield return Walk(g,giant,keyboard,1.6f);yield return Fire(g,mouse,giant.Bells[1].transform.position);
+                yield return Walk(g,giant,keyboard,-1.6f);yield return Fire(g,mouse,giant.Bells[0].transform.position);
+                yield return Walk(g,giant,keyboard,GiantEncounter.SealPositions[0]);
+                yield return Keys(keyboard,Key.E);yield return Keys(keyboard);yield return new WaitForSeconds(.8f);
+                yield return Fire(g,mouse,giant.Bells[1].transform.position);
+                yield return Walk(g,giant,keyboard,GiantEncounter.SealPositions[1]);
+                float quietDeadline=Time.time+2.5f;
+                while(giant.Awareness>.48f && Time.time<quietDeadline)yield return null;
+                if(giant.LureRemaining<2)yield return Fire(g,mouse,giant.Bells[1].transform.position);
+                yield return Keys(keyboard,Key.E);yield return Keys(keyboard);yield return new WaitForSeconds(.8f);
                 yield return Walk(g,giant,keyboard,GiantEncounter.PagePosition);
                 yield return Keys(keyboard,Key.E);yield return Keys(keyboard);
             }
@@ -171,6 +181,8 @@ namespace FlyMeToTheMoon.Demo
             var g=FindAnyObjectByType<DemoGame>();
             if(g==null){File.WriteAllText(Path.Combine(output,"FAILED.txt"),"Demo did not initialize");Application.Quit(1);yield break;}
             InputSystem.settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;
+            InputSystem.settings.editorInputBehaviorInPlayMode=InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+            Application.runInBackground=true;
             keyboard=InputSystem.AddDevice<Keyboard>();InputSystem.EnableDevice(keyboard);
             mouse=InputSystem.AddDevice<Mouse>();InputSystem.EnableDevice(mouse);
             yield return Capture("01-title");g.StartGame();yield return new WaitForSeconds(.3f);
@@ -213,8 +225,15 @@ namespace FlyMeToTheMoon.Demo
                 yield return Capture("07-challenge-"+index);
                 StartCoroutine(CaptureEncounterLater(index));
                 yield return SolveChallenge(g,keyboard,mouse);
+                if(!g.Challenge.Success)
+                {
+                    string detail="Encounter "+index+" failed; "+g.Challenge.Encounter.Status+"; position="+g.Challenge.Encounter.Along(g.Player.Body.position)+"; seed="+g.Seed;
+                    if(g.Challenge.Encounter is GiantEncounter failedGiant)detail+="; awareness="+failedGiant.Awareness+"; seals="+failedGiant.SealsOpened+"; wakes="+failedGiant.Wakes+"; message="+g.Message;
+                    File.WriteAllText(Path.Combine(output,"encounter-failure.txt"),detail);
+                }
                 Check(g.Challenge.Success,"Challenge "+index+" completed through input");
                 Check(q.Fragments[index],"Page "+index+" awarded");
+                if(!g.Challenge.Success)break;
             }
             Check(q.Count==5,"Exactly five pages from five moons");
             if(q.Count!=5){File.WriteAllText(Path.Combine(output,"FAILED.txt"),"Page challenges failed");Application.Quit(1);yield break;}
@@ -225,13 +244,14 @@ namespace FlyMeToTheMoon.Demo
             for(int i=0;i<DemoRhythm.NoteCount;i++)
             {
                 while(g.SongTime<g.Rhythm.TimeOf(i))yield return null;
-                yield return Press(new[]{Key.A,Key.S,Key.D,Key.F}[g.Rhythm.Lane(i)]);yield return Press();
+                yield return Press(new[]{Key.D,Key.F,Key.J,Key.K}[g.Rhythm.Lane(i)]);yield return Press();
                 if(i==3)yield return Capture("07-rhythm");
             }
             while(g.State==DemoState.Rhythm)yield return null;
             Check(g.LastPassed && g.Equipped==1 && g.Completed==1,"Piano unlocked after performance");yield return Capture("08-piano-unlocked");
             g.Continue();yield return new WaitForSeconds(.3f);
             for(int i=0;i<7;i++){yield return Press(new[]{Key.Digit1,Key.Digit2,Key.Digit3,Key.Digit4,Key.Digit5,Key.Digit6,Key.Digit7}[i]);yield return Press();yield return new WaitForSeconds(.1f);}
+            yield return Capture("09-pocket-piano");
             g.CycleInstrument();Check(g.Equipped==0,"Only flute and piano available");
             InputSystem.RemoveDevice(keyboard);InputSystem.RemoveDevice(mouse);
             File.WriteAllText(Path.Combine(output,"result.json"),"{\"passed\":"+(errors==0?"true":"false")+",\"errors\":"+errors+",\"seed\":"+g.Seed+",\"moons\":24,\"pages\":"+q.Count+",\"pianoUnlocked\":"+(q.Unlocked?"true":"false")+"}");

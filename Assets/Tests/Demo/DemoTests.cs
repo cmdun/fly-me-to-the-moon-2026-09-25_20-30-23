@@ -12,6 +12,26 @@ using UnityEngine.TestTools;
 
 public class DemoTests
 {
+    [Test] public void OriginalSwingChartFitsPerformanceLengthAndUsesAllFourLanes()
+    {
+        var chart=new DemoRhythm();chart.Begin(0,0);
+        Assert.That(chart.Duration,Is.InRange(20,30));
+        var lanes=new System.Collections.Generic.HashSet<int>();
+        for(int i=0;i<DemoRhythm.NoteCount;i++)
+        {
+            lanes.Add(chart.Lane(i));Assert.That(chart.Pitch(i),Is.InRange(60,84));
+            if(i>0)Assert.Greater(chart.TimeOf(i)-chart.TimeOf(i-1),DemoRhythm.GoodWindow*2);
+        }
+        Assert.AreEqual(4,lanes.Count);
+    }
+    [Test] public void LocalSaveRoundTripsProgressAndRejectsMalformedData()
+    {
+        var data=new DemoSave.Data{seed=12345,moon=24,upX=1,upY=0,repaired=true,piano=true,equipped=1,fragments=new[]{true,true,true,true,true}};
+        var restored=JsonUtility.FromJson<DemoSave.Data>(JsonUtility.ToJson(data));
+        Assert.IsTrue(restored.Valid);Assert.AreEqual(data.seed,restored.seed);CollectionAssert.AreEqual(data.fragments,restored.fragments);
+        Assert.IsTrue(restored.piano);restored.moon=25;Assert.IsFalse(restored.Valid);restored.moon=0;
+        restored.fragments=new bool[4];Assert.IsFalse(restored.Valid);restored.fragments=new bool[5];restored.upY=float.NaN;Assert.IsFalse(restored.Valid);
+    }
     [Test] public void TimingWindowsWrongLanesAndDuplicateHits()
     {
         var r=new DemoRhythm();r.Begin(0,0);
@@ -148,7 +168,7 @@ public class DemoJourneyTests
         Assert.IsTrue(g.RecoilToward(g.Player.Body.position+Vector2.right*5), "before recoil ground="+g.Player.IsGrounded+" used="+g.Player.FluteUsed+" normal="+g.Player.NormalJumpCount+" boosts="+g.Player.FluteJumpCount+" v="+g.Player.Body.linearVelocity);
         Assert.Less(g.Player.Body.linearVelocity.x,-4.5f);Assert.IsFalse(g.Player.CanFluteJump);Assert.AreEqual(boosts+1,g.Player.FluteJumpCount);
         Assert.IsFalse(g.RecoilToward(g.Player.Body.position+Vector2.left*5));
-        yield return new WaitForSeconds(.25f);before=g.Player.Body.linearVelocity;shots=g.Shots;
+        yield return new WaitForSeconds(.32f);before=g.Player.Body.linearVelocity;shots=g.Shots;
         g.ShootToward(g.Player.Body.position+Vector2.left*5);Assert.AreEqual(before,g.Player.Body.linearVelocity);Assert.AreEqual(shots+1,g.Shots);
         yield return Press(Key.Space);yield return Press();Assert.AreEqual(boosts+1,g.Player.FluteJumpCount);
         g.Player.Respawn(g.Planets.respawnPlanet,Vector2.up);yield return Land();
@@ -265,7 +285,7 @@ public class DemoJourneyTests
             }
             var encounter=g.Challenge.Encounter;
             yield return DemoSmoke.SolveChallenge(g,keyboard,mouse);
-            Assert.IsTrue(g.Challenge.Success,"Encounter "+index+" failed: "+encounter.Status+" pos="+encounter.Along(g.Player.Body.position)+" height="+encounter.Body.SurfaceDistance(g.Player.Body.position));
+            Assert.IsTrue(g.Challenge.Success,"Encounter "+index+" failed: "+encounter.Status+" pos="+encounter.Along(g.Player.Body.position)+" height="+encounter.Body.SurfaceDistance(g.Player.Body.position)+" seed="+g.Seed);
             Assert.IsTrue(q.Fragments[index]);Assert.IsFalse(g.Collect(q,index));
         }
         Assert.AreEqual(5,q.Count);
@@ -326,7 +346,10 @@ public class DemoJourneyTests
         yield return BeginEncounter(3);var e=(ShepherdEncounter)g.Challenge.Encounter;
         g.enabled=false;
         e.Tick(.2f,true);Assert.Greater(e.Creatures[0].Position,-2.5f);Assert.IsFalse(e.Creatures[1].Awake);
-        e.Creatures[0].Position=ShepherdEncounter.Sanctuary;e.Tick(0,false);Assert.AreEqual(1,e.Rescued);
+        e.Creatures[0].Position=ShepherdEncounter.Sanctuary;e.Tick(1,false);Assert.AreEqual(0,e.Rescued,"A closed sanctuary cannot rescue a bypassed creature");
+        yield return StandAt(e,1.4f);e.Interact();
+        e.Creatures[0].Position=e.Creatures[0].Target=ShepherdEncounter.Sanctuary;e.Creatures[0].Guided=3;e.Tick(1,false);Assert.AreEqual(1,e.Rescued);
+        e.Interact();yield return StandAt(e,0);
         e.Creatures[1].Position=e.Creatures[2].Position=-2;
         e.Tick(.2f,true);Assert.AreEqual(-2,e.Creatures[1].Position);Assert.AreEqual(-2,e.Creatures[2].Position);
         e.Tick(.6f,true);Assert.Greater(e.Creatures[1].Position,-2);Assert.AreEqual(-2,e.Creatures[2].Position);
@@ -339,21 +362,29 @@ public class DemoJourneyTests
         e.Interact();Assert.IsFalse(e.Door.Open);
         Assert.IsFalse(e.Complete);g.enabled=true;g.LeaveChallenge();
     }
-    [UnityTest] public IEnumerator StormRejectsCoveredSwitchesAndHitsResetOnlyCurrentCircuit()
+    [UnityTest] public IEnumerator StormRejectsBypassesAndHitsResetOnlyCurrentCircuit()
     {
         yield return BeginEncounter(2);var e=(StormEncounter)g.Challenge.Encounter;g.enabled=false;
         e.Switches[0].Hit(false);Assert.IsFalse(e.Repaired[0]);
-        e.Tick(6,false);Assert.IsTrue(e.Exposed);
-        e.Switches[0].Hit(true);Assert.IsFalse(e.Repaired[0],"A ghost cannot perform a real repair");
+        yield return StandAt(e,3.9f);e.Tick(6,false);Assert.IsTrue(e.Exposed);
+        e.Switches[0].Hit(false);Assert.IsFalse(e.Repaired[0],"Waiting away from the waves cannot charge a repair");
+        e.Reset();yield return StandAt(e,0);
+        Assert.IsTrue(g.Player.TryDrumLaunch(5));g.Player.Body.position=e.At(0,1.5f);e.Tick(2.64f,false);
+        Assert.IsTrue(e.EvadedLow);Assert.IsTrue(e.ReadyForRepair);
+        yield return StandAt(e,0);e.Tick(3.4f,false);
+        e.Switches[0].Hit(false);Assert.IsFalse(e.Repaired[0],"Cannot snipe from shelter");
+        yield return StandAt(e,3.9f);e.Switches[0].Hit(true);e.Switches[1].Hit(false);
+        Assert.IsFalse(e.Repaired[0]);Assert.IsFalse(e.Repaired[1],"Wrong order cannot repair");
         e.Switches[0].Hit(false);Assert.IsTrue(e.Repaired[0]);
-        e.Tick(3,false);e.Tick(2.64f,false);
+        yield return StandAt(e,0);e.Tick(3,false);e.Tick(2.64f,false);
         Assert.AreEqual(1,e.HitsTaken);Assert.IsFalse(e.Repaired[0]);Assert.AreEqual(0,e.Stage);
-        Assert.Greater(g.Player.Body.linearVelocity.magnitude,2,"A hit must knock the player back");
-        e.Tick(6,false);e.Switches[0].Hit(false);e.Switches[1].Hit(false);Assert.AreEqual(1,e.Stage);
-        yield return Land();e.Tick(2.65f,false);
+        Assert.Greater(g.Player.Body.linearVelocity.magnitude,2);
+        e.Reset();yield return StandAt(e,0);g.Player.TryDrumLaunch(5);g.Player.Body.position=e.At(0,1.5f);e.Tick(2.64f,false);
+        yield return StandAt(e,3.9f);e.Tick(3.4f,false);e.Switches[0].Hit(false);e.Switches[1].Hit(false);Assert.AreEqual(1,e.Stage);
+        yield return StandAt(e,0);e.Tick(2.65f,false);Assert.IsTrue(e.EvadedHigh);Assert.IsTrue(e.ReadyForRepair);
         Assert.AreEqual(1,e.HitsTaken,"Shelter blocks a high wave");
         e.Reset();yield return StandAt(e,2);e.Tick(2.4f,false);
-        Assert.AreEqual(2,e.HitsTaken);Assert.AreEqual(1,e.Stage,"Completed circuits survive a hit");
+        Assert.AreEqual(2,e.HitsTaken);Assert.AreEqual(1,e.Stage);
         Assert.IsFalse(e.Complete);g.enabled=true;g.LeaveChallenge();
     }
     [UnityTest] public IEnumerator GiantNoiseWakesAndRealBellShotDistracts()
@@ -367,6 +398,81 @@ public class DemoJourneyTests
         yield return DemoSmoke.Fire(g,mouse,e.Bells[1].transform.position);
         Assert.Greater(e.LureRemaining,4);Assert.That(e.Attention,Is.EqualTo(2.7f).Within(.01f));
         Assert.IsFalse(e.Complete);Assert.AreEqual(0,g.Melody.Count);g.LeaveChallenge();
+    }
+    [UnityTest] public IEnumerator ShootingPlantsFeetBlocksJumpAndThenMovementResumes()
+    {
+        yield return Press(Key.D);yield return new WaitForSeconds(.3f);
+        Assert.Greater(g.Player.Body.linearVelocity.magnitude,3);
+        g.ShootToward(g.Player.Body.position+g.Player.Up*4);
+        Assert.IsTrue(g.Player.IsPlayingShot);Vector2 planted=g.Player.Body.position;
+        int jumps=g.Player.NormalJumpCount;yield return Press(Key.D,Key.Space);yield return new WaitForSeconds(.18f);
+        Assert.Less(Vector2.Distance(planted,g.Player.Body.position),.035f);
+        Assert.AreEqual(jumps,g.Player.NormalJumpCount,"Shots cannot queue an accidental jump");
+        yield return Press(Key.D);yield return new WaitForSeconds(.35f);
+        Assert.Greater(Vector2.Distance(planted,g.Player.Body.position),.3f);Assert.IsFalse(g.Player.IsPlayingShot);
+        yield return Press();yield return Press(Key.Space);yield return Press();
+        g.ShootToward(g.Player.Body.position+g.Player.Up*4);Vector2 start=g.Player.Body.position;
+        yield return new WaitForSeconds(.2f);Assert.Greater(Vector2.Distance(start,g.Player.Body.position),.05f,"Shooting never suspends gravity in space");
+    }
+    [UnityTest] public IEnumerator DrumCompressesThenLaunchesAndPreservesOneAirborneBoost()
+    {
+        DemoLandmarkArt drum=null;
+        foreach(var item in Object.FindObjectsByType<DemoLandmarkArt>(FindObjectsSortMode.None))if(item.Kind=="drum"){drum=item;break;}
+        Assert.NotNull(drum);var moon=drum.GetComponentInParent<GravityBody>();
+        g.Player.Respawn(moon,(Vector2)drum.transform.position-moon.Center);yield return Land();
+        // Arriving on the drum is itself an interaction; allow its compression and launch to complete.
+        if(drum.Activations==0)drum.Interact();
+        yield return new WaitForSeconds(.22f);
+        Assert.Greater(drum.Activations,0);Assert.IsFalse(g.Player.IsGrounded);
+        Assert.Greater(Vector2.Dot(g.Player.Body.linearVelocity,g.Player.Up),2);
+        Assert.IsTrue(g.Player.CanFluteJump);Assert.IsTrue(g.RecoilToward(g.Player.Body.position-g.Player.Up*5));
+        Assert.IsFalse(g.RecoilToward(g.Player.Body.position-g.Player.Up*5));
+    }
+    [UnityTest] public IEnumerator GiantRouteWorksAcrossMoonSizesAtNormalFrameRate()
+    {
+        int oldRate=Application.targetFrameRate;Application.targetFrameRate=60;
+        foreach(int seed in new[]{-1949214492,41,128,2026})
+        {
+            void SetSeed(Scene scene,LoadSceneMode mode){var fresh=Object.FindAnyObjectByType<DemoGame>();if(fresh!=null)fresh.WorldSeed=seed;}
+            SceneManager.sceneLoaded+=SetSeed;
+            EditorSceneManager.LoadSceneInPlayMode("Assets/Scenes/FullDemo.unity",new LoadSceneParameters(LoadSceneMode.Single));
+            yield return null;yield return null;SceneManager.sceneLoaded-=SetSeed;
+            g=Object.FindAnyObjectByType<DemoGame>();g.StartGame();yield return new WaitForSeconds(.2f);
+            yield return BeginEncounter(1);var giant=(GiantEncounter)g.Challenge.Encounter;
+            yield return DemoSmoke.SolveChallenge(g,keyboard,mouse);
+            Assert.IsTrue(g.Challenge.Success,"Seed "+seed+" radius "+giant.Body.radius+" seals "+giant.SealsOpened+" awareness "+giant.Awareness+" lure "+giant.LureRemaining+" wakes "+giant.Wakes+" message "+g.Message);
+        }
+        Application.targetFrameRate=oldRate;
+    }
+    [UnityTest] public IEnumerator GiantPageRejectsReverseRouteAndBothSealsRequireDistinctDistractions()
+    {
+        yield return BeginEncounter(1);var giant=(GiantEncounter)g.Challenge.Encounter;
+        yield return StandAt(giant,GiantEncounter.PagePosition);giant.Interact();
+        Assert.IsFalse(giant.Complete,"Approaching the page from the back of the moon cannot bypass the nest");
+        yield return StandAt(giant,GiantEncounter.SealPositions[0]);giant.Interact();yield return new WaitForSeconds(.8f);
+        Assert.AreEqual(0,giant.SealsOpened,"Undistracted seals stay locked");
+        giant.Bells[1].Hit(false);giant.Interact();yield return new WaitForSeconds(.8f);
+        Assert.AreEqual(0,giant.SealsOpened,"Wrong bell does not distract the guarded seal");
+        giant.Bells[0].Hit(false);giant.Interact();yield return new WaitForSeconds(.8f);
+        Assert.AreEqual(1,giant.SealsOpened);
+        yield return StandAt(giant,GiantEncounter.SealPositions[1]);giant.Interact();yield return new WaitForSeconds(.8f);
+        Assert.AreEqual(1,giant.SealsOpened,"The first bell cannot release both seals");
+        giant.Bells[1].Hit(false);giant.Interact();yield return new WaitForSeconds(.8f);
+        Assert.AreEqual(2,giant.SealsOpened);
+        yield return StandAt(giant,GiantEncounter.PagePosition);giant.Interact();Assert.IsTrue(giant.Complete);
+    }
+    [UnityTest] public IEnumerator RelayCannotSkipGatesByLandingAtTheReceiver()
+    {
+        yield return BeginEncounter(0);var relay=(RelayEncounter)g.Challenge.Encounter;
+        g.Player.Respawn(relay.Route[3],relay.Shrines[3]-relay.Route[3].Center);yield return Land();
+        relay.Interact();Assert.IsFalse(relay.Complete);Assert.AreEqual(0,relay.Checkpoint);Assert.AreEqual(0,relay.Passed);
+        Assert.AreEqual(0,g.Melody.Count);g.LeaveChallenge();
+    }
+    [UnityTest] public IEnumerator EchoReceiverRejectsGateBypassAndGhostShots()
+    {
+        yield return BeginEncounter(4);var echo=(EchoEncounter)g.Challenge.Encounter;
+        yield return StandAt(echo,8.1f);echo.ReceiverTarget.Hit(false);echo.ReceiverTarget.Hit(true);
+        Assert.AreEqual(0,echo.Stage);Assert.IsFalse(echo.Complete);Assert.AreEqual(0,g.Melody.Count);
     }
     [UnityTest] public IEnumerator SeededCreaturesTeachWithMultiPageAndShortRepeatDialogue()
     {

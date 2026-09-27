@@ -8,10 +8,11 @@ namespace FlyMeToTheMoon.Demo
     {
         public SpriteRenderer Traveler { get; private set; }
         public SpriteRenderer Instrument { get; private set; }
-        public string Pose => Traveler.sprite.name;
+        public string Pose => Walk != null && Walk.Visible ? "walk/" + Mathf.FloorToInt(Walk.Phase * 8) : Traveler.sprite.name;
+        public DemoWalkCycle Walk { get; private set; }
         public Transform Piano { get; private set; }
         DemoGame game;
-        float actionUntil, landingUntil, walkClock, actionStarted;
+        float actionUntil, landingUntil, actionStarted;
         bool grounded, facingLeft;
         Vector2 aim;
         readonly PrototypeShape[] pianoKeys = new PrototypeShape[7];
@@ -21,6 +22,7 @@ namespace FlyMeToTheMoon.Demo
             game = owner; PixelArtLibrary.HideMeshes(transform);
             Traveler = PixelArtLibrary.Create(transform, "Traveler pixel art", "hero/0", 20);
             Traveler.transform.localPosition = new Vector3(0, -.29f, -.2f);
+            Walk = gameObject.AddComponent<DemoWalkCycle>(); Walk.Build(Traveler);
             Instrument = PixelArtLibrary.Create(transform, "Orbiting flute", "flute", 21);
             grounded = game.Player.IsGrounded;
             Piano = new GameObject("Companion pocket piano").transform; Piano.SetParent(transform, false);
@@ -48,7 +50,7 @@ namespace FlyMeToTheMoon.Demo
             var player = game.Player;
             float speed = Vector2.Dot(player.Body.linearVelocity, transform.right);
             bool acting = Time.time < actionUntil;
-            bool calling = game.State == DemoState.Challenge && Keyboard.current != null && Keyboard.current.qKey.isPressed;
+            bool calling = game.PlayingWorld && Keyboard.current != null && Keyboard.current.qKey.isPressed;
             bool playingFlute = (acting || calling) && game.Equipped == 0;
             if (acting) facingLeft = Vector2.Dot(aim, transform.right) < 0;
             else if (Mathf.Abs(speed) > .15f) facingLeft = speed < 0;
@@ -59,21 +61,19 @@ namespace FlyMeToTheMoon.Demo
             }
             grounded = player.IsGrounded;
             string key;
+            bool walking = grounded && !player.IsPlayingShot && Time.time >= landingUntil && Mathf.Abs(speed) > .15f;
             if (playingFlute) key = "01/actor/" + (Time.time-actionStarted < .065f ? 1 : 2 + (int)(Time.time*5)%2);
             else if (acting) key = "09/actor/1";
             else if (grounded && Time.time < landingUntil) key = "hero/9";
             else if (!grounded) key = "hero/5";
-            else if (Mathf.Abs(speed) > .15f)
-            {
-                walkClock += Mathf.Abs(speed) * Time.deltaTime * 2.6f;
-                key = "03/actor/" + ((int)walkClock % 6);
-            }
             else key = "hero/0";
             Traveler.sprite = PixelArtLibrary.Get(key); Traveler.flipX = facingLeft;
             float lean = acting || calling ? 0 : Mathf.Clamp(-speed * 1.15f,-6,6);
             Traveler.transform.localRotation = Quaternion.Slerp(Traveler.transform.localRotation,Quaternion.Euler(0,0,lean),1-Mathf.Exp(-16*Time.deltaTime));
             float breath = grounded && !acting && Mathf.Abs(speed)<.15f ? Mathf.Sin(Time.time*2.5f)*.008f : 0;
             Traveler.transform.localScale = new Vector3(1-breath,1+breath,1);
+            if (walking) Walk.Step(Mathf.Abs(speed) * Time.deltaTime, facingLeft);
+            else Walk.SetVisible(false);
             // The playing strip already contains the flute at the mouth. In recovery it returns to orbit.
             Instrument.enabled = game.Equipped == 0 && !playingFlute;
             Instrument.transform.localPosition = Vector3.Lerp(Instrument.transform.localPosition,

@@ -10,13 +10,14 @@ namespace FlyMeToTheMoon.Demo
         public float Phase { get; private set; }
         public Vector2 FrontFoot { get; private set; }
         public Vector2 BackFoot { get; private set; }
-        public const float CycleDistance = 1.8f;
+        public const float CycleDistance = 3.6f;
         public string UpperPose => torsoArt.sprite.name;
         const float HipHeight = .485f, ThighLength = .225f, ShinLength = .175f;
         Transform root, torso;
         readonly Transform[] thighs = new Transform[2], shins = new Transform[2], boots = new Transform[2];
         readonly Sprite[] parts = new Sprite[4];
         SpriteRenderer source, torsoArt;
+        float walkWeight, visualSpeed;
         readonly Dictionary<Sprite, Sprite> upperPoses = new Dictionary<Sprite, Sprite>();
 
         public void Build(SpriteRenderer traveler)
@@ -59,17 +60,32 @@ namespace FlyMeToTheMoon.Demo
         {
             if(root==null)return;
             root.gameObject.SetActive(value);source.enabled=!value;
-            if(!value)Phase=0;
+            if(!value){Phase=0;walkWeight=0;visualSpeed=0;}
+        }
+        public void UpdateMovement(float speed,float deltaTime,bool facingLeft)
+        {
+            speed=Mathf.Abs(speed);
+            // Ease the stride in/out independently of the controller, so input stays responsive.
+            float targetWeight=Mathf.Clamp01((speed-.15f)/1.65f);
+            walkWeight=Mathf.MoveTowards(walkWeight,targetWeight,deltaTime/.12f);
+            if(walkWeight<=0){SetVisible(false);return;}
+            visualSpeed=Mathf.Lerp(visualSpeed,speed,1-Mathf.Exp(-12*deltaTime));
+            Phase=Mathf.Repeat(Phase+Mathf.Min(visualSpeed/CycleDistance,1.3f)*deltaTime,1);
+            ApplyPose(facingLeft,Mathf.SmoothStep(0,1,walkWeight));
         }
         public void Step(float distance,bool facingLeft)
         {
-            SetVisible(true);
             Phase=Mathf.Repeat(Phase+Mathf.Abs(distance)/CycleDistance,1);
+            ApplyPose(facingLeft,1);
+        }
+        void ApplyPose(bool facingLeft,float weight)
+        {
+            SetVisible(true);
             root.localPosition=source.transform.localPosition;
-            root.localRotation=source.transform.localRotation;
+            // Lean belongs to the torso; planted boots stay parallel to the local ground.
+            root.localRotation=Quaternion.identity;
             root.localScale=new Vector3(facingLeft?-1:1,1,1);
-            // Two footfalls per cycle; the shoulders dip slightly over each planted foot.
-            float bob=-.012f*(1-Mathf.Cos(Phase*Mathf.PI*4));
+            float bob=-.004f*(1-Mathf.Cos(Phase*Mathf.PI*4))*weight;
             if(!upperPoses.TryGetValue(source.sprite,out var upper))
             {
                 var pose=source.sprite;int cut=Mathf.RoundToInt(104f/250*pose.pixelsPerUnit);
@@ -78,18 +94,25 @@ namespace FlyMeToTheMoon.Demo
             }
             torsoArt.sprite=upper;
             torso.localPosition=new Vector3(0,104f/250+bob,0);
-            BackFoot=AnimateLeg(0,Mathf.Repeat(Phase+.5f,1),bob);
-            FrontFoot=AnimateLeg(1,Phase,bob);
+            float lean=Mathf.DeltaAngle(0,source.transform.localEulerAngles.z)*(facingLeft?-1:1);
+            torso.localRotation=Quaternion.Euler(0,0,lean*.45f*weight);
+            BackFoot=AnimateLeg(0,Mathf.Repeat(Phase+.5f,1),bob,weight);
+            FrontFoot=AnimateLeg(1,Phase,bob,weight);
         }
-        Vector2 AnimateLeg(int leg,float phase,float bob)
+        Vector2 AnimateLeg(int leg,float phase,float bob,float weight)
         {
-            // Stance: the planted foot travels backward relative to the body. Swing: lift and pass it forward.
-            const float stride=.18f;
-            bool stance=phase<.5f;float t=stance?phase*2:(phase-.5f)*2;
-            float x=stance?Mathf.Lerp(stride,-stride,t):Mathf.Lerp(-stride,stride,t*t*(3-2*t));
-            float lift=stance?0:Mathf.Sin(t*Mathf.PI)*.12f;
-            Vector2 sole=new Vector2(.085f+x,lift);
-            Vector2 ankle=sole+Vector2.up*(44f/250*.82f);
+            // A longer contact period gives a brief double-support pose. Both ends of the
+            // low swing arc have zero vertical velocity, rather than snapping off the ground.
+            const float stride=.16f,stanceFraction=.6f;
+            bool stance=phase<stanceFraction;
+            float t=stance?phase/stanceFraction:(phase-stanceFraction)/(1-stanceFraction);
+            float x=(stance?1:-1)*stride*Mathf.Cos(t*Mathf.PI);
+            float arc=stance?0:Mathf.Sin(t*Mathf.PI);
+            float lift=arc*arc*.065f*weight;
+            Vector2 sole=new Vector2(.085f+Mathf.Lerp(leg==0?-.035f:.035f,x,weight),lift);
+            float roll=stance?0:-Mathf.Sin(t*Mathf.PI*2)*9*arc*weight;
+            var bootRotation=Quaternion.Euler(0,0,roll);
+            Vector2 ankle=sole+(Vector2)(bootRotation*Vector3.up)*(44f/250*.82f);
             Vector2 hip=new Vector2(.085f+(leg==0?-.025f:.025f),HipHeight+bob);
             Vector2 delta=ankle-hip;
             float distance=Mathf.Clamp(delta.magnitude,.001f,ThighLength+ShinLength-.001f);
@@ -100,7 +123,7 @@ namespace FlyMeToTheMoon.Demo
             thighs[leg].localPosition=hip;thighs[leg].localRotation=Quaternion.FromToRotation(Vector3.down,knee-hip);
             shins[leg].localPosition=knee;shins[leg].localRotation=Quaternion.FromToRotation(Vector3.down,ankle-knee);
             // Boots remain level with the local surface during contact, including under a moon.
-            boots[leg].localPosition=ankle;boots[leg].localRotation=Quaternion.identity;
+            boots[leg].localPosition=ankle;boots[leg].localRotation=bootRotation;
             return sole;
         }
         void OnDestroy()

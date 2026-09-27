@@ -38,7 +38,7 @@ public class WalkingAnimationTests
         {
             Keys();game.Player.Respawn(game.Planets.respawnPlanet,up);yield return new WaitForSeconds(.3f);Keys(direction);
             yield return new WaitForSeconds(.3f);bool frontLift=false,backLift=false,frontAhead=false,backAhead=false;var phases=new HashSet<string>();
-            float end=Time.time+.9f;
+            float end=Time.time+1.2f;
             while(Time.time<end)
             {
                 yield return null;
@@ -52,6 +52,24 @@ public class WalkingAnimationTests
             Assert.AreEqual(direction==Key.A,art.Traveler.flipX);
         }
         Keys();yield return new WaitForSeconds(.3f);Assert.IsFalse(art.Walk.Visible);Assert.IsTrue(art.Traveler.enabled);Assert.AreEqual("hero/0",art.Pose);
+        LogAssert.NoUnexpectedReceived();
+    }
+    [UnityTest] public IEnumerator SteadyWalkingUsesARelaxedCadenceAndSettlesOnRelease()
+    {
+        var art=game.Art.PlayerArt;
+        Keys(Key.D);yield return new WaitForSeconds(.6f);
+        float started=Time.time,lastPhase=art.Walk.Phase,cycles=0,maxLift=0;
+        while(Time.time-started<2)
+        {
+            yield return null;
+            cycles+=Mathf.Repeat(art.Walk.Phase-lastPhase,1);lastPhase=art.Walk.Phase;
+            maxLift=Mathf.Max(maxLift,art.Walk.FrontFoot.y,art.Walk.BackFoot.y);
+        }
+        Assert.That(cycles/(Time.time-started),Is.InRange(1.1f,1.35f),"Walking should read as about 2.5 steps per second, not rapid marching");
+        Assert.That(maxLift,Is.InRange(.05f,.075f),"Feet should clear the surface without a high-knee march");
+        Keys();yield return new WaitForSeconds(.35f);
+        Assert.IsFalse(art.Walk.Visible);Assert.AreEqual("hero/0",art.Pose);
+        Keys(Key.A);yield return new WaitForSeconds(.4f);Assert.IsTrue(art.Walk.Visible);Assert.IsTrue(art.Traveler.flipX);
         LogAssert.NoUnexpectedReceived();
     }
     [UnityTest] public IEnumerator WalkingYieldsToShotsJumpingAndPause()

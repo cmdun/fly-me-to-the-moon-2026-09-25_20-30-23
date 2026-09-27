@@ -61,7 +61,7 @@ namespace FlyMeToTheMoon.Demo
             }
             grounded = player.IsGrounded;
             string key;
-            bool walking = grounded && !player.IsPlayingShot && Time.time >= landingUntil && Mathf.Abs(speed) > .15f;
+            bool canWalk = grounded && !player.IsPlayingShot && Time.time >= landingUntil;
             if (playingFlute) key = "01/actor/" + (Time.time-actionStarted < .065f ? 1 : 2 + (int)(Time.time*5)%2);
             else if (acting) key = "09/actor/1";
             else if (grounded && Time.time < landingUntil) key = "hero/9";
@@ -72,7 +72,7 @@ namespace FlyMeToTheMoon.Demo
             Traveler.transform.localRotation = Quaternion.Slerp(Traveler.transform.localRotation,Quaternion.Euler(0,0,lean),1-Mathf.Exp(-16*Time.deltaTime));
             float breath = grounded && !acting && Mathf.Abs(speed)<.15f ? Mathf.Sin(Time.time*2.5f)*.008f : 0;
             Traveler.transform.localScale = new Vector3(1-breath,1+breath,1);
-            if (walking) Walk.Step(Mathf.Abs(speed) * Time.deltaTime, facingLeft);
+            if (canWalk) Walk.UpdateMovement(speed, Time.deltaTime, facingLeft);
             else Walk.SetVisible(false);
             // The playing strip already contains the flute at the mouth. In recovery it returns to orbit.
             Instrument.enabled = game.Equipped == 0 && !playingFlute;

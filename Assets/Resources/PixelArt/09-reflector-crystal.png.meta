@@ -1,0 +1,665 @@
+fileFormatVersion: 2
+guid: e6d1b51771e384adf8e84893ccfc8257
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -731909788782067561
+    second: 09-reflector-crystal_0
+  - first:
+      213: -5062721759452635986
+    second: 09-reflector-crystal_1
+  - first:
+      213: -5722141070788320665
+    second: 09-reflector-crystal_2
+  - first:
+      213: 5732313421040779790
+    second: 09-reflector-crystal_3
+  - first:
+      213: 5108018716160569257
+    second: 09-reflector-crystal_4
+  - first:
+      213: -8078965664633833499
+    second: 09-reflector-crystal_5
+  - first:
+      213: -4138750080841816199
+    second: 09-reflector-crystal_6
+  - first:
+      213: -8705665059733859772
+    second: 09-reflector-crystal_7
+  - first:
+      213: 5549539966478118626
+    second: 09-reflector-crystal_8
+  - first:
+      213: 1276639127678970221
+    second: 09-reflector-crystal_9
+  - first:
+      213: 2597325278970511332
+    second: 09-reflector-crystal_10
+  - first:
+      213: 695151949544164076
+    second: 09-reflector-crystal_11
+  - first:
+      213: 6775970171810611790
+    second: 09-reflector-crystal_12
+  - first:
+      213: -6103561535619373096
+    second: 09-reflector-crystal_13
+  - first:
+      213: 618341022553446653
+    second: 09-reflector-crystal_14
+  - first:
+      213: -7422442222373272740
+    second: 09-reflector-crystal_15
+  - first:
+      213: 3859223051661353633
+    second: 09-reflector-crystal_16
+  - first:
+      213: 7559973740230515062
+    second: 09-reflector-crystal_17
+  - first:
+      213: 2616295155445389749
+    second: 09-reflector-crystal_18
+  - first:
+      213: 5313262568105408749
+    second: 09-reflector-crystal_19
+  - first:
+      213: -7968465460856155111
+    second: 09-reflector-crystal_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 09-reflector-crystal_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 589
+        width: 219
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7908308ccebb7d5f0800000000000000
+      internalID: -731909788782067561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 531
+        width: 309
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac5f2b12699db9b0800000000000000
+      internalID: -5062721759452635986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 588
+        width: 285
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7622df8630fd690b0800000000000000
+      internalID: -5722141070788320665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_3
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 575
+        width: 232
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0207527fa44d8f40800000000000000
+      internalID: 5732313421040779790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_4
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 587
+        width: 257
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af2cca75f353e640800000000000000
+      internalID: 5108018716160569257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_5
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 589
+        width: 237
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e73cee388fb1ef80800000000000000
+      internalID: -8078965664633833499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_6
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 911
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977ed41cab43096c0800000000000000
+      internalID: -4138750080841816199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_7
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 331
+        width: 231
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4429805b0c34f2780800000000000000
+      internalID: -8705665059733859772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_8
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 313
+        width: 221
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eee2c0623de30d40800000000000000
+      internalID: 5549539966478118626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_9
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 297
+        width: 231
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d696bafc58887b110800000000000000
+      internalID: 1276639127678970221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_10
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 295
+        width: 209
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4effd2b749d8b0420800000000000000
+      internalID: 2597325278970511332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_11
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 333
+        width: 210
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea0089d30da5a900800000000000000
+      internalID: 695151949544164076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_12
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 330
+        width: 198
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e420a6b78f4190e50800000000000000
+      internalID: 6775970171810611790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_13
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 294
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d76ba41f1bcb4ba0800000000000000
+      internalID: -6103561535619373096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 231
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8995742e9c49800800000000000000
+      internalID: 618341022553446653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_15
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 31
+        width: 233
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c538491ef103ef890800000000000000
+      internalID: -7422442222373272740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_16
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 37
+        width: 289
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2264f1be6be8530800000000000000
+      internalID: 3859223051661353633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_17
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 25
+        width: 241
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67998b1ff0c6ae860800000000000000
+      internalID: 7559973740230515062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_18
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 261
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9d5e70592fe4420800000000000000
+      internalID: 2616295155445389749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_19
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 51
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de87d42a7208cb940800000000000000
+      internalID: 5313262568105408749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 09-reflector-crystal_20
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 55
+        width: 233
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91413b0d1e25a6190800000000000000
+      internalID: -7968465460856155111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      09-reflector-crystal_0: -731909788782067561
+      09-reflector-crystal_1: -5062721759452635986
+      09-reflector-crystal_10: 2597325278970511332
+      09-reflector-crystal_11: 695151949544164076
+      09-reflector-crystal_12: 6775970171810611790
+      09-reflector-crystal_13: -6103561535619373096
+      09-reflector-crystal_14: 618341022553446653
+      09-reflector-crystal_15: -7422442222373272740
+      09-reflector-crystal_16: 3859223051661353633
+      09-reflector-crystal_17: 7559973740230515062
+      09-reflector-crystal_18: 2616295155445389749
+      09-reflector-crystal_19: 5313262568105408749
+      09-reflector-crystal_2: -5722141070788320665
+      09-reflector-crystal_20: -7968465460856155111
+      09-reflector-crystal_3: 5732313421040779790
+      09-reflector-crystal_4: 5108018716160569257
+      09-reflector-crystal_5: -8078965664633833499
+      09-reflector-crystal_6: -4138750080841816199
+      09-reflector-crystal_7: -8705665059733859772
+      09-reflector-crystal_8: 5549539966478118626
+      09-reflector-crystal_9: 1276639127678970221
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

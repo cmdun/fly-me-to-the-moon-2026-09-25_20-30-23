@@ -48,6 +48,7 @@ namespace FlyMeToTheMoon.Demo
                 default: Encounter = new EchoEncounter(this); break;
             }
             Encounter.Reset();
+            game.Art.ShowEncounter(this);
         }
         public void Tick(float delta, bool calling)
         {
@@ -64,6 +65,7 @@ namespace FlyMeToTheMoon.Demo
         public void End()
         {
             Active = false;
+            if (Game != null && Game.Art != null) Game.Art.HideEncounter();
             if (Root != null) { Root.gameObject.SetActive(false); Object.Destroy(Root.gameObject); }
             Root = null;
         }

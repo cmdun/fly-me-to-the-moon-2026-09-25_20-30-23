@@ -1,0 +1,1523 @@
+fileFormatVersion: 2
+guid: c94ec71c8adfe49c8924d011343b5407
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2301829612474760598
+    second: 04-drum-bounce_0
+  - first:
+      213: -5480709019034103327
+    second: 04-drum-bounce_1
+  - first:
+      213: -8650582934586178351
+    second: 04-drum-bounce_2
+  - first:
+      213: 3829709561909990352
+    second: 04-drum-bounce_3
+  - first:
+      213: 5810618413802859787
+    second: 04-drum-bounce_4
+  - first:
+      213: 4614832454653073912
+    second: 04-drum-bounce_5
+  - first:
+      213: -6312346779846736534
+    second: 04-drum-bounce_6
+  - first:
+      213: 2721657236040960992
+    second: 04-drum-bounce_7
+  - first:
+      213: 2537604419786303737
+    second: 04-drum-bounce_8
+  - first:
+      213: 5773284913059940585
+    second: 04-drum-bounce_9
+  - first:
+      213: -348532901637336850
+    second: 04-drum-bounce_10
+  - first:
+      213: -3704918163820135361
+    second: 04-drum-bounce_11
+  - first:
+      213: -1207289395326126254
+    second: 04-drum-bounce_12
+  - first:
+      213: 2224058370786783072
+    second: 04-drum-bounce_13
+  - first:
+      213: 7136006229449094122
+    second: 04-drum-bounce_14
+  - first:
+      213: 8717820623030014085
+    second: 04-drum-bounce_15
+  - first:
+      213: -7821218332208374666
+    second: 04-drum-bounce_16
+  - first:
+      213: 5897914285971062239
+    second: 04-drum-bounce_17
+  - first:
+      213: 7114839216565198142
+    second: 04-drum-bounce_18
+  - first:
+      213: 5798503600587205284
+    second: 04-drum-bounce_19
+  - first:
+      213: 8051592766336029644
+    second: 04-drum-bounce_20
+  - first:
+      213: 646618807651625844
+    second: 04-drum-bounce_21
+  - first:
+      213: -2016252484998123060
+    second: 04-drum-bounce_22
+  - first:
+      213: -5126086315498416694
+    second: 04-drum-bounce_23
+  - first:
+      213: 6488735913613953834
+    second: 04-drum-bounce_24
+  - first:
+      213: 8760560224262356298
+    second: 04-drum-bounce_25
+  - first:
+      213: -1294444713750046174
+    second: 04-drum-bounce_26
+  - first:
+      213: -8760340316764558343
+    second: 04-drum-bounce_27
+  - first:
+      213: 8575583028649395484
+    second: 04-drum-bounce_28
+  - first:
+      213: -830000623462985970
+    second: 04-drum-bounce_29
+  - first:
+      213: -2675989072052621811
+    second: 04-drum-bounce_30
+  - first:
+      213: 7283720443164096275
+    second: 04-drum-bounce_31
+  - first:
+      213: -3289511946165425804
+    second: 04-drum-bounce_32
+  - first:
+      213: -7981943953737973811
+    second: 04-drum-bounce_33
+  - first:
+      213: 5734071617884773356
+    second: 04-drum-bounce_34
+  - first:
+      213: 8546307165734407120
+    second: 04-drum-bounce_35
+  - first:
+      213: -2018776181043765388
+    second: 04-drum-bounce_36
+  - first:
+      213: -435651577701263074
+    second: 04-drum-bounce_37
+  - first:
+      213: -1425582419329775456
+    second: 04-drum-bounce_38
+  - first:
+      213: 4672580441671754230
+    second: 04-drum-bounce_39
+  - first:
+      213: 7852465093121555582
+    second: 04-drum-bounce_40
+  - first:
+      213: 4245283472579414790
+    second: 04-drum-bounce_41
+  - first:
+      213: -2313268787765258139
+    second: 04-drum-bounce_42
+  - first:
+      213: -7431080152893635845
+    second: 04-drum-bounce_43
+  - first:
+      213: 4591391168619295734
+    second: 04-drum-bounce_44
+  - first:
+      213: 5771869475560408516
+    second: 04-drum-bounce_45
+  - first:
+      213: -6975889407573389595
+    second: 04-drum-bounce_46
+  - first:
+      213: 5944562407269375899
+    second: 04-drum-bounce_47
+  - first:
+      213: -6149548014786294693
+    second: 04-drum-bounce_48
+  - first:
+      213: 3415830105537631198
+    second: 04-drum-bounce_49
+  - first:
+      213: 2875482061584152011
+    second: 04-drum-bounce_50
+  - first:
+      213: 575760270658858853
+    second: 04-drum-bounce_51
+  - first:
+      213: -5149036042577735339
+    second: 04-drum-bounce_52
+  - first:
+      213: 202029473809865982
+    second: 04-drum-bounce_53
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 04-drum-bounce_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 449
+        width: 333
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d780146ddb1ff10800000000000000
+      internalID: 2301829612474760598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 929
+        width: 179
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e1513b6f2c90f3b0800000000000000
+      internalID: -5480709019034103327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 441
+        width: 703
+        height: 563
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d44feb57a4f2f780800000000000000
+      internalID: -8650582934586178351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 433
+        width: 349
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d3df8e4e8cd52530800000000000000
+      internalID: 3829709561909990352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_4
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 506
+        width: 232
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d201059a673a050800000000000000
+      internalID: 5810618413802859787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_5
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 591
+        width: 230
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f95a85caad2b0040800000000000000
+      internalID: 4614832454653073912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_6
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 505
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6587284c0a0668a0800000000000000
+      internalID: -6312346779846736534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_7
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 473
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ebc79216d445c520800000000000000
+      internalID: 2721657236040960992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_8
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 493
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8e2d566c1673320800000000000000
+      internalID: 2537604419786303737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_9
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 501
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e84f0e4a04de1050800000000000000
+      internalID: 5773284913059940585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_10
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 445
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0de5d2c23c92bf0800000000000000
+      internalID: -348532901637336850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_11
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 474
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cbb9b3f8c759cc0800000000000000
+      internalID: -3704918163820135361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_12
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 461
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2577d7201b8de3fe0800000000000000
+      internalID: -1207289395326126254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_13
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 465
+        width: 12
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06fea7efd417dde10800000000000000
+      internalID: 2224058370786783072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_14
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 461
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae3b9458bdf280360800000000000000
+      internalID: 7136006229449094122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_15
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 452
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580574beaabebf870800000000000000
+      internalID: 8717820623030014085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_16
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 478
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c52fd8d53757390800000000000000
+      internalID: -7821218332208374666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_17
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 441
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fddb10b6bc999d150800000000000000
+      internalID: 5897914285971062239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_18
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 316
+        width: 223
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d1369429cfcb260800000000000000
+      internalID: 7114839216565198142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_19
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 317
+        width: 217
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aae2dd8d4c687050800000000000000
+      internalID: 5798503600587205284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_20
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 123
+        width: 277
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3509936f00dbf60800000000000000
+      internalID: 8051592766336029644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_21
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 295
+        width: 204
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b692f216049f800800000000000000
+      internalID: 646618807651625844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_22
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 315
+        width: 205
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc130362c05d404e0800000000000000
+      internalID: -2016252484998123060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_23
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 292
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5d9bcb7ab7cd8b0800000000000000
+      internalID: -5126086315498416694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_24
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 316
+        width: 201
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2b87444fee9c0a50800000000000000
+      internalID: 6488735913613953834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_25
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 267
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4df298cb13c39970800000000000000
+      internalID: 8760560224262356298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_26
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 0
+        width: 301
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22adb8f1465390ee0800000000000000
+      internalID: -1294444713750046174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_27
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 277
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb27bb65e40d6680800000000000000
+      internalID: -8760340316764558343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_28
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 271
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1504844457920770800000000000000
+      internalID: 8575583028649395484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_29
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 133
+        width: 123
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0fc22b94de3b74f0800000000000000
+      internalID: -830000623462985970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_30
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 113
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ee971fd1afcdad0800000000000000
+      internalID: -2675989072052621811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_31
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 256
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 317fb0af629f41560800000000000000
+      internalID: 7283720443164096275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_32
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 159
+        width: 69
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 479e764405e4952d0800000000000000
+      internalID: -3289511946165425804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_33
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 19
+        width: 203
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcffe54a3407a3190800000000000000
+      internalID: -7981943953737973811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_34
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 258
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cebdbac81c3839f40800000000000000
+      internalID: 5734071617884773356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_35
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 159
+        width: 77
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db89f246159a9670800000000000000
+      internalID: 8546307165734407120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_36
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 159
+        width: 71
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47fdddf52cddbf3e0800000000000000
+      internalID: -2018776181043765388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_37
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 214
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e191741c23144f9f0800000000000000
+      internalID: -435651577701263074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_38
+      rect:
+        serializedVersion: 2
+        x: 1420
+        y: 115
+        width: 101
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a88ec9b750573ce0800000000000000
+      internalID: -1425582419329775456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_39
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 73
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f16842c72758d040800000000000000
+      internalID: 4672580441671754230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_40
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 151
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7c3aa6e56f89fc60800000000000000
+      internalID: 7852465093121555582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_41
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 131
+        width: 79
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60bcee963d64aea30800000000000000
+      internalID: 4245283472579414790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_42
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 42
+        width: 140
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 568d0433b4e95efd0800000000000000
+      internalID: -2313268787765258139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_43
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 181
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2c155f8ff7fd890800000000000000
+      internalID: -7431080152893635845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_44
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 91
+        width: 69
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f33b6e01f5e7bf30800000000000000
+      internalID: 4591391168619295734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_45
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 0
+        width: 239
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5c2b415bcc91050800000000000000
+      internalID: 5771869475560408516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_46
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 165
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee8d2d2b89a03f90800000000000000
+      internalID: -6975889407573389595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_47
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 136
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9f9e6683045f7250800000000000000
+      internalID: 5944562407269375899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_48
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 113
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c447989aa68aaa0800000000000000
+      internalID: -6149548014786294693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_49
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 93
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed3d7a51267776f20800000000000000
+      internalID: 3415830105537631198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_50
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 49
+        width: 40
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc53bb633b3c7e720800000000000000
+      internalID: 2875482061584152011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_51
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 53
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f67686ae28df700800000000000000
+      internalID: 575760270658858853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_52
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 37
+        width: 117
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55198720003fa88b0800000000000000
+      internalID: -5149036042577735339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04-drum-bounce_53
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 17
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc989c6cb0cdc200800000000000000
+      internalID: 202029473809865982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      04-drum-bounce_0: 2301829612474760598
+      04-drum-bounce_1: -5480709019034103327
+      04-drum-bounce_10: -348532901637336850
+      04-drum-bounce_11: -3704918163820135361
+      04-drum-bounce_12: -1207289395326126254
+      04-drum-bounce_13: 2224058370786783072
+      04-drum-bounce_14: 7136006229449094122
+      04-drum-bounce_15: 8717820623030014085
+      04-drum-bounce_16: -7821218332208374666
+      04-drum-bounce_17: 5897914285971062239
+      04-drum-bounce_18: 7114839216565198142
+      04-drum-bounce_19: 5798503600587205284
+      04-drum-bounce_2: -8650582934586178351
+      04-drum-bounce_20: 8051592766336029644
+      04-drum-bounce_21: 646618807651625844
+      04-drum-bounce_22: -2016252484998123060
+      04-drum-bounce_23: -5126086315498416694
+      04-drum-bounce_24: 6488735913613953834
+      04-drum-bounce_25: 8760560224262356298
+      04-drum-bounce_26: -1294444713750046174
+      04-drum-bounce_27: -8760340316764558343
+      04-drum-bounce_28: 8575583028649395484
+      04-drum-bounce_29: -830000623462985970
+      04-drum-bounce_3: 3829709561909990352
+      04-drum-bounce_30: -2675989072052621811
+      04-drum-bounce_31: 7283720443164096275
+      04-drum-bounce_32: -3289511946165425804
+      04-drum-bounce_33: -7981943953737973811
+      04-drum-bounce_34: 5734071617884773356
+      04-drum-bounce_35: 8546307165734407120
+      04-drum-bounce_36: -2018776181043765388
+      04-drum-bounce_37: -435651577701263074
+      04-drum-bounce_38: -1425582419329775456
+      04-drum-bounce_39: 4672580441671754230
+      04-drum-bounce_4: 5810618413802859787
+      04-drum-bounce_40: 7852465093121555582
+      04-drum-bounce_41: 4245283472579414790
+      04-drum-bounce_42: -2313268787765258139
+      04-drum-bounce_43: -7431080152893635845
+      04-drum-bounce_44: 4591391168619295734
+      04-drum-bounce_45: 5771869475560408516
+      04-drum-bounce_46: -6975889407573389595
+      04-drum-bounce_47: 5944562407269375899
+      04-drum-bounce_48: -6149548014786294693
+      04-drum-bounce_49: 3415830105537631198
+      04-drum-bounce_5: 4614832454653073912
+      04-drum-bounce_50: 2875482061584152011
+      04-drum-bounce_51: 575760270658858853
+      04-drum-bounce_52: -5149036042577735339
+      04-drum-bounce_53: 202029473809865982
+      04-drum-bounce_6: -6312346779846736534
+      04-drum-bounce_7: 2721657236040960992
+      04-drum-bounce_8: 2537604419786303737
+      04-drum-bounce_9: 5773284913059940585
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

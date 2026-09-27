@@ -1,0 +1,2407 @@
+fileFormatVersion: 2
+guid: f67f52ccf6c544c9f906e6a5df2ee7fb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5513380457932344501
+    second: flute-reference_0
+  - first:
+      213: 2200289467198831829
+    second: flute-reference_1
+  - first:
+      213: -5759232415831209626
+    second: flute-reference_2
+  - first:
+      213: 7011157822288346938
+    second: flute-reference_3
+  - first:
+      213: -7903381101132995845
+    second: flute-reference_4
+  - first:
+      213: 3322929065487821181
+    second: flute-reference_5
+  - first:
+      213: -433041753645822466
+    second: flute-reference_6
+  - first:
+      213: 8649982181005459019
+    second: flute-reference_7
+  - first:
+      213: 1969994240623701111
+    second: flute-reference_8
+  - first:
+      213: -3729120962839521863
+    second: flute-reference_9
+  - first:
+      213: 3372995023039974262
+    second: flute-reference_10
+  - first:
+      213: -7454650719849018912
+    second: flute-reference_11
+  - first:
+      213: 4110945835170962480
+    second: flute-reference_12
+  - first:
+      213: 8644947163504613020
+    second: flute-reference_13
+  - first:
+      213: -3920460065389906577
+    second: flute-reference_14
+  - first:
+      213: 1731733776696587906
+    second: flute-reference_15
+  - first:
+      213: 3620856575623272194
+    second: flute-reference_16
+  - first:
+      213: -3440432740573920734
+    second: flute-reference_17
+  - first:
+      213: -6872895545646955629
+    second: flute-reference_18
+  - first:
+      213: 8681957012132366109
+    second: flute-reference_19
+  - first:
+      213: -318689730335949829
+    second: flute-reference_20
+  - first:
+      213: 2734701321862034118
+    second: flute-reference_21
+  - first:
+      213: 2796107037197636986
+    second: flute-reference_22
+  - first:
+      213: -5336324380230254627
+    second: flute-reference_23
+  - first:
+      213: -7166515983359291501
+    second: flute-reference_24
+  - first:
+      213: 7129564195922501870
+    second: flute-reference_25
+  - first:
+      213: -1461693231448326961
+    second: flute-reference_26
+  - first:
+      213: 602582597513585999
+    second: flute-reference_27
+  - first:
+      213: -564173638070690042
+    second: flute-reference_28
+  - first:
+      213: -6342677479070840074
+    second: flute-reference_29
+  - first:
+      213: 3137347923867608638
+    second: flute-reference_30
+  - first:
+      213: -4070309203630562576
+    second: flute-reference_31
+  - first:
+      213: 3900019096025063054
+    second: flute-reference_32
+  - first:
+      213: 869464483861900838
+    second: flute-reference_33
+  - first:
+      213: 8388324150526416867
+    second: flute-reference_34
+  - first:
+      213: -4354200128630256092
+    second: flute-reference_35
+  - first:
+      213: 5953508748006477088
+    second: flute-reference_36
+  - first:
+      213: -8035605686027410764
+    second: flute-reference_37
+  - first:
+      213: 7093772189102043961
+    second: flute-reference_38
+  - first:
+      213: 7224531270449926418
+    second: flute-reference_39
+  - first:
+      213: 1883968122021047128
+    second: flute-reference_40
+  - first:
+      213: -6175117308566838091
+    second: flute-reference_41
+  - first:
+      213: 4998175863720023831
+    second: flute-reference_42
+  - first:
+      213: -8379478397728158467
+    second: flute-reference_43
+  - first:
+      213: -7319612372749026132
+    second: flute-reference_44
+  - first:
+      213: 5684286372189729967
+    second: flute-reference_45
+  - first:
+      213: 7290256434727200735
+    second: flute-reference_46
+  - first:
+      213: -9001516953378428923
+    second: flute-reference_47
+  - first:
+      213: 2292063839194531709
+    second: flute-reference_48
+  - first:
+      213: 6095882256264678012
+    second: flute-reference_49
+  - first:
+      213: 555676944809548060
+    second: flute-reference_50
+  - first:
+      213: 6524646673446876790
+    second: flute-reference_51
+  - first:
+      213: 8794378167688217436
+    second: flute-reference_52
+  - first:
+      213: 3630828787034062327
+    second: flute-reference_53
+  - first:
+      213: 4879858605321522725
+    second: flute-reference_54
+  - first:
+      213: 2890780738337805440
+    second: flute-reference_55
+  - first:
+      213: 6802730220888287038
+    second: flute-reference_56
+  - first:
+      213: -3629753863538336691
+    second: flute-reference_57
+  - first:
+      213: 1936847562701245005
+    second: flute-reference_58
+  - first:
+      213: 1039642400567674737
+    second: flute-reference_59
+  - first:
+      213: 6596589201217207332
+    second: flute-reference_60
+  - first:
+      213: 7718039825637998647
+    second: flute-reference_61
+  - first:
+      213: -553874483486110816
+    second: flute-reference_62
+  - first:
+      213: 8847833105855382825
+    second: flute-reference_63
+  - first:
+      213: 672255300825524917
+    second: flute-reference_64
+  - first:
+      213: -4377144325505101827
+    second: flute-reference_65
+  - first:
+      213: 4066902852200605935
+    second: flute-reference_66
+  - first:
+      213: 2760963820763775129
+    second: flute-reference_67
+  - first:
+      213: 590928117879442723
+    second: flute-reference_68
+  - first:
+      213: -8758462443925330762
+    second: flute-reference_69
+  - first:
+      213: 3244255750326510834
+    second: flute-reference_70
+  - first:
+      213: -5546977751735038
+    second: flute-reference_71
+  - first:
+      213: -7515731759140477995
+    second: flute-reference_72
+  - first:
+      213: -5239766040873229341
+    second: flute-reference_73
+  - first:
+      213: 5468993100833462333
+    second: flute-reference_74
+  - first:
+      213: -8341814155229598306
+    second: flute-reference_75
+  - first:
+      213: 9105390007967860595
+    second: flute-reference_76
+  - first:
+      213: 701455179375019229
+    second: flute-reference_77
+  - first:
+      213: 8237786696405351273
+    second: flute-reference_78
+  - first:
+      213: 4807682355038914996
+    second: flute-reference_79
+  - first:
+      213: 1336470342773639965
+    second: flute-reference_80
+  - first:
+      213: 6307651283236825595
+    second: flute-reference_81
+  - first:
+      213: -1378266160496680521
+    second: flute-reference_82
+  - first:
+      213: -4679287287097279848
+    second: flute-reference_83
+  - first:
+      213: 2435746750859531150
+    second: flute-reference_84
+  - first:
+      213: -4647630774448455235
+    second: flute-reference_85
+  - first:
+      213: 4105650845736454394
+    second: flute-reference_86
+  - first:
+      213: 8014385904173430899
+    second: flute-reference_87
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flute-reference_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 849
+        width: 139
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43bc554fa98c73b0800000000000000
+      internalID: -5513380457932344501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 902
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dc7b6fdc9ff88e10800000000000000
+      internalID: 2200289467198831829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 927
+        width: 137
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669477ba1a81310b0800000000000000
+      internalID: -5759232415831209626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 899
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3fb2b584e2ac4160800000000000000
+      internalID: 7011157822288346938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_4
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 895
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2ae6e23cc815290800000000000000
+      internalID: -7903381101132995845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_5
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 919
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79e832216a6d1e20800000000000000
+      internalID: 3322929065487821181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_6
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 841
+        width: 107
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd4705c1d68df9f0800000000000000
+      internalID: -433041753645822466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 931
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4ef94cc6f8ea0870800000000000000
+      internalID: 8649982181005459019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_8
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 919
+        width: 159
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77ce0f90353d65b10800000000000000
+      internalID: 1969994240623701111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_9
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 943
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b5dc75fd308f3cc0800000000000000
+      internalID: -3729120962839521863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_10
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 855
+        width: 171
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b45714a194fce20800000000000000
+      internalID: 3372995023039974262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_11
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 949
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e90aceaaa2cb8890800000000000000
+      internalID: -7454650719849018912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_12
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 945
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c9c34d4730d0930800000000000000
+      internalID: 4110945835170962480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_13
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 927
+        width: 41
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9696be64a509f770800000000000000
+      internalID: 8644947163504613020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_14
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 911
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f65745e875ab799c0800000000000000
+      internalID: -3920460065389906577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_15
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 927
+        width: 47
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 286bb8dd1ba580810800000000000000
+      internalID: 1731733776696587906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_16
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 941
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20799a41fdddf3230800000000000000
+      internalID: 3620856575623272194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_17
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 905
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 222c77096a02140d0800000000000000
+      internalID: -3440432740573920734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_18
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 935
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39349575ae19e90a0800000000000000
+      internalID: -6872895545646955629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_19
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 847
+        width: 45
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d178c5f47e18c7870800000000000000
+      internalID: 8681957012132366109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_20
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 991
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfbb2c5f069c39bf0800000000000000
+      internalID: -318689730335949829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_21
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 979
+        width: 59
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2b068fc5c93f520800000000000000
+      internalID: 2734701321862034118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_22
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 839
+        width: 89
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7592223984cdc620800000000000000
+      internalID: 2796107037197636986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_23
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 959
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddf7e1ecf3191f5b0800000000000000
+      internalID: -5336324380230254627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_24
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 937
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39fc5b6deab6b8c90800000000000000
+      internalID: -7166515983359291501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_25
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 975
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0ed45bcdc41f260800000000000000
+      internalID: 7129564195922501870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_26
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 925
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fccfde810c507bbe0800000000000000
+      internalID: -1461693231448326961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_27
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 907
+        width: 37
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4521a80eadcc5800800000000000000
+      internalID: 602582597513585999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_28
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 853
+        width: 45
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f1827b017ab28f0800000000000000
+      internalID: -564173638070690042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_29
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 955
+        width: 111
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6facc1f00784af7a0800000000000000
+      internalID: -6342677479070840074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_30
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 936
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3620fa70591a8b20800000000000000
+      internalID: 3137347923867608638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_31
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 907
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2e89f385b5387c0800000000000000
+      internalID: -4070309203630562576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_32
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 915
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8e50d364b6af1630800000000000000
+      internalID: 3900019096025063054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_33
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 917
+        width: 39
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e28696755f01c00800000000000000
+      internalID: 869464483861900838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_34
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 935
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e715f42f50596470800000000000000
+      internalID: 8388324150526416867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_35
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 851
+        width: 35
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42e88047d06c293c0800000000000000
+      internalID: -4354200128630256092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_36
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 901
+        width: 85
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d4b1cc9ac1f9250800000000000000
+      internalID: 5953508748006477088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_37
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 983
+        width: 13
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b22a39f33bcb7090800000000000000
+      internalID: -8035605686027410764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_38
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 903
+        width: 87
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 933f8f8b834227260800000000000000
+      internalID: 7093772189102043961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_39
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 897
+        width: 93
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2119edbc9e0b24460800000000000000
+      internalID: 7224531270449926418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_40
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 993
+        width: 43
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b69397603352a10800000000000000
+      internalID: 1883968122021047128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_41
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 542
+        width: 209
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b4e18866839d4aa0800000000000000
+      internalID: -6175117308566838091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_42
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 981
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71796f177761d5540800000000000000
+      internalID: 4998175863720023831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_43
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 847
+        width: 49
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc8a5c2bcc16bb80800000000000000
+      internalID: -8379478397728158467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_44
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 841
+        width: 25
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac7db4f3538b6a90800000000000000
+      internalID: -7319612372749026132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_45
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 880
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa476ffb654a2ee40800000000000000
+      internalID: 5684286372189729967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_46
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 867
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7ab691a913c2560800000000000000
+      internalID: 7290256434727200735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_47
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 613
+        width: 275
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 508e832e500341380800000000000000
+      internalID: -9001516953378428923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_48
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 863
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7745b9faeb0fcf10800000000000000
+      internalID: 2292063839194531709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_49
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 841
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a434d5d9ce89450800000000000000
+      internalID: 6095882256264678012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_50
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 841
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c195f39bc3926b700800000000000000
+      internalID: 555676944809548060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 529
+        height: 506
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6763cb794933c8a50800000000000000
+      internalID: 6524646673446876790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 683
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53c1815958eb0a70800000000000000
+      internalID: 8794378167688217436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_53
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 329
+        width: 533
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fd7d6b7b8b436230800000000000000
+      internalID: 3630828787034062327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_54
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 623
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e82540c8db8b340800000000000000
+      internalID: 4879858605321522725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_55
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 614
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0849a28f3cd1e1820800000000000000
+      internalID: 2890780738337805440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_56
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 573
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e376cdee717286e50800000000000000
+      internalID: 6802730220888287038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_57
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 589
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c12b5a71680adc0800000000000000
+      internalID: -3629753863538336691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_58
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 435
+        width: 470
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4a83eea89011ea10800000000000000
+      internalID: 1936847562701245005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_59
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 591
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 177454b414d8d6e00800000000000000
+      internalID: 1039642400567674737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_60
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 603
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42cbab3adeacb8b50800000000000000
+      internalID: 6596589201217207332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_61
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 289
+        width: 77
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7308879545cfb1b60800000000000000
+      internalID: 7718039825637998647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_62
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 656
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ab48a1871e3058f0800000000000000
+      internalID: -553874483486110816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_63
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 687
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925837af451d9ca70800000000000000
+      internalID: 8847833105855382825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_64
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 0
+        width: 834
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba241462a4545900800000000000000
+      internalID: 672255300825524917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_65
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 606
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dffc6a35d624143c0800000000000000
+      internalID: -4377144325505101827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_66
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 623
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8a071c89a807830800000000000000
+      internalID: 4066902852200605935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_67
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 605
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990845e77f9e05620800000000000000
+      internalID: 2760963820763775129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_68
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 535
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d8ef90ef5633800800000000000000
+      internalID: 590928117879442723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_69
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 381
+        width: 517
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b42b33cfc0b37680800000000000000
+      internalID: -8758462443925330762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_70
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 337
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f4eab68a69e50d20800000000000000
+      internalID: 3244255750326510834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_71
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 601
+        width: 13
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 205e7899d0b4ceff0800000000000000
+      internalID: -5546977751735038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_72
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 366
+        width: 135
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d36f4df8c1c2b790800000000000000
+      internalID: -7515731759140477995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_73
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 543
+        width: 31
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e3a89b1c8c9847b0800000000000000
+      internalID: -5239766040873229341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_74
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 495
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d389d3ecf34c5eb40800000000000000
+      internalID: 5468993100833462333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_75
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 310
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9de63ff83ceb3c80800000000000000
+      internalID: -8341814155229598306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_76
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 292
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 377c05648f7dc5e70800000000000000
+      internalID: 9105390007967860595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_77
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 311
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd48188e4c11cb900800000000000000
+      internalID: 701455179375019229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_78
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 303
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96bfdaeca5f725270800000000000000
+      internalID: 8237786696405351273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_79
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 294
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9020531a158b240800000000000000
+      internalID: 4807682355038914996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_80
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 71
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b0ed122b81c8210800000000000000
+      internalID: 1336470342773639965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_81
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 63
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf92e583c67498750800000000000000
+      internalID: 6307651283236825595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_82
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 47
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b167a9ba3a6fdce0800000000000000
+      internalID: -1378266160496680521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_83
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 55
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89ab09a1105df0fb0800000000000000
+      internalID: -4679287287097279848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_84
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 33
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e835bc7c3c28dc120800000000000000
+      internalID: 2435746750859531150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_85
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 27
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db183d15f6c408fb0800000000000000
+      internalID: -4647630774448455235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_86
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 27
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af847e701b33af830800000000000000
+      internalID: 4105650845736454394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flute-reference_87
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 2
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 378b72f8481d83f60800000000000000
+      internalID: 8014385904173430899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      flute-reference_0: -5513380457932344501
+      flute-reference_1: 2200289467198831829
+      flute-reference_10: 3372995023039974262
+      flute-reference_11: -7454650719849018912
+      flute-reference_12: 4110945835170962480
+      flute-reference_13: 8644947163504613020
+      flute-reference_14: -3920460065389906577
+      flute-reference_15: 1731733776696587906
+      flute-reference_16: 3620856575623272194
+      flute-reference_17: -3440432740573920734
+      flute-reference_18: -6872895545646955629
+      flute-reference_19: 8681957012132366109
+      flute-reference_2: -5759232415831209626
+      flute-reference_20: -318689730335949829
+      flute-reference_21: 2734701321862034118
+      flute-reference_22: 2796107037197636986
+      flute-reference_23: -5336324380230254627
+      flute-reference_24: -7166515983359291501
+      flute-reference_25: 7129564195922501870
+      flute-reference_26: -1461693231448326961
+      flute-reference_27: 602582597513585999
+      flute-reference_28: -564173638070690042
+      flute-reference_29: -6342677479070840074
+      flute-reference_3: 7011157822288346938
+      flute-reference_30: 3137347923867608638
+      flute-reference_31: -4070309203630562576
+      flute-reference_32: 3900019096025063054
+      flute-reference_33: 869464483861900838
+      flute-reference_34: 8388324150526416867
+      flute-reference_35: -4354200128630256092
+      flute-reference_36: 5953508748006477088
+      flute-reference_37: -8035605686027410764
+      flute-reference_38: 7093772189102043961
+      flute-reference_39: 7224531270449926418
+      flute-reference_4: -7903381101132995845
+      flute-reference_40: 1883968122021047128
+      flute-reference_41: -6175117308566838091
+      flute-reference_42: 4998175863720023831
+      flute-reference_43: -8379478397728158467
+      flute-reference_44: -7319612372749026132
+      flute-reference_45: 5684286372189729967
+      flute-reference_46: 7290256434727200735
+      flute-reference_47: -9001516953378428923
+      flute-reference_48: 2292063839194531709
+      flute-reference_49: 6095882256264678012
+      flute-reference_5: 3322929065487821181
+      flute-reference_50: 555676944809548060
+      flute-reference_51: 6524646673446876790
+      flute-reference_52: 8794378167688217436
+      flute-reference_53: 3630828787034062327
+      flute-reference_54: 4879858605321522725
+      flute-reference_55: 2890780738337805440
+      flute-reference_56: 6802730220888287038
+      flute-reference_57: -3629753863538336691
+      flute-reference_58: 1936847562701245005
+      flute-reference_59: 1039642400567674737
+      flute-reference_6: -433041753645822466
+      flute-reference_60: 6596589201217207332
+      flute-reference_61: 7718039825637998647
+      flute-reference_62: -553874483486110816
+      flute-reference_63: 8847833105855382825
+      flute-reference_64: 672255300825524917
+      flute-reference_65: -4377144325505101827
+      flute-reference_66: 4066902852200605935
+      flute-reference_67: 2760963820763775129
+      flute-reference_68: 590928117879442723
+      flute-reference_69: -8758462443925330762
+      flute-reference_7: 8649982181005459019
+      flute-reference_70: 3244255750326510834
+      flute-reference_71: -5546977751735038
+      flute-reference_72: -7515731759140477995
+      flute-reference_73: -5239766040873229341
+      flute-reference_74: 5468993100833462333
+      flute-reference_75: -8341814155229598306
+      flute-reference_76: 9105390007967860595
+      flute-reference_77: 701455179375019229
+      flute-reference_78: 8237786696405351273
+      flute-reference_79: 4807682355038914996
+      flute-reference_8: 1969994240623701111
+      flute-reference_80: 1336470342773639965
+      flute-reference_81: 6307651283236825595
+      flute-reference_82: -1378266160496680521
+      flute-reference_83: -4679287287097279848
+      flute-reference_84: 2435746750859531150
+      flute-reference_85: -4647630774448455235
+      flute-reference_86: 4105650845736454394
+      flute-reference_87: 8014385904173430899
+      flute-reference_9: -3729120962839521863
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

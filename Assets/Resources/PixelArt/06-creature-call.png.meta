@@ -1,0 +1,1003 @@
+fileFormatVersion: 2
+guid: d743e90fa094f4c16a677bf72523208c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1385133164567504926
+    second: 06-creature-call_0
+  - first:
+      213: -1158731661334869501
+    second: 06-creature-call_1
+  - first:
+      213: 527112197838804295
+    second: 06-creature-call_2
+  - first:
+      213: 5423152436566684638
+    second: 06-creature-call_3
+  - first:
+      213: -3002059773561788968
+    second: 06-creature-call_4
+  - first:
+      213: 6603756788454205481
+    second: 06-creature-call_5
+  - first:
+      213: 953954510733731924
+    second: 06-creature-call_6
+  - first:
+      213: 6646467231686232037
+    second: 06-creature-call_7
+  - first:
+      213: -1847219103725812185
+    second: 06-creature-call_8
+  - first:
+      213: 4451897812705197937
+    second: 06-creature-call_9
+  - first:
+      213: -2707695004280090640
+    second: 06-creature-call_10
+  - first:
+      213: 8254908502002681718
+    second: 06-creature-call_11
+  - first:
+      213: 7581928948254062406
+    second: 06-creature-call_12
+  - first:
+      213: -8421421689072398292
+    second: 06-creature-call_13
+  - first:
+      213: 562050599364827327
+    second: 06-creature-call_14
+  - first:
+      213: 3778624470316440814
+    second: 06-creature-call_15
+  - first:
+      213: -5674271345773159167
+    second: 06-creature-call_16
+  - first:
+      213: 7019390086018304306
+    second: 06-creature-call_17
+  - first:
+      213: -7274148511759969438
+    second: 06-creature-call_18
+  - first:
+      213: -5769794111940262685
+    second: 06-creature-call_19
+  - first:
+      213: -3787390559001738161
+    second: 06-creature-call_20
+  - first:
+      213: 6631127038790397729
+    second: 06-creature-call_21
+  - first:
+      213: 247382908981649326
+    second: 06-creature-call_22
+  - first:
+      213: -85703567022177184
+    second: 06-creature-call_23
+  - first:
+      213: -2541596577877148730
+    second: 06-creature-call_24
+  - first:
+      213: -3940501112721319997
+    second: 06-creature-call_25
+  - first:
+      213: 628347646161877568
+    second: 06-creature-call_26
+  - first:
+      213: 5452589167504672006
+    second: 06-creature-call_27
+  - first:
+      213: 1845960180133891519
+    second: 06-creature-call_28
+  - first:
+      213: -2213534190228449807
+    second: 06-creature-call_29
+  - first:
+      213: 620615129876062061
+    second: 06-creature-call_30
+  - first:
+      213: -2626100437686441207
+    second: 06-creature-call_31
+  - first:
+      213: 8474940909564395672
+    second: 06-creature-call_32
+  - first:
+      213: -2446043504784569553
+    second: 06-creature-call_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 06-creature-call_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 401
+        width: 393
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e7575fb9b407cce0800000000000000
+      internalID: -1385133164567504926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_1
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 991
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a032871bb5befe0800000000000000
+      internalID: -1158731661334869501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_2
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 529
+        width: 731
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74515fc40cda05700800000000000000
+      internalID: 527112197838804295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_3
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 571
+        width: 243
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed3f9507868e24b40800000000000000
+      internalID: 5423152436566684638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_4
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 573
+        width: 313
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d52c52aa8a8656d0800000000000000
+      internalID: -3002059773561788968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_5
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 136
+        width: 327
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92823e69fc145ab50800000000000000
+      internalID: 6603756788454205481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_6
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 271
+        width: 267
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4586a20c2902d3d00800000000000000
+      internalID: 953954510733731924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_7
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 205
+        width: 293
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e78ee39bbefc3c50800000000000000
+      internalID: 6646467231686232037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_8
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 195
+        width: 227
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7268b1c130c5d56e0800000000000000
+      internalID: -1847219103725812185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_9
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 453
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fb1a6397158cd30800000000000000
+      internalID: 4451897812705197937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_10
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 447
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff09c55db55c6ad0800000000000000
+      internalID: -2707695004280090640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_11
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 446
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 677c833db835f8270800000000000000
+      internalID: 8254908502002681718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_12
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 453
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6473fe8253c683960800000000000000
+      internalID: 7581928948254062406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_13
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 271
+        width: 169
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c20d117a799112b80800000000000000
+      internalID: -8421421689072398292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_14
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 419
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb89fe0da0eccc700800000000000000
+      internalID: 562050599364827327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 265
+        width: 201
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec5fcc8fee507430800000000000000
+      internalID: 3778624470316440814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_16
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 277
+        width: 73
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d530c4640f041b0800000000000000
+      internalID: -5674271345773159167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_17
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 228
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2390509c712e96160800000000000000
+      internalID: 7019390086018304306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_18
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 247
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2635c19f7780d0b90800000000000000
+      internalID: -7274148511759969438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_19
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 0
+        width: 201
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e409aa23d29defa0800000000000000
+      internalID: -5769794111940262685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_20
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 17
+        width: 271
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4488016a5c707bc0800000000000000
+      internalID: -3787390559001738161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_21
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 199
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fe69798ee760c50800000000000000
+      internalID: 6631127038790397729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 63
+        width: 207
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf9a5de171ee6300800000000000000
+      internalID: 247382908981649326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_23
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 182
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 064c8a35f058fcef0800000000000000
+      internalID: -85703567022177184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_24
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 49
+        width: 227
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbb84dd06f6abcd0800000000000000
+      internalID: -2541596577877148730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_25
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 59
+        width: 125
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7d63b9d178059c0800000000000000
+      internalID: -3940501112721319997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_26
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 147
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a7ee4ead658b800800000000000000
+      internalID: 628347646161877568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_27
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 159
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 605424375fc7bab40800000000000000
+      internalID: 5452589167504672006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_28
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 49
+        width: 98
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd8566e00b2e9910800000000000000
+      internalID: 1845960180133891519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_29
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 127
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5504db162f741e0800000000000000
+      internalID: -2213534190228449807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_30
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 67
+        width: 31
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6fde762c2edc9800800000000000000
+      internalID: 620615129876062061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_31
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 53
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90ba33bc0973e8bd0800000000000000
+      internalID: -2626100437686441207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_32
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 17
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8900307ead90d9570800000000000000
+      internalID: 8474940909564395672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06-creature-call_33
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 15
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b0a206468ed0ed0800000000000000
+      internalID: -2446043504784569553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      06-creature-call_0: -1385133164567504926
+      06-creature-call_1: -1158731661334869501
+      06-creature-call_10: -2707695004280090640
+      06-creature-call_11: 8254908502002681718
+      06-creature-call_12: 7581928948254062406
+      06-creature-call_13: -8421421689072398292
+      06-creature-call_14: 562050599364827327
+      06-creature-call_15: 3778624470316440814
+      06-creature-call_16: -5674271345773159167
+      06-creature-call_17: 7019390086018304306
+      06-creature-call_18: -7274148511759969438
+      06-creature-call_19: -5769794111940262685
+      06-creature-call_2: 527112197838804295
+      06-creature-call_20: -3787390559001738161
+      06-creature-call_21: 6631127038790397729
+      06-creature-call_22: 247382908981649326
+      06-creature-call_23: -85703567022177184
+      06-creature-call_24: -2541596577877148730
+      06-creature-call_25: -3940501112721319997
+      06-creature-call_26: 628347646161877568
+      06-creature-call_27: 5452589167504672006
+      06-creature-call_28: 1845960180133891519
+      06-creature-call_29: -2213534190228449807
+      06-creature-call_3: 5423152436566684638
+      06-creature-call_30: 620615129876062061
+      06-creature-call_31: -2626100437686441207
+      06-creature-call_32: 8474940909564395672
+      06-creature-call_33: -2446043504784569553
+      06-creature-call_4: -3002059773561788968
+      06-creature-call_5: 6603756788454205481
+      06-creature-call_6: 953954510733731924
+      06-creature-call_7: 6646467231686232037
+      06-creature-call_8: -1847219103725812185
+      06-creature-call_9: 4451897812705197937
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

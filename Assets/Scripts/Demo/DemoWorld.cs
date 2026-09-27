@@ -114,6 +114,7 @@ namespace FlyMeToTheMoon.Demo
             if (!Game.PlayingWorld) return;
             Vector2 start = transform.position;
             Vector2 end = start + Direction * (12f * Time.deltaTime);
+            Game.Art.NotePassed(start, end);
             var hits = Physics2D.RaycastAll(start, Direction, Vector2.Distance(start,end));
             RaycastHit2D nearest = default; float distance = float.PositiveInfinity;
             foreach (var hit in hits)

@@ -1,0 +1,951 @@
+fileFormatVersion: 2
+guid: b270aa5f54618433696e6ad26303fe85
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8695399707580363949
+    second: 10-orbital-recoil_0
+  - first:
+      213: 3694010575836066883
+    second: 10-orbital-recoil_1
+  - first:
+      213: 7250695608819585227
+    second: 10-orbital-recoil_2
+  - first:
+      213: 2412577665185333406
+    second: 10-orbital-recoil_3
+  - first:
+      213: -9159355977936670008
+    second: 10-orbital-recoil_4
+  - first:
+      213: -3414186587375170100
+    second: 10-orbital-recoil_5
+  - first:
+      213: 5171812442597423721
+    second: 10-orbital-recoil_6
+  - first:
+      213: 3080920846553766175
+    second: 10-orbital-recoil_7
+  - first:
+      213: 7347435618688654198
+    second: 10-orbital-recoil_8
+  - first:
+      213: -1679034232294375967
+    second: 10-orbital-recoil_9
+  - first:
+      213: -2779817166122755989
+    second: 10-orbital-recoil_10
+  - first:
+      213: -4604311536196154745
+    second: 10-orbital-recoil_11
+  - first:
+      213: 6489698860125270700
+    second: 10-orbital-recoil_12
+  - first:
+      213: 3249240809214318499
+    second: 10-orbital-recoil_13
+  - first:
+      213: 2652426798976178448
+    second: 10-orbital-recoil_14
+  - first:
+      213: 6364501054517298603
+    second: 10-orbital-recoil_15
+  - first:
+      213: -4590364445716227530
+    second: 10-orbital-recoil_16
+  - first:
+      213: 8894066699319600969
+    second: 10-orbital-recoil_17
+  - first:
+      213: -7346094727690949396
+    second: 10-orbital-recoil_18
+  - first:
+      213: 8023622147239243495
+    second: 10-orbital-recoil_19
+  - first:
+      213: -1821857244199590881
+    second: 10-orbital-recoil_20
+  - first:
+      213: -4653620408737745254
+    second: 10-orbital-recoil_21
+  - first:
+      213: -5821963529761277219
+    second: 10-orbital-recoil_22
+  - first:
+      213: -2089217652157547746
+    second: 10-orbital-recoil_23
+  - first:
+      213: -4814622327718222153
+    second: 10-orbital-recoil_24
+  - first:
+      213: 7092382817483330907
+    second: 10-orbital-recoil_25
+  - first:
+      213: 7203644480578016081
+    second: 10-orbital-recoil_26
+  - first:
+      213: -229805064431900180
+    second: 10-orbital-recoil_27
+  - first:
+      213: -413829082483040995
+    second: 10-orbital-recoil_28
+  - first:
+      213: 3944913818919449955
+    second: 10-orbital-recoil_29
+  - first:
+      213: -8516283069446223933
+    second: 10-orbital-recoil_30
+  - first:
+      213: -518317604695763441
+    second: 10-orbital-recoil_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 10-orbital-recoil_0
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 415
+        width: 497
+        height: 579
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da4fc5eb6f34ca870800000000000000
+      internalID: 8695399707580363949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_1
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 887
+        width: 317
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344be390c03c34330800000000000000
+      internalID: 3694010575836066883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_2
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 419
+        width: 656
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc01d2a8d35af9460800000000000000
+      internalID: 7250695608819585227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_3
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 849
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e90c966aa923b7120800000000000000
+      internalID: 2412577665185333406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_4
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 847
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2fbb3344e63e080800000000000000
+      internalID: -9159355977936670008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_5
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 591
+        width: 490
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd899e436f5e90d0800000000000000
+      internalID: -3414186587375170100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_6
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 529
+        width: 235
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96af6fdd308f5c740800000000000000
+      internalID: 5171812442597423721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_7
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 687
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f19deefbf21a1ca20800000000000000
+      internalID: 3080920846553766175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_8
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 237
+        width: 221
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b5dfd44c557f560800000000000000
+      internalID: 7347435618688654198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_9
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 447
+        width: 63
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed7f5af24fd2b8e0800000000000000
+      internalID: -1679034232294375967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_10
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 461
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6858b8f30b1c69d0800000000000000
+      internalID: -2779817166122755989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_11
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 249
+        width: 228
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a8bc17d033a10c0800000000000000
+      internalID: -4604311536196154745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_12
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 221
+        width: 259
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca23609baba001a50800000000000000
+      internalID: 6489698860125270700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_13
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 191
+        width: 255
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a71ceefc4f971d20800000000000000
+      internalID: 3249240809214318499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_14
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 405
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01993b9de105fc420800000000000000
+      internalID: 2652426798976178448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_15
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 405
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba54a1f0dff335850800000000000000
+      internalID: 6364501054517298603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_16
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 397
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a508f7bdfbb40c0800000000000000
+      internalID: -4590364445716227530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_17
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 257
+        width: 229
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 947639d4a821e6b70800000000000000
+      internalID: 8894066699319600969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 284
+        width: 243
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec6c9534cd6d0a90800000000000000
+      internalID: -7346094727690949396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_19
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 230
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eee62af4d1a95f60800000000000000
+      internalID: 8023622147239243495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_20
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 69
+        width: 223
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f14e2003d7677b6e0800000000000000
+      internalID: -1821857244199590881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_21
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 65
+        width: 275
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a96bda9e4e40b6fb0800000000000000
+      internalID: -4653620408737745254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_22
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 53
+        width: 135
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddabc49040b343fa0800000000000000
+      internalID: -5821963529761277219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_23
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 199
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b7ca05d9b9103e0800000000000000
+      internalID: -2089217652157547746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_24
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 183
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6e0bc70860f2db0800000000000000
+      internalID: -4814622327718222153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_25
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 113
+        width: 101
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b559d2f68943d6260800000000000000
+      internalID: 7092382817483330907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_26
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 87
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1535e011d7c78f360800000000000000
+      internalID: 7203644480578016081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_27
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 89
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce963fee2819fccf0800000000000000
+      internalID: -229805064431900180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_28
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 18
+        width: 571
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1d5fdc54a8c14af0800000000000000
+      internalID: -413829082483040995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_29
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 70
+        width: 91
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365393e97362fb630800000000000000
+      internalID: 3944913818919449955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_30
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 77
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c70cf66ba510d980800000000000000
+      internalID: -8516283069446223933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 10-orbital-recoil_31
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 89
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06174b72e09ec8f0800000000000000
+      internalID: -518317604695763441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      10-orbital-recoil_0: 8695399707580363949
+      10-orbital-recoil_1: 3694010575836066883
+      10-orbital-recoil_10: -2779817166122755989
+      10-orbital-recoil_11: -4604311536196154745
+      10-orbital-recoil_12: 6489698860125270700
+      10-orbital-recoil_13: 3249240809214318499
+      10-orbital-recoil_14: 2652426798976178448
+      10-orbital-recoil_15: 6364501054517298603
+      10-orbital-recoil_16: -4590364445716227530
+      10-orbital-recoil_17: 8894066699319600969
+      10-orbital-recoil_18: -7346094727690949396
+      10-orbital-recoil_19: 8023622147239243495
+      10-orbital-recoil_2: 7250695608819585227
+      10-orbital-recoil_20: -1821857244199590881
+      10-orbital-recoil_21: -4653620408737745254
+      10-orbital-recoil_22: -5821963529761277219
+      10-orbital-recoil_23: -2089217652157547746
+      10-orbital-recoil_24: -4814622327718222153
+      10-orbital-recoil_25: 7092382817483330907
+      10-orbital-recoil_26: 7203644480578016081
+      10-orbital-recoil_27: -229805064431900180
+      10-orbital-recoil_28: -413829082483040995
+      10-orbital-recoil_29: 3944913818919449955
+      10-orbital-recoil_3: 2412577665185333406
+      10-orbital-recoil_30: -8516283069446223933
+      10-orbital-recoil_31: -518317604695763441
+      10-orbital-recoil_4: -9159355977936670008
+      10-orbital-recoil_5: -3414186587375170100
+      10-orbital-recoil_6: 5171812442597423721
+      10-orbital-recoil_7: 3080920846553766175
+      10-orbital-recoil_8: 7347435618688654198
+      10-orbital-recoil_9: -1679034232294375967
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

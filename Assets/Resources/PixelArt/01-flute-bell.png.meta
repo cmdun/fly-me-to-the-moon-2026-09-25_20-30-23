@@ -1,0 +1,691 @@
+fileFormatVersion: 2
+guid: 8e879290b2f9642eabf2d1927c4f62b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6221262244290630992
+    second: 01-flute-bell_0
+  - first:
+      213: -6973524521235201387
+    second: 01-flute-bell_1
+  - first:
+      213: -8715830214449431400
+    second: 01-flute-bell_2
+  - first:
+      213: -1260255102876736458
+    second: 01-flute-bell_3
+  - first:
+      213: 7462671788379580243
+    second: 01-flute-bell_4
+  - first:
+      213: 8493341065603854658
+    second: 01-flute-bell_5
+  - first:
+      213: -5044709307393753991
+    second: 01-flute-bell_6
+  - first:
+      213: -7545993861928699111
+    second: 01-flute-bell_7
+  - first:
+      213: -3859880060737259821
+    second: 01-flute-bell_8
+  - first:
+      213: 240210748493558183
+    second: 01-flute-bell_9
+  - first:
+      213: 4791249211555279264
+    second: 01-flute-bell_10
+  - first:
+      213: 933381342517513259
+    second: 01-flute-bell_11
+  - first:
+      213: -1593984981741151101
+    second: 01-flute-bell_12
+  - first:
+      213: -1426204531650409242
+    second: 01-flute-bell_13
+  - first:
+      213: -8369532362485384859
+    second: 01-flute-bell_14
+  - first:
+      213: 1037938670878713584
+    second: 01-flute-bell_15
+  - first:
+      213: 980726830338535664
+    second: 01-flute-bell_16
+  - first:
+      213: 3603332932636578050
+    second: 01-flute-bell_17
+  - first:
+      213: 8819402749279598420
+    second: 01-flute-bell_18
+  - first:
+      213: 170055237861190242
+    second: 01-flute-bell_19
+  - first:
+      213: -8629630681252591612
+    second: 01-flute-bell_20
+  - first:
+      213: -7038050503564992611
+    second: 01-flute-bell_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 01-flute-bell_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 575
+        width: 187
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bae18253f2a9a9a0800000000000000
+      internalID: -6221262244290630992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_1
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 575
+        width: 283
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 592cc4f2560193f90800000000000000
+      internalID: -6973524521235201387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 577
+        width: 247
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cff1139962b0780800000000000000
+      internalID: -8715830214449431400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_3
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 575
+        width: 250
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634a8aa39aca28ee0800000000000000
+      internalID: -1260255102876736458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_4
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 575
+        width: 213
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 357a1bdd37cb09760800000000000000
+      internalID: 7462671788379580243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_5
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 575
+        width: 209
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2413e8313b86ed570800000000000000
+      internalID: 8493341065603854658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_6
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 191
+        width: 229
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97c30b9ec979df9b0800000000000000
+      internalID: -5044709307393753991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_7
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 291
+        width: 235
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b367e109e374790800000000000000
+      internalID: -7545993861928699111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_8
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 317
+        width: 231
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d674280983fe6ac0800000000000000
+      internalID: -3859880060737259821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_9
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 255
+        width: 251
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a1703f2766655300800000000000000
+      internalID: 240210748493558183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_10
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 295
+        width: 233
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a17f15d5cfed7240800000000000000
+      internalID: 4791249211555279264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_11
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 295
+        width: 226
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ccbb0c26904fc00800000000000000
+      internalID: 933381342517513259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_12
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 261
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38cd20aba1701e9e0800000000000000
+      internalID: -1593984981741151101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_13
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 51
+        width: 263
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eccce9e88a153ce0800000000000000
+      internalID: -1426204531650409242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 18
+        width: 209
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5693ce5f8a279db80800000000000000
+      internalID: -8369532362485384859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_15
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 129
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f6ed50d8bf776e00800000000000000
+      internalID: 1037938670878713584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_16
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 71
+        width: 80
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0f5082bdd3c9d00800000000000000
+      internalID: 980726830338535664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_17
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 19
+        width: 221
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2011541063c910230800000000000000
+      internalID: 3603332932636578050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_18
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 43
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457f9e1c210d46a70800000000000000
+      internalID: 8819402749279598420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_19
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 39
+        width: 163
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a29ec76582c5200800000000000000
+      internalID: 170055237861190242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_20
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 53
+        width: 101
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408802dfd946d3880800000000000000
+      internalID: -8629630681252591612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01-flute-bell_21
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 64
+        width: 76
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fdfbf2b52d35e90800000000000000
+      internalID: -7038050503564992611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      01-flute-bell_0: -6221262244290630992
+      01-flute-bell_1: -6973524521235201387
+      01-flute-bell_10: 4791249211555279264
+      01-flute-bell_11: 933381342517513259
+      01-flute-bell_12: -1593984981741151101
+      01-flute-bell_13: -1426204531650409242
+      01-flute-bell_14: -8369532362485384859
+      01-flute-bell_15: 1037938670878713584
+      01-flute-bell_16: 980726830338535664
+      01-flute-bell_17: 3603332932636578050
+      01-flute-bell_18: 8819402749279598420
+      01-flute-bell_19: 170055237861190242
+      01-flute-bell_2: -8715830214449431400
+      01-flute-bell_20: -8629630681252591612
+      01-flute-bell_21: -7038050503564992611
+      01-flute-bell_3: -1260255102876736458
+      01-flute-bell_4: 7462671788379580243
+      01-flute-bell_5: 8493341065603854658
+      01-flute-bell_6: -5044709307393753991
+      01-flute-bell_7: -7545993861928699111
+      01-flute-bell_8: -3859880060737259821
+      01-flute-bell_9: 240210748493558183
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

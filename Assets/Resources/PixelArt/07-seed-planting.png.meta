@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 85df642bbca904ec8b49bed84ae96b85
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3291057745214230835
+    second: 07-seed-planting_0
+  - first:
+      213: 628683483583678478
+    second: 07-seed-planting_1
+  - first:
+      213: 3942057333136200894
+    second: 07-seed-planting_2
+  - first:
+      213: -5505044105296390944
+    second: 07-seed-planting_3
+  - first:
+      213: 3056912297556755056
+    second: 07-seed-planting_4
+  - first:
+      213: 8861823334651716834
+    second: 07-seed-planting_5
+  - first:
+      213: 238290136148109649
+    second: 07-seed-planting_6
+  - first:
+      213: 2862654732655197836
+    second: 07-seed-planting_7
+  - first:
+      213: 3450891204879670878
+    second: 07-seed-planting_8
+  - first:
+      213: -2805387355621853919
+    second: 07-seed-planting_9
+  - first:
+      213: 7154536319656517812
+    second: 07-seed-planting_10
+  - first:
+      213: -3723772872712109025
+    second: 07-seed-planting_11
+  - first:
+      213: -2952847137491325280
+    second: 07-seed-planting_12
+  - first:
+      213: 7583188421127907428
+    second: 07-seed-planting_13
+  - first:
+      213: 2323022658341838080
+    second: 07-seed-planting_14
+  - first:
+      213: -495964664035686082
+    second: 07-seed-planting_15
+  - first:
+      213: 398671563938864286
+    second: 07-seed-planting_16
+  - first:
+      213: -8948978881754662985
+    second: 07-seed-planting_17
+  - first:
+      213: 7706192808541336691
+    second: 07-seed-planting_18
+  - first:
+      213: -7000358423375630749
+    second: 07-seed-planting_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 07-seed-planting_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 575
+        width: 291
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 331dace159f2cad20800000000000000
+      internalID: 3291057745214230835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_1
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 575
+        width: 215
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0809232c4889b800800000000000000
+      internalID: 628683483583678478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_2
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 574
+        width: 233
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb49ec1324005b630800000000000000
+      internalID: 3942057333136200894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_3
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 483
+        width: 361
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e453fe9d872a93b0800000000000000
+      internalID: -5505044105296390944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_4
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 573
+        width: 211
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 072c465d9855c6a20800000000000000
+      internalID: 3056912297556755056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_5
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 575
+        width: 194
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4ee24fe558bfa70800000000000000
+      internalID: 8861823334651716834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 261
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1596696cd939e4300800000000000000
+      internalID: 238290136148109649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 358
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ef086ff413ab720800000000000000
+      internalID: 2862654732655197836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_8
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 286
+        width: 231
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e5f59644704ef20800000000000000
+      internalID: 3450891204879670878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_9
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 231
+        width: 237
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12579ca40134119d0800000000000000
+      internalID: -2805387355621853919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_10
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 247
+        width: 236
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0e1c950e40a4360800000000000000
+      internalID: 7154536319656517812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_11
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 203
+        width: 255
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1442c93d40825cc0800000000000000
+      internalID: -3723772872712109025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_12
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 286
+        width: 212
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aeeccd5c216507d0800000000000000
+      internalID: -2952847137491325280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_13
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 71
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4682f2a01b5ec3960800000000000000
+      internalID: 7583188421127907428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_14
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 134
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00d16a3ccc80d3020800000000000000
+      internalID: 2323022658341838080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_15
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 103
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e39c10b04cafd19f0800000000000000
+      internalID: -495964664035686082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_16
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 75
+        width: 166
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c10a6dcad588500800000000000000
+      internalID: 398671563938864286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_17
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 39
+        width: 147
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b77a8aee17dec380800000000000000
+      internalID: -8948978881754662985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_18
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 49
+        width: 234
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374b6cbb785e1fa60800000000000000
+      internalID: 7706192808541336691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07-seed-planting_19
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 67
+        width: 92
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e284a7a1bb9de90800000000000000
+      internalID: -7000358423375630749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      07-seed-planting_0: 3291057745214230835
+      07-seed-planting_1: 628683483583678478
+      07-seed-planting_10: 7154536319656517812
+      07-seed-planting_11: -3723772872712109025
+      07-seed-planting_12: -2952847137491325280
+      07-seed-planting_13: 7583188421127907428
+      07-seed-planting_14: 2323022658341838080
+      07-seed-planting_15: -495964664035686082
+      07-seed-planting_16: 398671563938864286
+      07-seed-planting_17: -8948978881754662985
+      07-seed-planting_18: 7706192808541336691
+      07-seed-planting_19: -7000358423375630749
+      07-seed-planting_2: 3942057333136200894
+      07-seed-planting_3: -5505044105296390944
+      07-seed-planting_4: 3056912297556755056
+      07-seed-planting_5: 8861823334651716834
+      07-seed-planting_6: 238290136148109649
+      07-seed-planting_7: 2862654732655197836
+      07-seed-planting_8: 3450891204879670878
+      07-seed-planting_9: -2805387355621853919
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -200,9 +200,15 @@ namespace FlyMeToTheMoon.Demo
             var rect=Panel(parent,name,Vector2.one*.5f,position,Vector2.one*diameter,color,false);
             rect.GetComponent<UnityEngine.UI.Image>().sprite=circleSprite;return rect;
         }
+        private RectTransform WorldIcon(Transform parent, string name, Vector2 position, float diameter, int index)
+        {
+            var rect = Circle(parent, name, position, diameter, Color.white);
+            rect.GetComponent<UnityEngine.UI.Image>().sprite = PixelArtLibrary.Moon(index);
+            return rect;
+        }
         private void BuildMap()
         {
-            map = Panel(root,"Route map",Vector2.one*.5f,Vector2.zero,new Vector2(900,620),background,true);
+            map = Panel(root,"Route map",Vector2.one*.5f,Vector2.zero,new Vector2(900,620),new Color(.025f,.045f,.085f,1),true);
             Text(map,"Map title",new Vector2(.5f,1),new Vector2(0,-30),new Vector2(830,45),25).text="THE SCATTERED SCORE";
             var bodies=game.Player.gravityManager.bodies;
             float extent=1;
@@ -211,8 +217,8 @@ namespace FlyMeToTheMoon.Demo
             for(int i=0;i<bodies.Length;i++)
             {
                 var body=bodies[i];Vector2 position=(body.Center-game.Planets.respawnPlanet.Center)*mapScale;
-                Circle(map,body.planetId,position,body.radius*2*mapScale,i==0?new Color(.2f,.4f,.5f):new Color(.3f,.4f,.55f));
-                Text(map,"World name",Vector2.one*.5f,position,new Vector2(55,20),12).text=i==0?"612-B":i.ToString();
+                WorldIcon(map,body.planetId,position,body.radius*2*mapScale,i);
+                Text(map,"World name",Vector2.one*.5f,position,new Vector2(55,20),12).text=i==0?"612-B":i.ToString("00");
             }
             mapPages=new RectTransform[DemoQuest.FragmentCount];
             for(int i=0;i<mapPages.Length;i++)
@@ -228,7 +234,7 @@ namespace FlyMeToTheMoon.Demo
             minimap=Panel(frame,"Clipped nearby worlds",new Vector2(.5f,.5f),new Vector2(0,-10),new Vector2(210,210),new Color(.04f,.07f,.12f),false);
             minimap.gameObject.AddComponent<UnityEngine.UI.RectMask2D>();
             var bodies=game.Player.gravityManager.bodies;nearbyBodies=new RectTransform[bodies.Length];
-            for(int i=0;i<bodies.Length;i++)nearbyBodies[i]=Circle(minimap,bodies[i].planetId,Vector2.zero,bodies[i].radius*2*105/MinimapRange,i==0?new Color(.2f,.5f,.6f):new Color(.4f,.46f,.65f));
+            for(int i=0;i<bodies.Length;i++)nearbyBodies[i]=WorldIcon(minimap,bodies[i].planetId,Vector2.zero,bodies[i].radius*2*105/MinimapRange,i);
             nearbyPages=new RectTransform[DemoQuest.FragmentCount];
             for(int i=0;i<nearbyPages.Length;i++)nearbyPages[i]=Panel(minimap,"Nearby page "+i,Vector2.one*.5f,Vector2.zero,new Vector2(7,10),new Color(1,.85f,.35f),false);
             minimapPlayer=Circle(minimap,"Player center",Vector2.zero,7,Color.white);
@@ -256,9 +262,11 @@ namespace FlyMeToTheMoon.Demo
             contextArrow.gameObject.SetActive(exploring && game.NearbyTarget != null);
             if(contextArrow.gameObject.activeSelf)
             {
-                Vector3 screen=Camera.main.WorldToScreenPoint(game.NearbyTarget.transform.position);
+                var art = game.NearbyTarget.GetComponentInChildren<SpriteRenderer>();
+                Vector3 marker = art != null ? new Vector3(art.bounds.center.x, art.bounds.max.y, art.bounds.center.z) : game.NearbyTarget.transform.position;
+                Vector3 screen=Camera.main.WorldToScreenPoint(marker);
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(root,screen,null,out var point);
-                contextArrow.anchoredPosition=point+Vector2.up*(52+Mathf.Sin(Time.unscaledTime*4)*3);
+                contextArrow.anchoredPosition=point+Vector2.up*(20+Mathf.Sin(Time.unscaledTime*4)*3);
             }
             var q=game.Melody;
             string place=game.Player.gravityManager.CurrentBody != null ? game.Player.gravityManager.CurrentBody.planetId : "Space";

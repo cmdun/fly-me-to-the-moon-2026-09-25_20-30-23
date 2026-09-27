@@ -1,0 +1,1159 @@
+fileFormatVersion: 2
+guid: c1cee0eefdc4d4089b3db6bf84c0bed4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6116421937418662815
+    second: 03-piano-walk_0
+  - first:
+      213: -6987051876089646200
+    second: 03-piano-walk_1
+  - first:
+      213: -267256493828926978
+    second: 03-piano-walk_2
+  - first:
+      213: -7775486862329490720
+    second: 03-piano-walk_3
+  - first:
+      213: 6520522903771124070
+    second: 03-piano-walk_4
+  - first:
+      213: -1347429024411719629
+    second: 03-piano-walk_5
+  - first:
+      213: -7409854073160053672
+    second: 03-piano-walk_6
+  - first:
+      213: -2918311081358138622
+    second: 03-piano-walk_7
+  - first:
+      213: -8576392575014925107
+    second: 03-piano-walk_8
+  - first:
+      213: 2465875804991002575
+    second: 03-piano-walk_9
+  - first:
+      213: -7158004079830678047
+    second: 03-piano-walk_10
+  - first:
+      213: -3231329077047444798
+    second: 03-piano-walk_11
+  - first:
+      213: -7621677796135132737
+    second: 03-piano-walk_12
+  - first:
+      213: -921760321472427479
+    second: 03-piano-walk_13
+  - first:
+      213: -7067857574684312254
+    second: 03-piano-walk_14
+  - first:
+      213: 4376865661263940908
+    second: 03-piano-walk_15
+  - first:
+      213: 1201132144770452907
+    second: 03-piano-walk_16
+  - first:
+      213: -6493318147055806980
+    second: 03-piano-walk_17
+  - first:
+      213: 8175369819653213860
+    second: 03-piano-walk_18
+  - first:
+      213: 694997148797660842
+    second: 03-piano-walk_19
+  - first:
+      213: 5415166252938209841
+    second: 03-piano-walk_20
+  - first:
+      213: -8657857426553017645
+    second: 03-piano-walk_21
+  - first:
+      213: 684340580067024754
+    second: 03-piano-walk_22
+  - first:
+      213: 5664334800546127926
+    second: 03-piano-walk_23
+  - first:
+      213: 6757214785962372183
+    second: 03-piano-walk_24
+  - first:
+      213: 2309482307994845321
+    second: 03-piano-walk_25
+  - first:
+      213: 27463797297083734
+    second: 03-piano-walk_26
+  - first:
+      213: 2144037654648915429
+    second: 03-piano-walk_27
+  - first:
+      213: 5047100215936891804
+    second: 03-piano-walk_28
+  - first:
+      213: 8126323648522162310
+    second: 03-piano-walk_29
+  - first:
+      213: -9194036986118640401
+    second: 03-piano-walk_30
+  - first:
+      213: 4028437908595789196
+    second: 03-piano-walk_31
+  - first:
+      213: -8249853897538029469
+    second: 03-piano-walk_32
+  - first:
+      213: -5501614391545797686
+    second: 03-piano-walk_33
+  - first:
+      213: -7941761178239821368
+    second: 03-piano-walk_34
+  - first:
+      213: 4389603676592815294
+    second: 03-piano-walk_35
+  - first:
+      213: -3687377643194950561
+    second: 03-piano-walk_36
+  - first:
+      213: 4540797638302166403
+    second: 03-piano-walk_37
+  - first:
+      213: 7703260106348209710
+    second: 03-piano-walk_38
+  - first:
+      213: -2694634111665891109
+    second: 03-piano-walk_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 03-piano-walk_0
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 547
+        width: 307
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93fe3c8855e1e450800000000000000
+      internalID: 6116421937418662815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_1
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 495
+        width: 417
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88333727651090f90800000000000000
+      internalID: -6987051876089646200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_2
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 945
+        width: 31
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1196582a38a4cf0800000000000000
+      internalID: -267256493828926978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_3
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1001
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e2522f15ebe71490800000000000000
+      internalID: -7775486862329490720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_4
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 943
+        width: 125
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6619315a80d8d7a50800000000000000
+      internalID: 6520522903771124070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_5
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 985
+        width: 87
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33863e7f078fc4de0800000000000000
+      internalID: -1347429024411719629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_6
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 927
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c40d3caf8ea2990800000000000000
+      internalID: -7409854073160053672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_7
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 947
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 203ef8b88831087d0800000000000000
+      internalID: -2918311081358138622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_8
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 945
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc00f784688af880800000000000000
+      internalID: -8576392575014925107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_9
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 943
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc718b8dafc883220800000000000000
+      internalID: 2465875804991002575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_10
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 543
+        width: 239
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e545e0d639a9ac90800000000000000
+      internalID: -7158004079830678047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_11
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 543
+        width: 208
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ca323223530823d0800000000000000
+      internalID: -3231329077047444798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_12
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 931
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb122e00d6c5a3690800000000000000
+      internalID: -7621677796135132737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_13
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 541
+        width: 217
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a069e0fdf3533f0800000000000000
+      internalID: -921760321472427479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_14
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 543
+        width: 220
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24d33e1abfce9ed90800000000000000
+      internalID: -7067857574684312254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 241
+        width: 262
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d0e391120cdbc30800000000000000
+      internalID: 4376865661263940908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_16
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 1011
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad885162574ba010800000000000000
+      internalID: 1201132144770452907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_17
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 463
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5142f5c8913e5a0800000000000000
+      internalID: -6493318147055806980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_18
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 195
+        width: 255
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ae01e7398fb47170800000000000000
+      internalID: 8175369819653213860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_19
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 447
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae6efd793025a900800000000000000
+      internalID: 694997148797660842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_20
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 259
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13aa01a2409862b40800000000000000
+      internalID: 5415166252938209841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_21
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 279
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3da6456ba8c19d780800000000000000
+      internalID: -8657857426553017645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_22
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 271
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27f974cb1244f7900800000000000000
+      internalID: 684340580067024754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_23
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 273
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6306f6b7d72cb9e40800000000000000
+      internalID: 5664334800546127926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_24
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 69
+        width: 223
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ced4ceb0376cd50800000000000000
+      internalID: 6757214785962372183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_25
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 247
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98005174cedec0020800000000000000
+      internalID: 2309482307994845321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_26
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 253
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655731a9d22916000800000000000000
+      internalID: 27463797297083734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_27
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 75
+        width: 169
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e5096623e621cd10800000000000000
+      internalID: 2144037654648915429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_28
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 229
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b37bcd7e6ea0640800000000000000
+      internalID: 5047100215936891804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_29
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 49
+        width: 223
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6801500ad4086c070800000000000000
+      internalID: 8126323648522162310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 227
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec689eb218386080800000000000000
+      internalID: -9194036986118640401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_31
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 175
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8dc19d2fe2e7e730800000000000000
+      internalID: 4028437908595789196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_32
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 97
+        width: 93
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 368bf5cf691a28d80800000000000000
+      internalID: -8249853897538029469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_33
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 167
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac36cb41cd656a3b0800000000000000
+      internalID: -5501614391545797686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_34
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 35
+        width: 217
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c91700294239c190800000000000000
+      internalID: -7941761178239821368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_35
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 101
+        width: 13
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc301869410bec30800000000000000
+      internalID: 4389603676592815294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_36
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 133
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5cd5a0f19dc3dcc0800000000000000
+      internalID: -3687377643194950561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_37
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 97
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38deee3d467240f30800000000000000
+      internalID: 4540797638302166403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_38
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 65
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26a25bc04a77ea60800000000000000
+      internalID: 7703260106348209710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03-piano-walk_39
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 47
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8118e5d8cba9ad0800000000000000
+      internalID: -2694634111665891109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      03-piano-walk_0: 6116421937418662815
+      03-piano-walk_1: -6987051876089646200
+      03-piano-walk_10: -7158004079830678047
+      03-piano-walk_11: -3231329077047444798
+      03-piano-walk_12: -7621677796135132737
+      03-piano-walk_13: -921760321472427479
+      03-piano-walk_14: -7067857574684312254
+      03-piano-walk_15: 4376865661263940908
+      03-piano-walk_16: 1201132144770452907
+      03-piano-walk_17: -6493318147055806980
+      03-piano-walk_18: 8175369819653213860
+      03-piano-walk_19: 694997148797660842
+      03-piano-walk_2: -267256493828926978
+      03-piano-walk_20: 5415166252938209841
+      03-piano-walk_21: -8657857426553017645
+      03-piano-walk_22: 684340580067024754
+      03-piano-walk_23: 5664334800546127926
+      03-piano-walk_24: 6757214785962372183
+      03-piano-walk_25: 2309482307994845321
+      03-piano-walk_26: 27463797297083734
+      03-piano-walk_27: 2144037654648915429
+      03-piano-walk_28: 5047100215936891804
+      03-piano-walk_29: 8126323648522162310
+      03-piano-walk_3: -7775486862329490720
+      03-piano-walk_30: -9194036986118640401
+      03-piano-walk_31: 4028437908595789196
+      03-piano-walk_32: -8249853897538029469
+      03-piano-walk_33: -5501614391545797686
+      03-piano-walk_34: -7941761178239821368
+      03-piano-walk_35: 4389603676592815294
+      03-piano-walk_36: -3687377643194950561
+      03-piano-walk_37: 4540797638302166403
+      03-piano-walk_38: 7703260106348209710
+      03-piano-walk_39: -2694634111665891109
+      03-piano-walk_4: 6520522903771124070
+      03-piano-walk_5: -1347429024411719629
+      03-piano-walk_6: -7409854073160053672
+      03-piano-walk_7: -2918311081358138622
+      03-piano-walk_8: -8576392575014925107
+      03-piano-walk_9: 2465875804991002575
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

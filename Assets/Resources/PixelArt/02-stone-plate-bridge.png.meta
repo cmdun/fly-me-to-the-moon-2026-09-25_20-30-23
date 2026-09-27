@@ -1,0 +1,1107 @@
+fileFormatVersion: 2
+guid: ba987e3a07f4f4d859ca34e79e632a7c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8854881944734050541
+    second: 02-stone-plate-bridge_0
+  - first:
+      213: 6416062000346695417
+    second: 02-stone-plate-bridge_1
+  - first:
+      213: 7428173951108545469
+    second: 02-stone-plate-bridge_2
+  - first:
+      213: 8574092480447916724
+    second: 02-stone-plate-bridge_3
+  - first:
+      213: 7763743617188799295
+    second: 02-stone-plate-bridge_4
+  - first:
+      213: 7057057892232482709
+    second: 02-stone-plate-bridge_5
+  - first:
+      213: -5266984601054453930
+    second: 02-stone-plate-bridge_6
+  - first:
+      213: 526807037457912580
+    second: 02-stone-plate-bridge_7
+  - first:
+      213: 52923800254927328
+    second: 02-stone-plate-bridge_8
+  - first:
+      213: 2354865151682706031
+    second: 02-stone-plate-bridge_9
+  - first:
+      213: -3168401855044210198
+    second: 02-stone-plate-bridge_10
+  - first:
+      213: -8467028465112743305
+    second: 02-stone-plate-bridge_11
+  - first:
+      213: 384494284897463626
+    second: 02-stone-plate-bridge_12
+  - first:
+      213: -4806123328289574971
+    second: 02-stone-plate-bridge_13
+  - first:
+      213: 511612179082520550
+    second: 02-stone-plate-bridge_14
+  - first:
+      213: -2856609814527159370
+    second: 02-stone-plate-bridge_15
+  - first:
+      213: -6826196049050419372
+    second: 02-stone-plate-bridge_16
+  - first:
+      213: 2373261651520652296
+    second: 02-stone-plate-bridge_17
+  - first:
+      213: -5711788495765547803
+    second: 02-stone-plate-bridge_18
+  - first:
+      213: -1104789318366588695
+    second: 02-stone-plate-bridge_19
+  - first:
+      213: -3029954292578420650
+    second: 02-stone-plate-bridge_20
+  - first:
+      213: -1527045228545751645
+    second: 02-stone-plate-bridge_21
+  - first:
+      213: 3740355072907545980
+    second: 02-stone-plate-bridge_22
+  - first:
+      213: 7737256990724551615
+    second: 02-stone-plate-bridge_23
+  - first:
+      213: -5106824190844725136
+    second: 02-stone-plate-bridge_24
+  - first:
+      213: -8136468652668596605
+    second: 02-stone-plate-bridge_25
+  - first:
+      213: -8705083529132409545
+    second: 02-stone-plate-bridge_26
+  - first:
+      213: 112177664181054971
+    second: 02-stone-plate-bridge_27
+  - first:
+      213: -6354420555300656524
+    second: 02-stone-plate-bridge_28
+  - first:
+      213: 3647471368251123699
+    second: 02-stone-plate-bridge_29
+  - first:
+      213: 2192888280798742484
+    second: 02-stone-plate-bridge_30
+  - first:
+      213: 7971928938638404429
+    second: 02-stone-plate-bridge_31
+  - first:
+      213: -8683541885678779131
+    second: 02-stone-plate-bridge_32
+  - first:
+      213: 3591476126075636211
+    second: 02-stone-plate-bridge_33
+  - first:
+      213: 2703365400449915540
+    second: 02-stone-plate-bridge_34
+  - first:
+      213: 1552635650276124175
+    second: 02-stone-plate-bridge_35
+  - first:
+      213: 1988237979683317659
+    second: 02-stone-plate-bridge_36
+  - first:
+      213: 3776962127469257608
+    second: 02-stone-plate-bridge_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_0
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 551
+        width: 273
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3175b1459c32d1580800000000000000
+      internalID: -8854881944734050541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_1
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 447
+        width: 639
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f60c83456e6a0950800000000000000
+      internalID: 6416062000346695417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_2
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 991
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb72a53adc261760800000000000000
+      internalID: 7428173951108545469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_3
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 556
+        width: 309
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba2278feab4df670800000000000000
+      internalID: 8574092480447916724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_4
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 966
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f33aebd8fab5ebb60800000000000000
+      internalID: 7763743617188799295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_5
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 556
+        width: 235
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f42e953c4bfe160800000000000000
+      internalID: 7057057892232482709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_6
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 913
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65f52b83969e7e6b0800000000000000
+      internalID: -5266984601054453930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_7
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 863
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 403dadc95389f4700800000000000000
+      internalID: 526807037457912580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_8
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 859
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e1db5a7ae50cb000800000000000000
+      internalID: 52923800254927328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_9
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 557
+        width: 217
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a7efbf0692ea020800000000000000
+      internalID: 2354865151682706031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 177
+        width: 279
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae1b66cbc439704d0800000000000000
+      internalID: -3168401855044210198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_11
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 17
+        width: 505
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77285d1a8721f7a80800000000000000
+      internalID: -8467028465112743305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_12
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 0
+        width: 529
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d2b75d38ff55500800000000000000
+      internalID: 384494284897463626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_13
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 471
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cfe49efb483d4db0800000000000000
+      internalID: -4806123328289574971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_14
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 470
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e72af4f09c991700800000000000000
+      internalID: 511612179082520550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_15
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 454
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b3d63732884b58d0800000000000000
+      internalID: -2856609814527159370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_16
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 445
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45fbc213cda7441a0800000000000000
+      internalID: -6826196049050419372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_17
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 437
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80402f1e5e48fe020800000000000000
+      internalID: 2373261651520652296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_18
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 439
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e45bbd10a6abb0b0800000000000000
+      internalID: -5711788495765547803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_19
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 449
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e01d17e7fffaa0f0800000000000000
+      internalID: -1104789318366588695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_20
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 453
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6587131df9073f5d0800000000000000
+      internalID: -3029954292578420650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_21
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 210
+        width: 249
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5439c8478decae0800000000000000
+      internalID: -1527045228545751645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_22
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 425
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d0c7e1f1968e330800000000000000
+      internalID: 3740355072907545980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_23
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 223
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb37b044d32406b60800000000000000
+      internalID: 7737256990724551615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_24
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 207
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078145e947ae029b0800000000000000
+      internalID: -5106824190844725136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_25
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 179
+        width: 9
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e46978ed4751f80800000000000000
+      internalID: -8136468652668596605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_26
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 193
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d75f9d6a4513780800000000000000
+      internalID: -8705083529132409545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_27
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 23
+        width: 145
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfdae31cdf88e8100800000000000000
+      internalID: 112177664181054971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_28
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 93
+        width: 117
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a2ddf0c2090d7a0800000000000000
+      internalID: -6354420555300656524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_29
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 91
+        width: 117
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7240162eb6e9230800000000000000
+      internalID: 3647471368251123699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_30
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 23
+        width: 189
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d74021e544be6e10800000000000000
+      internalID: 2192888280798742484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_31
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 99
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4be232f12bf1ae60800000000000000
+      internalID: 7971928938638404429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_32
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 108
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50504ef89acdd7780800000000000000
+      internalID: -8683541885678779131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_33
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 107
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9c80a128c77d130800000000000000
+      internalID: 3591476126075636211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_34
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 38
+        width: 19
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a16e73288448520800000000000000
+      internalID: 2703365400449915540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_35
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 63
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06e050d5e11c8510800000000000000
+      internalID: 1552635650276124175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_36
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 65
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97e6fb88e3a79b10800000000000000
+      internalID: 1988237979683317659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02-stone-plate-bridge_37
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 63
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883a8e13b077a6430800000000000000
+      internalID: 3776962127469257608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      02-stone-plate-bridge_0: -8854881944734050541
+      02-stone-plate-bridge_1: 6416062000346695417
+      02-stone-plate-bridge_10: -3168401855044210198
+      02-stone-plate-bridge_11: -8467028465112743305
+      02-stone-plate-bridge_12: 384494284897463626
+      02-stone-plate-bridge_13: -4806123328289574971
+      02-stone-plate-bridge_14: 511612179082520550
+      02-stone-plate-bridge_15: -2856609814527159370
+      02-stone-plate-bridge_16: -6826196049050419372
+      02-stone-plate-bridge_17: 2373261651520652296
+      02-stone-plate-bridge_18: -5711788495765547803
+      02-stone-plate-bridge_19: -1104789318366588695
+      02-stone-plate-bridge_2: 7428173951108545469
+      02-stone-plate-bridge_20: -3029954292578420650
+      02-stone-plate-bridge_21: -1527045228545751645
+      02-stone-plate-bridge_22: 3740355072907545980
+      02-stone-plate-bridge_23: 7737256990724551615
+      02-stone-plate-bridge_24: -5106824190844725136
+      02-stone-plate-bridge_25: -8136468652668596605
+      02-stone-plate-bridge_26: -8705083529132409545
+      02-stone-plate-bridge_27: 112177664181054971
+      02-stone-plate-bridge_28: -6354420555300656524
+      02-stone-plate-bridge_29: 3647471368251123699
+      02-stone-plate-bridge_3: 8574092480447916724
+      02-stone-plate-bridge_30: 2192888280798742484
+      02-stone-plate-bridge_31: 7971928938638404429
+      02-stone-plate-bridge_32: -8683541885678779131
+      02-stone-plate-bridge_33: 3591476126075636211
+      02-stone-plate-bridge_34: 2703365400449915540
+      02-stone-plate-bridge_35: 1552635650276124175
+      02-stone-plate-bridge_36: 1988237979683317659
+      02-stone-plate-bridge_37: 3776962127469257608
+      02-stone-plate-bridge_4: 7763743617188799295
+      02-stone-plate-bridge_5: 7057057892232482709
+      02-stone-plate-bridge_6: -5266984601054453930
+      02-stone-plate-bridge_7: 526807037457912580
+      02-stone-plate-bridge_8: 52923800254927328
+      02-stone-plate-bridge_9: 2354865151682706031
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

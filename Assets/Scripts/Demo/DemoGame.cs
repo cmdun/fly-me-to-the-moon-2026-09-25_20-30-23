@@ -37,6 +37,7 @@ namespace FlyMeToTheMoon.Demo
         public DemoAudio Audio { get; private set; }
         public DemoHud Hud { get; private set; }
         public DemoWorldEvents Events { get; private set; }
+        public DemoArt Art { get; private set; }
         public Transform WorldRoot { get; private set; }
         public readonly List<DemoQuest> Quests = new List<DemoQuest>();
         public readonly List<DemoTarget> Targets = new List<DemoTarget>();
@@ -74,6 +75,7 @@ namespace FlyMeToTheMoon.Demo
             Quests.Add(DemoWorld.CreateJourney(this, bodies, Seed));
             Events = gameObject.AddComponent<DemoWorldEvents>();
             Events.Build(this, bodies, Seed);
+            Art = gameObject.AddComponent<DemoArt>(); Art.Build(this, bodies);
             Planets.lostDistance = 18; Planets.maxAirborneSeconds = 25;
             ApplyInstrument();
             Hud = gameObject.AddComponent<DemoHud>();
@@ -153,7 +155,7 @@ namespace FlyMeToTheMoon.Demo
                 if (Challenge.Finished) FinishChallenge();
             }
             if (Player.FluteJumpCount != seenBoost)
-            { seenBoost = Player.FluteJumpCount; Audio.Note(Equipped, 3); }
+            { seenBoost = Player.FluteJumpCount; Audio.Note(Equipped, 3); Art.BoostNotes(); }
             if (Time.unscaledTime > messageUntil) Message = "";
         }
 
@@ -194,7 +196,7 @@ namespace FlyMeToTheMoon.Demo
         {
             if (!PlayingWorld || lane < 0 || lane > 6) return;
             Audio.Note(Equipped, lane);
-
+            Art.PlayerArt.PlayNote();
         }
         public void ShootToward(Vector2 position)
         {
@@ -215,6 +217,7 @@ namespace FlyMeToTheMoon.Demo
             if (!Player.TryDirectionalBoost(-direction.normalized)) return false;
             if (State == DemoState.Challenge) Challenge.Encounter.Shot(Player.Body.position,direction.normalized);
             Emit(direction.normalized);
+            Art.Recoil(direction.normalized);
             return true;
         }
         public void ClearShots()
@@ -229,6 +232,7 @@ namespace FlyMeToTheMoon.Demo
                 new Vector2(0.045f, 0.25f), Accent, Material);
             var projectile = shape.gameObject.AddComponent<DemoProjectile>();
             projectile.Game = this; projectile.Direction = direction; projectile.IsEcho = echo;
+            Art.Projectile(shape, direction, echo);
         }
         public bool Collect(DemoQuest q, int index)
         {

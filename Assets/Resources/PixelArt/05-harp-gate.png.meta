@@ -1,0 +1,743 @@
+fileFormatVersion: 2
+guid: 51dd6ef073221481e817b960e2590577
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -330140717154146879
+    second: 05-harp-gate_0
+  - first:
+      213: 2550355437056739242
+    second: 05-harp-gate_1
+  - first:
+      213: -1878212159973732239
+    second: 05-harp-gate_2
+  - first:
+      213: -34748641864809537
+    second: 05-harp-gate_3
+  - first:
+      213: 1626648740506361212
+    second: 05-harp-gate_4
+  - first:
+      213: -3129284176105116073
+    second: 05-harp-gate_5
+  - first:
+      213: 3182020253804011615
+    second: 05-harp-gate_6
+  - first:
+      213: -667023865263505137
+    second: 05-harp-gate_7
+  - first:
+      213: -5312224635429636664
+    second: 05-harp-gate_8
+  - first:
+      213: 239482670415237086
+    second: 05-harp-gate_9
+  - first:
+      213: -4997101285836850281
+    second: 05-harp-gate_10
+  - first:
+      213: 634976047315050122
+    second: 05-harp-gate_11
+  - first:
+      213: 4655971839368169902
+    second: 05-harp-gate_12
+  - first:
+      213: -2001596338214919823
+    second: 05-harp-gate_13
+  - first:
+      213: -4260129344046263879
+    second: 05-harp-gate_14
+  - first:
+      213: 8573282704687685856
+    second: 05-harp-gate_15
+  - first:
+      213: 8675346200779157601
+    second: 05-harp-gate_16
+  - first:
+      213: 4832712982437341656
+    second: 05-harp-gate_17
+  - first:
+      213: -1440849115935717726
+    second: 05-harp-gate_18
+  - first:
+      213: 6259631762908908927
+    second: 05-harp-gate_19
+  - first:
+      213: 7805435930940391063
+    second: 05-harp-gate_20
+  - first:
+      213: -1578608575397778062
+    second: 05-harp-gate_21
+  - first:
+      213: -539696443301178840
+    second: 05-harp-gate_22
+  - first:
+      213: 2066936109195288725
+    second: 05-harp-gate_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 05-harp-gate_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 490
+        width: 225
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5622454ca1b6bf0800000000000000
+      internalID: -330140717154146879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 489
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa7c0c4f1cea46320800000000000000
+      internalID: 2550355437056739242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 559
+        width: 269
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17052ffddff3fe5e0800000000000000
+      internalID: -1878212159973732239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_3
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 263
+        width: 243
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb388395b4c848ff0800000000000000
+      internalID: -34748641864809537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 501
+        width: 321
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7dd7304964039610800000000000000
+      internalID: 1626648740506361212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_5
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 487
+        width: 220
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ee00a1f9c8294d0800000000000000
+      internalID: -3129284176105116073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_6
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 501
+        width: 331
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f502610df8ec82c20800000000000000
+      internalID: 3182020253804011615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_7
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 559
+        width: 184
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01c24e14514eb6f0800000000000000
+      internalID: -667023865263505137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 295
+        width: 243
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c53326e6df2746b0800000000000000
+      internalID: -5312224635429636664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_9
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 231
+        width: 255
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf46fb4830d25300800000000000000
+      internalID: 239482670415237086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_10
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 316
+        width: 243
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79bfb073bdab6aab0800000000000000
+      internalID: -4997101285836850281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_11
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 273
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8e581dc953efc800800000000000000
+      internalID: 634976047315050122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_12
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 311
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea903c138b55d9040800000000000000
+      internalID: 4655971839368169902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_13
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 229
+        width: 269
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1712afc3cb6e834e0800000000000000
+      internalID: -2001596338214919823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_14
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 263
+        width: 228
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b197e6ceeaf0e4c0800000000000000
+      internalID: -4260129344046263879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_15
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 197
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e0e8eb523b6af670800000000000000
+      internalID: 8573282704687685856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_16
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 71
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160f9f8d765056870800000000000000
+      internalID: 8675346200779157601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_17
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 137
+        width: 76
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d9a89b4ade311340800000000000000
+      internalID: 4832712982437341656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_18
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 37
+        width: 213
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a647bdec53110ce0800000000000000
+      internalID: -1440849115935717726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_19
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 30
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d00f46cedaed650800000000000000
+      internalID: 6259631762908908927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_20
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 23
+        width: 227
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79eb5cccf9a725c60800000000000000
+      internalID: 7805435930940391063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_21
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 0
+        width: 188
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27da7005dd7a71ae0800000000000000
+      internalID: -1578608575397778062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_22
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 127
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 822dd7ab1fc9288f0800000000000000
+      internalID: -539696443301178840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05-harp-gate_23
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 0
+        width: 176
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5906302b07b3fac10800000000000000
+      internalID: 2066936109195288725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      05-harp-gate_0: -330140717154146879
+      05-harp-gate_1: 2550355437056739242
+      05-harp-gate_10: -4997101285836850281
+      05-harp-gate_11: 634976047315050122
+      05-harp-gate_12: 4655971839368169902
+      05-harp-gate_13: -2001596338214919823
+      05-harp-gate_14: -4260129344046263879
+      05-harp-gate_15: 8573282704687685856
+      05-harp-gate_16: 8675346200779157601
+      05-harp-gate_17: 4832712982437341656
+      05-harp-gate_18: -1440849115935717726
+      05-harp-gate_19: 6259631762908908927
+      05-harp-gate_2: -1878212159973732239
+      05-harp-gate_20: 7805435930940391063
+      05-harp-gate_21: -1578608575397778062
+      05-harp-gate_22: -539696443301178840
+      05-harp-gate_23: 2066936109195288725
+      05-harp-gate_3: -34748641864809537
+      05-harp-gate_4: 1626648740506361212
+      05-harp-gate_5: -3129284176105116073
+      05-harp-gate_6: 3182020253804011615
+      05-harp-gate_7: -667023865263505137
+      05-harp-gate_8: -5312224635429636664
+      05-harp-gate_9: 239482670415237086
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

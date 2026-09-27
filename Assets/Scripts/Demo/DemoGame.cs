@@ -223,6 +223,7 @@ namespace FlyMeToTheMoon.Demo
             if (!PlayingWorld || lane < 0 || lane > 6) return;
             Audio.Note(Equipped, lane);
             Art.PlayerArt.PlayNote(lane);
+            Art.Ambient.MusicPlayed(lane);
         }
         public void ShootToward(Vector2 position)
         {

@@ -7,6 +7,7 @@ namespace FlyMeToTheMoon.Demo
     public sealed class DemoArt : MonoBehaviour
     {
         public DemoPlayerArt PlayerArt { get; private set; }
+        public DemoAmbientLife Ambient { get; private set; }
         public readonly List<SpriteRenderer> Worlds = new List<SpriteRenderer>();
         readonly List<DemoLandmarkArt> landmarks = new List<DemoLandmarkArt>();
         readonly List<Transform> scenery = new List<Transform>();
@@ -44,6 +45,7 @@ namespace FlyMeToTheMoon.Demo
             SurfaceArt(home, "garden", 60, .7f);
             SurfaceArt(home, "woodwinds", 303, 1.5f);
             SurfaceArt(home, "crystals", 75, .8f);
+            Ambient = gameObject.AddComponent<DemoAmbientLife>(); Ambient.Build(game, bodies, scenery);
             foreach (var target in game.Targets) SkinTarget(target);
             PlayerArt = game.Player.gameObject.AddComponent<DemoPlayerArt>(); PlayerArt.Build(game);
             Camera.main.backgroundColor = new Color(.018f, .032f, .072f);
@@ -84,6 +86,7 @@ namespace FlyMeToTheMoon.Demo
         }
         public void ShowEncounter(DemoChallenge session)
         {
+            Ambient.ShowEncounter(session);
             foreach (var prop in scenery)
             {
                 var body = prop.GetComponentInParent<GravityBody>();
@@ -102,7 +105,7 @@ namespace FlyMeToTheMoon.Demo
             }
         }
         public void HideEncounter()
-        { foreach (var prop in scenery) if (prop != null) prop.gameObject.SetActive(true); }
+        { foreach (var prop in scenery) if (prop != null) prop.gameObject.SetActive(true); Ambient.HideEncounter(); }
         public void Projectile(PrototypeShape shape, Vector2 direction, bool echo)
         {
             PixelArtLibrary.HideMeshes(shape.transform);
@@ -123,7 +126,7 @@ namespace FlyMeToTheMoon.Demo
             return closest;
         }
         public void NotePassed(Vector2 from, Vector2 to)
-        { foreach (var landmark in landmarks) if (landmark.isActiveAndEnabled) landmark.NotePassed(from, to); }
+        { foreach (var landmark in landmarks) if (landmark.isActiveAndEnabled) landmark.NotePassed(from, to); Ambient.NotePassed(from, to); }
         public void Recoil(Vector2 shotDirection)
         {
             // This source burst points left; rotate its leading edge toward the shot, away from the recoil.

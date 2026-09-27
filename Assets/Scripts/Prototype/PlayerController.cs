@@ -86,7 +86,9 @@ namespace FlyMeToTheMoon
                 gravityManager.EndJump();
             }
 
-            Vector2 input = IsPlayingShot ? Vector2.zero : Vector2.ClampMagnitude(moveAction.ReadValue<Vector2>(), 1f);
+            // Keep grounded movement responsive during a shot. Airborne shots still suppress
+            // steering so firing cannot become a second movement system in flight.
+            Vector2 input = Vector2.ClampMagnitude(moveAction.ReadValue<Vector2>(), 1f);
             float move = input.x;
             Vector2 velocity = Body.linearVelocity;
             if (IsPlayingShot && !IsGrounded)
@@ -102,7 +104,7 @@ namespace FlyMeToTheMoon
             else
             {
                 float tangentSpeed = Vector2.Dot(velocity, tangent);
-                float nextSpeed = IsPlayingShot ? 0 : Mathf.MoveTowards(tangentSpeed, move * moveSpeed,
+                float nextSpeed = Mathf.MoveTowards(tangentSpeed, move * moveSpeed,
                     (IsGrounded ? groundAcceleration : airAcceleration) * Time.fixedDeltaTime);
                 velocity += tangent * (nextSpeed - tangentSpeed);
             }
@@ -154,7 +156,6 @@ namespace FlyMeToTheMoon
         {
             shotUntil = Time.time + duration;
             jumpRequestedUntil = -1f;
-            if (IsGrounded) Body.linearVelocity = Vector2.zero;
         }
 
         public bool TryDrumLaunch(float speed)

@@ -72,14 +72,16 @@ public class WalkingAnimationTests
         Keys(Key.A);yield return new WaitForSeconds(.4f);Assert.IsTrue(art.Walk.Visible);Assert.IsTrue(art.Traveler.flipX);
         LogAssert.NoUnexpectedReceived();
     }
-    [UnityTest] public IEnumerator WalkingYieldsToShotsJumpingAndPause()
+    [UnityTest] public IEnumerator WalkingKeepsItsStrideWhileTheUpperBodyFires()
     {
         var art=game.Art.PlayerArt;Keys(Key.D);yield return new WaitForSeconds(.5f);Assert.IsTrue(art.Walk.Visible);
         game.Pause();float phase=art.Walk.Phase;yield return new WaitForSecondsRealtime(.2f);Assert.AreEqual(phase,art.Walk.Phase);game.Resume();yield return new WaitForSeconds(.2f);
         game.ShootToward(game.Player.Body.position+game.Player.Up*4);yield return new WaitForSeconds(.1f);
-        Assert.IsFalse(art.Walk.Visible);Assert.IsTrue(art.Traveler.enabled);StringAssert.StartsWith("01/actor/",art.Pose);
-        Assert.Less(Mathf.Abs(Vector2.Dot(game.Player.Body.linearVelocity,game.Player.transform.right)),.05f);
-        yield return new WaitForSeconds(.4f);Assert.IsTrue(art.Walk.Visible);
+        Assert.IsTrue(art.Walk.Visible,"The legs keep walking during the firing pose");
+        Assert.IsFalse(art.Traveler.enabled);StringAssert.Contains("01/actor/",art.Walk.UpperPose);
+        Assert.Greater(Mathf.Abs(Vector2.Dot(game.Player.Body.linearVelocity,game.Player.transform.right)),2f);
+        float shotPhase=art.Walk.Phase;yield return new WaitForSeconds(.12f);Assert.AreNotEqual(shotPhase,art.Walk.Phase);
+        yield return new WaitForSeconds(.3f);Assert.IsTrue(art.Walk.Visible);
         Keys(Key.D,Key.Q);yield return new WaitForSeconds(.3f);
         Assert.IsTrue(art.Walk.Visible,"Calling while walking must keep both feet moving");
         StringAssert.Contains("01/actor/",art.Walk.UpperPose);Assert.IsFalse(art.Instrument.enabled);

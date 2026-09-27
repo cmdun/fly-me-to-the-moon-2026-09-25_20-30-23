@@ -161,7 +161,7 @@ namespace FlyMeToTheMoon.Demo
             else if (game.State == DemoState.Paused)
             {
                 menuTitle.text = "PAUSED";
-                menuBody.text = "A/D walk   |   Space jump, then Space to boost   |   WASD steer\nLeft click: plant feet and shoot notes   |   Right click: airborne recoil (uses boost)\nE: interact / advance dialogue   |   1-7: C D E F G A B\nTab: instrument (land first)   |   M: map   |   J: journal   |   R: recover\nEncounters: Q call, C record, E act, R retry   |   Rhythm: D/F/J/K\n\nFind 5 challenge pages on the moons; repair and perform at the home altar.";
+                menuBody.text = "A/D walk   |   Space jump, then Space to boost   |   WASD steer\nLeft click: shoot while walking   |   Right click: airborne recoil (uses boost)\nE: interact / advance dialogue   |   1-7: C D E F G A B\nTab: instrument (land first)   |   M: map   |   J: journal   |   R: recover\nEncounters: Q call, C record, E act, R retry   |   Rhythm: D/F/J/K\n\nFind 5 challenge pages on the moons; repair and perform at the home altar.";
                 Bind(0,"Resume  [Esc]",game.Resume); Bind(1,audio,game.ToggleAudio);
                 Bind(2,"New journey (resets progress)",game.Restart); Bind(3,"Quit",game.Quit);
             }

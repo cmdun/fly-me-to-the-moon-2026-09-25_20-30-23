@@ -104,7 +104,7 @@ namespace FlyMeToTheMoon.Demo
                 new[] {
                     "The moons have gone quiet, traveler. The Hush tore one melody into five pages and sealed them inside golden beacons.",
                     "Press M to read the whole-world map. Complete all five beacon challenges, then bring their pages to the altar here on 612-B.",
-                    "Twelve moons hold seeds and lost singers too. Press J for your field journal. Bring your discoveries to the garden on the other side of HOME." },
+                    "Twelve moons hold seeds, crystals and lost singers too. Press J for your field journal. Carry each collection back to the Observatory; a complete archive will awaken HOME." },
                 new[] { "The moons are listening. Complete the five beacons, then return to the home altar." });
 
             int[] plan = Plan(seed, owner.MoonLayout);

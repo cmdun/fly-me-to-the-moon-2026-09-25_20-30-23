@@ -168,7 +168,7 @@ namespace FlyMeToTheMoon.Demo
             else if (game.State == DemoState.Win)
             {
                 menuTitle.text = "THE MELODY IS HOME";
-                menuBody.text = (game.Discoveries.Festival?"THE GARDEN FESTIVAL IS ALIVE!":"The piano is yours. Bring seeds and singers to the HOME garden.")+"\n"+game.Rhythm.Hits+" / 24 notes   ·   "+game.Rhythm.Perfect+" perfect\nBest: "+game.Discoveries.BestPerformance+" perfect   ·   J: field journal";
+                menuBody.text = (game.Discoveries.Festival?"THE HOME-PLANET CONCERT IS ALIVE!":"The piano is yours. Bring moon collections to the Observatory.")+"\n"+game.Rhythm.Hits+" / 24 notes   ·   "+game.Rhythm.Perfect+" perfect\nBest: "+game.Discoveries.BestPerformance+" perfect   ·   J: field journal";
                 Bind(0,"Keep exploring  [Enter]",game.Continue); Bind(1,"New journey",game.Restart);
                 Bind(2,audio,game.ToggleAudio); Bind(3,"Quit",game.Quit);
             }
@@ -243,9 +243,9 @@ namespace FlyMeToTheMoon.Demo
             }
             trackedRing=Circle(map,"Tracked discovery",Vector2.zero,28,new Color(.5f,1,.8f,.25f));
             var garden=(Vector2)game.Discoveries.Garden.position;
-            Panel(map,"HOME garden",Vector2.one*.5f,(garden-game.Planets.respawnPlanet.Center)*mapScale,new Vector2(7,7),DemoGame.Accent,false);
+            Panel(map,"HOME Observatory",Vector2.one*.5f,(garden-game.Planets.respawnPlanet.Center)*mapScale,new Vector2(7,7),DemoGame.Accent,false);
             mapPlayer=Circle(map,"You",Vector2.zero,9,Color.white);
-            Text(map,"Legend",new Vector2(.5f,0),new Vector2(0,27),new Vector2(820,40),17).text="Gold: score   |   Mint: discoveries / garden   |   White: you   |   M: close";
+            Text(map,"Legend",new Vector2(.5f,0),new Vector2(0,27),new Vector2(820,40),17).text="Gold: score   |   Mint: collections / Observatory   |   White: you   |   M: close";
             Text(map,"North",new Vector2(1,1),new Vector2(-35,-65),new Vector2(40,35),19).text="N";
         }
         private void BuildMinimap()
@@ -264,7 +264,7 @@ namespace FlyMeToTheMoon.Demo
                 nearbyDiscoveries[i]=Panel(minimap,"Nearby discovery "+i,Vector2.one*.5f,Vector2.zero,new Vector2(6,6),DemoGame.Accent,false);
                 nearbyDiscoveries[i].localRotation=Quaternion.Euler(0,0,45);
             }
-            nearbyGarden=Panel(minimap,"Nearby HOME garden",Vector2.one*.5f,Vector2.zero,new Vector2(7,7),DemoGame.Accent,false);
+            nearbyGarden=Panel(minimap,"Nearby HOME Observatory",Vector2.one*.5f,Vector2.zero,new Vector2(7,7),DemoGame.Accent,false);
             minimapPlayer=Circle(minimap,"Player center",Vector2.zero,7,Color.white);
             explorationHud.Add(frame.gameObject);
         }
@@ -292,7 +292,7 @@ namespace FlyMeToTheMoon.Demo
         private void BuildJournal()
         {
             journal=FullPanel("Field journal");
-            Text(journal,"Journal title",Vector2.one*.5f,new Vector2(0,286),new Vector2(1000,55),34).text="THE LISTENING GARDEN";
+            Text(journal,"Journal title",Vector2.one*.5f,new Vector2(0,286),new Vector2(1000,55),34).text="OBSERVATORY COLLECTIONS";
             journalSummary=Text(journal,"Expedition progress",Vector2.one*.5f,new Vector2(0,230),new Vector2(1100,55),20);
             for(int i=0;i<journalCards.Length;i++)
             {
@@ -302,17 +302,17 @@ namespace FlyMeToTheMoon.Demo
                 journalCards[i]=Text(card,"Activity",Vector2.one*.5f,Vector2.zero,new Vector2(284,74),18,TextAlignmentOptions.MidlineLeft);
                 button.onClick.AddListener(()=>{game.Discoveries.Track(id);game.ToggleJournal();game.ToggleMap();});
             }
-            Text(journal,"Journal advice",Vector2.one*.5f,new Vector2(0,-231),new Vector2(1060,55),19).text="Choose an unfinished discovery to mark its moon. Bring rewards to the HOME garden.\nRestore the piano, fill the garden, then perform at the altar for the festival.";
+            Text(journal,"Journal advice",Vector2.one*.5f,new Vector2(0,-231),new Vector2(1060,55),19).text="Choose an unfinished collection to mark its moon. Carry rewards back to the Observatory.\nComplete the archive to awaken HOME, then perform at the altar for the final concert.";
             var close=Button(journal,"Back to the moons  [J / Esc]",new Vector2(0,-296));close.onClick.AddListener(game.ToggleJournal);
         }
         private void RefreshJournal()
         {
             var d=game.Discoveries;
-            journalSummary.text=d.FoundCount+" / 12 discovered    ·    "+d.PackedCount+" ready to bring home    ·    Garden "+d.HomeCount+" / 12"+(d.Festival?"    ·    Festival complete":"");
+            journalSummary.text=d.FoundCount+" / 12 collected    ·    Cargo "+d.PackedCount+"    ·    Observatory "+d.HomeCount+" / 12"+(d.HomeAwakened?"    ·    HOME awake":"");
             for(int i=0;i<journalCards.Length;i++)
             {
                 var site=d.Sites[i];
-                journalCards[i].text=site.Title+"  ·  Moon "+site.Moon.ToString("00")+"\n"+(d.Delivered[i]?"At HOME":d.Found[i]?"Ready for HOME":"Explore  ·  "+new[]{"Gentle","Curious","Tricky","Expert"}[site.Rank]);
+                journalCards[i].text=site.Title+"  ·  Moon "+site.Moon.ToString("00")+"\n"+(d.Delivered[i]?"In Observatory":d.Found[i]?"In cargo":"Explore  ·  "+new[]{"Gentle","Curious","Tricky","Expert"}[site.Rank]);
                 journalCards[i].color=d.Delivered[i]?DemoGame.Accent:d.Found[i]?new Color(1,.86f,.5f):Color.white;
             }
         }
@@ -338,10 +338,10 @@ namespace FlyMeToTheMoon.Demo
             }
             var site=game.Discoveries.Current;
             discoveryHint.gameObject.SetActive(exploring && ((site!=null && !site.Complete && (site.Started || discovery!=null) && Mathf.Abs(site.Arc(game.Player.Body.position))<5.5f) || game.Discoveries.NearGarden));
-            discoveryHint.text=game.Discoveries.NearGarden?"E: listening garden   ·   "+game.Discoveries.PackedCount+" ready for HOME":site==null?"":site.Status;
+            discoveryHint.text=game.Discoveries.NearGarden?"E: Observatory archive   ·   cargo "+game.Discoveries.PackedCount:site==null?"":site.Status;
             var q=game.Melody;
             string place=game.Player.gravityManager.CurrentBody != null ? game.Player.gravityManager.CurrentBody.planetId : "Space";
-            objective.text=place+"\n"+(q.Unlocked?"Melody restored":game.MelodyRepaired?"Score repaired": "Score "+q.Count+" / 5");
+            objective.text=place+"\n"+(q.Unlocked?"Melody restored":game.MelodyRepaired?"Score repaired": "Score "+q.Count+" / 5")+"   ·   Cargo "+game.Discoveries.PackedCount;
             status.text=DemoGame.Instruments[game.Equipped]; toast.text=game.State==DemoState.Challenge?"":game.Message;
             if(game.State==DemoState.Dialogue && !DialogueComplete)
             {

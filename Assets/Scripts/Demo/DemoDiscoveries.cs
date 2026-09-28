@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace FlyMeToTheMoon.Demo
 {
-    /// <summary>Optional, persistent moon adventures. Rewards are unique, and can be brought home together.</summary>
+    /// <summary>Persistent moon collections carried home to the observatory archive.</summary>
     public sealed class DemoDiscoveries : MonoBehaviour
     {
         public const int Count = 12;
@@ -13,14 +13,19 @@ namespace FlyMeToTheMoon.Demo
         public bool[] Found { get; private set; } = new bool[Count];
         public bool[] Delivered { get; private set; } = new bool[Count];
         public bool Festival { get; private set; }
+        public bool HomeAwakened => HomeCount == Count;
+        public int HomeEvents { get; private set; }
         public int BestPerformance { get; private set; }
         public Transform Garden { get; private set; }
+        public Transform Observatory => Garden;
+        public float ObservatoryAngle { get; private set; }
         public int FoundCount => Total(Found);
         public int HomeCount => Total(Delivered);
         public int PackedCount => FoundCount - HomeCount;
         public MoonDiscovery Tracked { get; private set; }
         public DemoGame Game { get; private set; }
-        Transform gardenLife; int gardenVersion=-1; float concertUntil, nextNote; bool concertQueued;
+        Transform gardenLife; SpriteRenderer observatoryBeacon; Vector3 beaconScale;
+        int gardenVersion=-1; float concertUntil, nextNote; bool concertQueued;
         readonly List<SpriteRenderer> residents = new List<SpriteRenderer>();
         public static int Total(bool[] values) { int n=0;foreach(bool value in values)if(value)n++;return n; }
         public void Build(DemoGame game, GravityBody[] bodies, DemoSave.Data saved)
@@ -45,13 +50,29 @@ namespace FlyMeToTheMoon.Demo
                 site.Build(this,i,moon,bodies[moon],FindDirection(bodies[moon],random),i%3,i/3);
                 Sites.Add(site);
             }
-            var mount=new GameObject("Home seed garden").transform;mount.SetParent(bodies[0].transform,false);
-            Vector2 up=Quaternion.Euler(0,0,-135)*Vector2.up;
+            ObservatoryAngle=FindHomeAngle(bodies[0],333,3);
+            var mount=new GameObject("Observatory collection archive").transform;mount.SetParent(bodies[0].transform,false);
+            Vector2 up=Quaternion.Euler(0,0,-(ObservatoryAngle+7))*Vector2.up;
             mount.localPosition=up*bodies[0].radius;mount.localRotation=Quaternion.FromToRotation(Vector3.up,up);
             Garden=mount;
-            var arch=PixelArtLibrary.Create(mount,"Garden gathering","prop/arch",2);PixelArtLibrary.Height(arch,1.6f);
-            gardenLife=new GameObject("Returned life").transform;gardenLife.SetParent(bodies[0].transform,false);
+            var arch=PixelArtLibrary.Create(mount,"Observatory archive gate","prop/arch",2);PixelArtLibrary.Height(arch,1.6f);
+            observatoryBeacon=PixelArtLibrary.Create(mount,"Completed collection beacon","prop/crystals",3);
+            PixelArtLibrary.Height(observatoryBeacon,.62f);observatoryBeacon.transform.localPosition=new Vector3(0,1.18f,-.08f);
+            beaconScale=observatoryBeacon.transform.localScale;
+            gardenLife=new GameObject("Observatory collection displays").transform;gardenLife.SetParent(bodies[0].transform,false);
             RefreshGarden();
+        }
+        float FindHomeAngle(GravityBody body,float angle,float clearance)
+        {
+            for(int attempt=0;attempt<24;attempt++,angle+=15)
+            {
+                Vector2 up=Quaternion.Euler(0,0,-angle)*Vector2.up;
+                Vector2 point=body.Center+up*body.radius;bool clear=true;
+                foreach(var target in Game.Targets)
+                    if(target.Body==body && Vector2.Distance(point,target.transform.position)<clearance){clear=false;break;}
+                if(clear)return angle;
+            }
+            return angle;
         }
         public void Restore(DemoSave.Data saved)
         {
@@ -111,24 +132,33 @@ namespace FlyMeToTheMoon.Demo
             Found[site.Id]=true;
             Game.Audio.Note(1,site.Id%7,.5f);
             Game.Art.Effect("07",site.RewardPosition,1.1f,Quaternion.FromToRotation(Vector3.up,site.Up));
-            Game.Tell(site.Kind==2?"A new friend! Visit the HOME garden.":"Seed safely packed. Plant it at HOME.");
+            Game.Tell(site.Kind==2?"A new friend joined your cargo. Return to the Observatory.":"Collection packed. Return it to the Observatory.");
             DemoSave.Write(Game);return true;
         }
         public void Track(int id){Tracked=id>=0 && id<Sites.Count?Sites[id]:null;}
         void GardenDialogue()
         {
             if(PackedCount>0)
-                Game.OpenDialogue("The listening garden",PackedCount+" discoveries are ready to join HOME. Plant the seeds and welcome your companions together.","Bring them home",()=>Deliver());
+                Game.OpenDialogue("Observatory archive",PackedCount+" moon collections are in your cargo. Deposit them in the Observatory displays.","Deposit collection",()=>Deliver());
             else if(HomeCount==Count && Game.Melody.Unlocked)
-                Game.OpenDialogue("A sky full of friends",Festival?"Your garden remembers its first concert. Gather everyone for another song.":"Every seed and singer is home. Perform at the altar to begin the garden festival.","Play together",Celebrate);
-            else Game.OpenDialogue("The listening garden","Bell gardens hold musical seeds. Turn moon reflectors to wake crystal bulbs. Lead lost singers through their lanterns. Bring discoveries here whenever you return.\n\nHome: "+HomeCount+" / 12. Press J for your field journal.","Explore");
+                Game.OpenDialogue("The awakened Observatory",Festival?"The Observatory remembers its first concert. Gather every visitor for another song.":"The archive is complete and HOME is awake. Perform at the altar to begin the planetwide concert.","Play together",Celebrate);
+            else Game.OpenDialogue("Observatory archive","Twelve moons hold musical seeds, crystals and lost singers. Complete their activities, carry the rewards here, and fill the Observatory displays.\n\nArchive: "+HomeCount+" / 12. Cargo: "+PackedCount+". Press J for your field journal.","Explore");
         }
         public bool Deliver()
         {
             if(!NearGarden || PackedCount==0)return false;
             for(int i=0;i<Count;i++)Delivered[i]=Found[i];
-            RefreshGarden();Celebrate();DemoSave.Write(Game);
-            Game.Tell(HomeCount==Count?(Game.Melody.Unlocked?"Garden complete! Play an encore at the altar.":"Garden complete! Restore the score at the altar."):"HOME is growing: "+HomeCount+" / 12");return true;
+            RefreshGarden();Celebrate();
+            if(HomeAwakened)AwakenHome();
+            DemoSave.Write(Game);
+            if(!HomeAwakened)Game.Tell("Observatory archive: "+HomeCount+" / 12");
+            return true;
+        }
+        void AwakenHome()
+        {
+            HomeEvents++;concertUntil=Time.time+16;
+            Game.Tell(Game.Melody.Unlocked?"The Observatory awakens — play an encore for HOME!":"The Observatory awakens — restore the score to complete its song!");
+            Game.Art.Effect("03",Garden.position+(Vector3)Garden.up*1.1f,1.4f,Garden.rotation);
         }
         public void PerformanceFinished(bool passed,int perfect)
         {
@@ -143,15 +173,17 @@ namespace FlyMeToTheMoon.Demo
             var home=Game.Planets.respawnPlanet;
             for(int i=0;i<Count;i++)
             {
-                float angle=119+i*3;
+                float angle=ObservatoryAngle+(i<6?-20+i*2.8f:9+(i-6)*2.8f);
                 Vector2 up=Quaternion.Euler(0,0,-angle)*Vector2.up;
-                var mount=new GameObject("Garden place "+i).transform;mount.SetParent(gardenLife,false);
+                var mount=new GameObject("Observatory display "+i).transform;mount.SetParent(gardenLife,false);
                 mount.position=home.Center+up*home.radius;mount.rotation=Quaternion.FromToRotation(Vector3.up,up);
                 var art=PixelArtLibrary.Create(mount,Delivered[i]?"Home discovery":"Empty planter",Delivered[i]?(i%3==2?"06/object/5":i%3==1?"prop/crystals":"07/object/5"):"07/object/0",3);
                 PixelArtLibrary.Height(art,Delivered[i]?(i%3==2?.48f:.72f):.22f);
                 art.color=Color.Lerp(Color.white,DemoWorldSurface.Palette[i%6],.25f);
                 if(Delivered[i])residents.Add(art);
             }
+            observatoryBeacon.gameObject.SetActive(HomeAwakened);
+            if(HomeAwakened)observatoryBeacon.color=new Color(1,.88f,.38f);
         }
         void Update()
         {
@@ -160,6 +192,11 @@ namespace FlyMeToTheMoon.Demo
             foreach(var site in Sites)if(site.gameObject.activeSelf!=visible)site.gameObject.SetActive(visible);
             if(Game.State!=DemoState.Explore || Game.MapVisible)return;
             Current?.Tick(Time.deltaTime,Keyboard.current!=null && Keyboard.current.qKey.isPressed);
+            if(HomeAwakened && observatoryBeacon!=null)
+            {
+                observatoryBeacon.transform.localScale=beaconScale*(1+Mathf.Sin(Time.time*3)*.08f);
+                observatoryBeacon.transform.Rotate(0,0,Time.deltaTime*18);
+            }
             if(concertQueued){concertQueued=false;concertUntil=Time.time+12;nextNote=Time.time;}
             if(Time.time<concertUntil && Time.time>=nextNote)
             {
